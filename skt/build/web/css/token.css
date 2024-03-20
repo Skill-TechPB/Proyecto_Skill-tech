@@ -1,0 +1,276 @@
+*{
+	box-sizing: border-box;
+}
+
+body {
+	font: 1em/150% "Calibri", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header{
+	padding: 1vh;
+	background-color: #283447;
+	height: 13vh;
+}
+
+nav{
+	display: flex;
+	flex-direction: row;
+	background-color: #0067c4;
+}
+
+nav a{
+	color: #ffffff;
+	padding: 2px 20px;
+	text-decoration: none;
+}
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+aside{
+	flex: 30px;
+	padding: 20px;
+	border: #347499 1px solid;
+}
+
+section{
+	flex: 70%;
+	padding: 20px;
+	border: #347499 3px solid;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+}
+
+footer{
+	padding: 20px;
+	text-align: center;
+}
+
+.inputf {
+	text-align: justify; 
+	color: #000000; 
+	font-size: 15px; 
+	font-family: 'Open Sans' sans-serif; 
+	word-wrap: break-word;
+	padding: 10px 15px; 
+	background: #ffffff; 
+	border-bottom: #000000 solid;
+	border-top: #FFFFFF;
+	border-left: #ffffff;
+	border-right: #ffffff;
+	justify-content: center;
+	align-items: center;  
+	display: inline-flex;
+}
+
+.inputfb{
+	text-align: justify; 
+	color: #ffffff; 
+	font-size: 15px; 
+	font-family: 'Open Sans' sans-serif; 
+	word-wrap: break-word;
+	padding: 10px 15px; 
+	background-color: #1F232A; 
+	border-bottom: #ffffff solid;
+	border-top: #000000;
+	border-left: #000000;
+	border-right: #000000;
+	justify-content: center;
+	align-items: center;  
+	display: inline-flex;
+}
+::-ms-reveal {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 3px currentColor;
+	background-color: #FFFFFF;
+}
+
+
+
+@media screen and (max-width: 700px){
+	nav, .layoutwh .row{
+		flex-direction: column;
+	}
+}
+
+
+
+
+
+.Boton{
+	background:    #073763;
+	background:    linear-gradient(#0067c4, #073763 50%, #0067c4);
+	border:        1px solid #134f5c;
+	border-radius: 13px;
+	padding:       15px 36px;
+	color:         #ffffff;
+	display:       inline-block;
+	font:          normal bold 19px/1 "Open Sans", sans-serif;
+	text-align:    center;
+}
+
+/* FORMULARIO DE PROGRAMACIÓN ORIENTADA A OBJETOS*/
+h1 {
+  
+ color: black;
+ font-size: 28px;
+ font-family: 'Open Sans' sans-serif;
+ font-weight: 600;
+ line-height: 27px;
+ word-wrap: break-word
+}
+
+.fontdiv {
+	color: #000000;
+	font: normal bold 18px/1;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	color: #ffffff;
+	font: normal bold 16px/1 "Open Sans", sans-serif;
+	padding: 8px;
+}
+.h22 {
+    color: #ffffff;
+    font: normal bold 2.5vw/1 "Open Sans", sans-serif;
+    padding: 8px;
+}
+.h21 {
+	   color: #ffffff;
+	   font: normal bold 2vw/1 "Open Sans", sans-serif;
+	   margin-left: 4vw;
+	   margin-top: -12vh;
+   }	
+h3 {
+	color: #FFFFFF;
+	font: normal bold 16px/1 "Open Sans", sans-serif;
+	padding: 8px;
+	text-indent: 22%;
+}
+
+
+p {
+	color: #000000;
+	font-size: 15px;
+	font-family: 'Open Sans' sans-serif;
+	font-weight: 400;
+	line-height: 27px;
+	word-wrap: break-word;
+	padding: 25px;
+
+}
+
+#borde {
+	background-color: #A7B4C8;
+	border-radius: 10px;
+}
+
+label {
+	padding: 4px 15px;
+	justify-content: flex-start; align-items: center; display: inline-flex;
+	border: #C9C9C9 1px solid;
+	gap: 10px;
+	word-wrap: break-word;
+	width: 100%;
+}
+
+hr {
+	height: 3px;
+	background-color: #347499;
+}
+
+.Botona{
+	text-align: center; 
+	color: #FEFEFE; 
+	font-size: 22px; 
+	font-family: 'Open Sans' sans-serif;
+	font-weight: 400; 
+	word-wrap: break-word;
+	padding: 10px 30px; 
+	background: #347499; 
+	border-radius: 11px; 
+	justify-content: center;
+	align-items: center; 
+	gap: 8px; 
+	display: inline-flex;
+	position: relative;
+}
+.Botona:before{
+	background: rgba(255, 255, 255, 0.1);
+	transition: all 1s ease;
+	content:"";
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 0px;
+}
+.Botona:hover:before {
+	height: 100%;
+	}
+
+.imglogo {
+	width: 25px;
+	height: 25px;
+	align-content: center;
+	text-align: center;
+	justify-content: flex-start; 
+	align-items: center; 
+	display: inline-flex;
+}
+.imgemail{
+	width: 4vw;
+	height: 10vh;
+	margin-top: 5vh;
+
+}
+
+.layoutbl {
+    width: 50vw;
+    height: 80vh;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-color: #1F232A;
+    font-family: 'Open Sans' sans-serif;
+    align-self: center;
+    color: #ffffff;
+    justify-content: center;
+    text-align: justify;
+    flex-direction: row;
+    display: flex; /* Asegura que el contenedor tenga un modelo de caja flexible */
+}
+
+.layoutlogin {
+    text-align: center;
+    width: 32vw;
+    height: 70vh;
+    margin-left: auto; /* Centra el div horizontalmente */
+    margin-right: auto; /* Centra el div horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.formsa {
+	padding: 0px 120px;
+}
+.alinearegis{
+	text-indent: 8%;
+}
+
+.txbn{
+	color: #000000;
+}
+
+#alinearizq{
+	text-align: justify;
+}
+

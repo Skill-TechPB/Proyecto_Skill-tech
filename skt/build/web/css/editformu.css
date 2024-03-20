@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 1em/150% "Calibri", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 1vh;
+    background-color: #283447;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw;
+}
+
+header .h21 {
+    color: #ffffff;
+    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
+    margin-right: 69vw;
+}
+
+
+.nav-container {
+    width: 100%;
+    padding: 13px 24px;
+    background: white;
+    box-shadow: 0px -3px 0px #1589EE inset;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.h21 {
+    color: #ffffff;
+    font: normal bold 2vw/1 "Open Sans", sans-serif;
+}
+h2{
+    font-size: 2.5vw;
+}
+.fontdiv {
+	color: #000000;
+	font: normal bold;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: #0067c4;
+    height: 8vh;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 2em;
+}
+
+aside {
+    flex: 30%;
+    padding: 20px;
+    border: 1px solid #347499;
+}
+
+/*section{
+    flex: 70%;
+    padding: 20px;
+    border: #347499 3px solid;
+}*/
+
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.inputf {
+    text-align: justify;
+    color: #000000;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    word-wrap: break-word;
+    padding: 10px 15px;
+    background: #ffffff;
+    border-bottom: #000000 solid;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+}
+
+@media screen and (max-width: 700px) {
+    nav,
+    .layoutwh .row {
+        flex-direction: column;
+    }
+}
+
+h1 {
+    color: black;
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    line-height: 27px;
+    word-wrap: break-word;
+}
+
+.fontdiv {
+    color: #000000;
+    font: normal bold 18px/1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.h21 {
+    color: #ffffff;
+    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    margin-right: 74vw;
+    margin-top: 4vh;
+}
+
+h2{
+    font-size: 2.5vw;
+}
+.txtxd{
+    margin-left: 2vw;
+    font-size: 1.5vw;
+}
+.fontdiv {
+	color: #000000;
+	font: normal bold;
+	font-family: 'Open Sans', sans-serif;
+}
+/* Añade estas reglas para centrar vertical y horizontalmente el texto en los botones */
+.Boton1,
+.Boton2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajusta el tamaño de los textos y los botones en función del tamaño de la pantalla */
+@media screen and (max-width: 700px) {
+    .Boton1,
+    .Boton2 {
+        padding: 8px 18px; /* Ajusta el padding según tus preferencias */
+        font-size: 3vw; /* Ajusta el tamaño del texto según tus preferencias */
+        height: auto; /* Ajusta la altura del botón automáticamente */
+        width: auto; /* Ajusta el ancho del botón automáticamente */
+    }
+}
+
+/*
+.Boton1,
+.Boton2 {
+    background: #004081;
+    border: 1px solid #004081;
+    border-radius: 13px;
+    color: #ffffff;
+    font: normal bold 19px/1 "Open Sans", sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    float: left;
+    height: 8vh;
+    width: 8vw;
+}*/
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+.Botona {
+    background: #004081;
+    border: 1px solid #004081;
+    border-radius: 13px;
+    color: #ffffff;
+    font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+    text-align: center;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    float: left;
+    height: 8vh;
+    width: 10vw;
+}
+
+
+.op1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 30vw;
+    height: 50vh;
+    margin: 1vw;
+    padding: 1vw;
+    border: 2px solid #347499;
+    border-radius: 10px;
+    margin-left: 15vw;
+    margin-top: 1vh;
+}
+
+.op2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 30vw;
+    height: 50vh;
+    padding: 1vw;
+    border: 2px solid #347499;
+    border-radius: 10px;
+    margin-left: 55vw;
+    margin-top: -52.5vh;
+}
+.op1 p,
+.op2 p {
+
+    font-size: 2vw;
+    margin-top: 2vh;
+}
+
+.op1 img,
+.op2 img {
+    width: 10vw; /* Cambia este valor según el tamaño que desees */
+    height: 25vh;
+    margin-top: 4vh;
+}
+
+.imglogo {
+    width: 25px;
+    height: 25px;
+    align-content: center;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    display: inline-flex;
+}
+
+.flujo,
+.flujo2 {
+    height: 5vh;
+    width: 20vw;
+    margin-top: 1vh;
+}
+
+.flujo2 {
+    margin-left: 20vw;
+    margin-top: -5vh;
+}
+
+.imgflujo,
+.imgflujo2 {
+    width: 3vw;
+    height: 6vh;
+}
+
+.txtflujo,
+.txtflujo2 {
+    margin-top: -6vh;
+    color: #000000;
+    font-size: 1.3vw;
+    margin-left: 4vw;
+}
+
+.bd,
+.poo {
+    font-size: 2vw; /* Puedes ajustar este valor según tus preferencias */
+}

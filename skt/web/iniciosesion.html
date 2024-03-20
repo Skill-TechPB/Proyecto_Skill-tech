@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Inicio de sesion</title>
+    <link rel="stylesheet" href="./css/inicio.css" /> 
+    <link rel="shortcut icon" href="./assets/logo1.png" />
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/valireg.js"></script>
+  </head>
+  <body>
+
+    <header>
+        <img src="./assets/logo1.png" class="imglogo"/>
+        <p class="h21">Skill-tech</p>
+    </header>
+    <div class="row">
+        <section>
+            <div class="layoutbl">
+              <div class="instruction">¿Eres egresado del Cecyt #9 y es tu primera vez aquí? ¡Registrate! De lo contrario, si eres Profesor o Jefe de Academia, inicia sesión con las credenciales que te proporcionamos.</div>
+                <div class="layoutlogin">
+                  <br>
+                    <img class="imgusu" src="./assets/sesion.png">
+                    <br>
+                    <br>
+                    <form class="formsa" id="formlog" action="Sesion" method="POST" >
+                        <input type="email" id="LEmail" name="lemail" placeholder="Correo" class="inputfb" ><br><br>
+                        <input type="password" id="LContraseña" name="lpassword" placeholder="Contraseña" class="inputfb" ><br><br><br>
+                        <div class="alinearegis"><input type="button" id="login" class="Botona" value="Login" onclick="validarFormulariolog()"></div>
+                      </form>
+                </div>
+                <div class="layoutwh">
+                    <img class="imgusu2" src="./assets/usuario.png">
+                    <br>
+                    <br>
+                    <form method="POST" action="reg" id="regis">
+                        <input type="email" id="Email" name="email" placeholder="Correo" class="inputf" ><br><br>
+                        <input type="password" id="Contraseña" name="lname" placeholder="Contraseña " class="inputf" ><br><br>  
+                        <input type="text" id="egreso" name="anioegreso" placeholder="Año de Egreso" class="inputf" ><br><br>   
+                        <div class="txbn"><input type="checkbox" id="condiciones"  name="condiciones"/> Estoy de acuerdo con los <a href="TyC.html" target="_blank">términos y condiciones</a></div>
+                        <br>
+                        <div><input  id="enviar" class="Botona" type="button" value="Registrar" onclick="validarFormulario()" ></div>
+                      </form>
+                </div>
+            </div>
+        
+        </section>
+        
+    </div>
+
+    <footer id="alinearizq">
+      <a href="index.html"><div class="Botonb">Regresar</div></a>
+    </footer>
+
+  </body>
+</html>

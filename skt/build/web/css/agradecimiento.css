@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 1em/150% "Calibri", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 1vh;
+    background-color: #283447;
+    height: 13vh;
+}
+nav{
+	display: flex;
+	flex-direction: row;
+	background-color: #0067c4;
+}
+
+nav a{
+	color: #ffffff;
+	padding: 2px 20px;
+	text-decoration: none;
+}
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+aside{
+	flex: 30px;
+	padding: 20px;
+	border: #347499 1px solid;
+}
+
+section{
+	flex: 70%;
+	padding: 20px;
+	border: #347499 3px solid;
+}
+
+.divalform{
+	display: flex;
+	width: 600px;
+	margin: 0 auto;
+}
+
+footer{
+	padding: 20px;
+	text-align: center;
+}
+
+.inputf {
+	text-align: justify; 
+	color: #000000; 
+	font-size: 15px; 
+	font-family: 'Open Sans' sans-serif; 
+	word-wrap: break-word;
+	padding: 10px 15px; 
+	background: #ffffff; 
+	border-bottom: #000000 solid;
+	border-top: #FFFFFF;
+	border-left: #ffffff;
+	border-right: #ffffff;
+	justify-content: center;
+	align-items: center;  
+	display: inline-flex;
+}
+
+
+@media screen and (max-width: 700px){
+	nav, .divalform{
+		flex-direction: column;
+	} .row{
+		flex-direction: column;
+	}
+}
+
+
+
+
+
+.Boton{
+	background:    #073763;
+	background:    linear-gradient(#0067c4, #073763 50%, #0067c4);
+	border:        1px solid #134f5c;
+	border-radius: 13px;
+	padding:       15px 36px;
+	color:         #ffffff;
+	display:       inline-block;
+	font:          normal bold 19px/1 "Open Sans", sans-serif;
+	text-align:    center;
+}
+
+.h21 {
+	color: #ffffff;
+	font: normal bold 2vw/1 "Open Sans", sans-serif;
+	margin-left: 6vw;
+	margin-top: -6vh;
+}
+
+h1 {
+  
+ color: black;
+ font-size: 28px;
+ font-family: 'Open Sans' sans-serif;
+ font-weight: 600;
+ line-height: 27px;
+ word-wrap: break-word
+}
+
+.fontdiv {
+	color: #000000;
+	font: normal bold 18px/1;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	color: #000000;
+	font: normal bold 16px/1 "Open Sans", sans-serif;
+	padding: 8px;
+	text-align: center;
+}
+h3 {
+	color: #FFFFFF;
+	font: normal bold 16px/1 "Open Sans", sans-serif;
+	padding: 8px;
+	text-indent: 22%;
+}
+h4 {
+    color: #000000;
+	font: normal 16px/1 "Open Sans", sans-serif;
+	padding: 8px;
+}
+
+h5 {
+    font: normal 15px/1 "Open Sans", sans-serif;
+    color: #000000;
+    text-align: center;
+}
+
+
+#borde {
+	background-color: #A7B4C8;
+	border-radius: 10px;
+}
+
+label {
+	padding: 4px 15px;
+	justify-content: flex-start; align-items: center; display: inline-flex;
+	border: #C9C9C9 1px solid;
+	word-wrap: break-word;
+	width: 100%;
+}
+
+hr {
+	height: 4px;
+	background-color: #347499;
+	width: 88%;
+}
+
+.Botona{
+	text-align: center; 
+	color: #FEFEFE; 
+	font-size: 1.5vw; 
+	font-family: 'Open Sans' sans-serif; 
+	word-wrap: break-word;
+	padding: 2vh 3vw; 
+	background: #347499; 
+	border-radius: 11px; 
+	justify-content: center;
+	align-items: center; 
+	gap: 8px; 
+	display: inline-flex;
+	width: 13vw;
+	height: 8vh;
+
+}
+
+.imglogo{
+	margin-top: 1vh;
+	width: 4vw;
+	height: 9vh;
+	margin-left: 1vw;
+	align-content: center;
+	text-align: center;
+	justify-content: flex-start;
+	align-items: center;
+	display: inline-flex;
+}
+.imglogo {
+	display: flex;
+	align-items: center;
+}
+
+.imgedit {
+    width: 20px;
+	height: 20px;
+	align-content: center;
+	text-align: center;
+	justify-content: flex-start; 
+	align-items: center; 
+	display: inline-flex;
+}
+
+.imgform {
+    width: 470px;
+	height: 300px;
+	align-content: center;
+	text-align: center;
+	justify-content: flex-start; 
+	align-items: center; 
+	display: inline-flex;
+}
+
+.small-text {
+    font-size: 1.8vw;
+    margin-bottom: 4vh;
+  }
+  
+  .medium-text {
+    font-size: 3vw;
+    margin-bottom: 4vh;
+  }
+
+.logos {
+	align-content: center;
+	text-align: center;
+	justify-content: flex-start; 
+	align-items: center; 
+	display: inline-flex;
+}
+
+select {
+    border-radius: 11px #347499 solid;
+    font-size: 15px;
+}
+
+.formsa {
+	padding: 0px 120px;
+}
+.alinearegis{
+	text-indent: 8%;
+}
+
+.txbn{
+	color: #000000;
+}
+
+#alinearizq{
+	text-align: justify;
+}
+
+#header h2{
+    display: inline;
+}
+
+#evit p{
+    display: inline;
+    font-size: 17px;
+}
+
+#header4 h4 {
+    display: inline;
+}
+
+#centro {
+	text-align: center;
+}
+#izquierda {
+	text-align: left;
+}
+#verticalalign {
+	vertical-align: 70%;
+}

@@ -1,0 +1,330 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 4 nov 2023, 00:53:31
+    Author     : dieag
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 1em/150% "Calibri", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 1vh;
+    background-color: #283447;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw;
+}
+
+header .h21 {
+    color: #ffffff;
+    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
+    margin-right: 69vw;
+}
+.nav-container {
+    width: 100%;
+    padding: 13px 24px;
+    background: white;
+    box-shadow: 0px -3px 0px #1589EE inset;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.h21 {
+    color: #ffffff;
+    font: normal bold 2vw/1 "Open Sans", sans-serif;
+}
+
+.fontdiv {
+    color: #000000;
+    font: normal bold 15px/1;
+    font-family: 'Open Sans', sans-serif;
+}
+header .imglogo {
+    width: 2vw;
+    height: 5vh;
+    align-content: center;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    display: inline-flex;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: #0067c4;
+    height: 8vh;
+}
+
+.BotonCe {
+    background: #004081;
+    border: 1px solid #004081;
+    border-radius: 13px;
+    color: #ffffff;
+    font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+    text-align: center;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    float: left;
+    height: 8vh;
+    width: 10vw;
+}
+.imglogo {
+    width: 2vw;
+    height: 5vh;
+    align-content: center;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    display: inline-flex;
+}
+
+#alinearder {
+    text-align: right;
+    vertical-align: 50%;
+}
+
+
+
+.bodyg, .bodyg1, .bodyg2, .bodyg3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    margin-top: 10vh;
+    margin-bottom: 15vh;
+    font: 1em/150% "Calibri", sans-serif;
+}
+
+
+
+.a {
+   margin-top: 30vh;
+    border: 2px solid #979696;
+    border-radius: 11px;
+    width: 37vw;
+    height: 60vh;
+    margin-right: 5vw;
+    margin-left: 5vw;
+
+}
+
+.po1{
+    margin-top: 30vh;
+    border: 2px solid #979696;
+    border-radius: 11px;
+    width: 37vw;
+    height: 50vh;
+    margin-right: 5vw;
+    margin-left: 5vw;
+}
+.bd1{
+    margin-top: 30vh;
+    border: 2px solid #979696;
+    border-radius: 11px;
+    width: 37vw;
+    height: 50vh;
+    margin-right: 5vw;
+    margin-left: 5vw;
+}
+
+.grafica-container{
+    height: 53vh;
+    border-radius: 11px;
+    margin-left: .4vw;
+}
+
+.grafica {
+    margin-top: -2%; /* Cambiado a un porcentaje */
+    width: 100%;
+    height: 100%;
+}
+.titulo {
+   background-color: #20516F;
+    text-align: center;
+    font-size: 1.5vw;
+    color: #FFFFFF;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    height: 6vh;
+}
+
+#grafica-labels {
+    list-style: none;
+    padding: 0;
+}
+
+#grafica-labels li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+#grafica-labels .label {
+    margin-right: 10px;
+}
+
+
+
+h1 {
+color: black;
+font-size: 28px;
+font-family: 'Open Sans' sans-serif;
+font-weight: 600;
+line-height: 27px;
+word-wrap: break-word
+
+}
+
+
+
+h2 {
+color: #000000;
+font: normal bold 18px/1 "Open Sans", sans-serif;
+text-align: justify;
+}
+h3 {
+color: #FFFFFF;
+font: normal bold 16px/1 "Open Sans", sans-serif;
+text-align: center;
+}
+h4 {
+color: #000000;
+font: normal 16px/1 "Open Sans", sans-serif;
+padding: 8px;
+}
+
+#borde {
+color: #FEFEFE;
+font-size: 1.3vw;
+text-align: center;
+background-color: #004081;
+border-radius: 10px;
+width: 92%;
+padding: 5vh 4vw;
+height: 12vh;
+}
+
+
+hr {
+height: 3px;
+background-color: #347499;
+}
+
+.Botona, .Botonab{
+text-align: center; 
+color: #FEFEFE; 
+font-size: 22px; 
+font-family: 'Open Sans' sans-serif;
+font-weight: 400; 
+word-wrap: break-word;
+padding: 10px 30px; 
+background: #347499; 
+border-radius: 11px; 
+justify-content: center;
+align-items: center; 
+gap: 8px; 
+display: inline-flex;
+}
+.Botonab{
+    text-align: center; 
+    color: #FEFEFE; 
+    font-size: 2vw; 
+    font-family: 'Open Sans' sans-serif;
+    word-wrap: break-word;
+    background: #347499; 
+    border-radius: 11px; 
+    justify-content: center;
+    align-items: center; 
+    gap: 8px; 
+    display: inline-flex;
+    width: 5vw;
+    }
+.Botona {
+    margin-top: 2vh;
+}
+.Botonab{
+margin-left: 4vw;  
+width: 15vw;
+}
+.reporte{
+/*background-color: #ff0000;*/
+height: 9vh;
+margin-left: 19vw;
+margin-top: 40vh;
+width: 60vw;
+}
+
+.labeln {
+    width: 100%; 
+    height: 100%;
+    padding-bottom: 5px;
+    padding-left: 24px;
+    padding-right: 808px; 
+    background: white; 
+    box-shadow: 0px -3px 0px #1589EE inset; 
+    justify-content: flex-start; 
+    align-items: center; 
+    display: inline-flex;
+    gap: 24px;
+}
+
+.alincentro{
+/*background-color: #ff0000;*/
+text-align: center;
+padding-left: 10%;
+height: 12vh;
+width: 95vw;
+margin-left:1vw;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+h2{
+    font-size: 2.5vw;
+}
+
+.layoutgr {
+width: 10vw;
+height: 53.5vh;
+flex-shrink: 0;
+background-color: #777f8b;
+position: relative;
+margin-left: 26.7vw;
+margin-top: -53vh;
+text-align: justify;
+flex-direction: row;
+border-bottom-right-radius: 11px;
+}
+
+.alinearrec{
+vertical-align: auto;
+position: relative;
+left: -5%;
+}
+
+
+.alineatext{
+
+height: 47vh;
+padding-left: 1.5vw;
+font-size: 1.4vw;
+}
+
+

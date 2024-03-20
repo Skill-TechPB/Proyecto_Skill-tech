@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 1em/150% "Calibri", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 1vh;
+    background-color: #283447;
+    height: 13vh;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: #0067c4;
+    height: 8vh;
+}
+
+
+.nav-container {
+    width: 100%;
+    padding: 13px 24px;
+    background-color: white;
+    box-shadow: 0px -3px 0px #1589EE inset;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.fontdiv {
+	color: #000000;
+	font: normal bold;
+	font-family: 'Open Sans', sans-serif;
+	height: 8vh;
+	margin-top: -1vh;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section {
+    flex: 70%;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.inputf {
+    text-align: justify;
+    color: #000000;
+    font-size: 1.3vw;
+    font-family: 'Open Sans' sans-serif;
+    word-wrap: break-word;
+    padding: 2vh 1vw;
+    background: #ffffff;
+    border-bottom: #000000 solid;
+    border-top: #FFFFFF;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    justify-content: center;
+    align-items: center;
+    display:inline-flex;
+	width: 20vw;
+	height: 7.5vh;
+}
+
+.inputf::placeholder {
+    color: #000000; /* Cambia el color deseado para el placeholder */
+	font-size: 1.4vw;
+}
+
+.inputfb {
+    text-align: justify;
+    color: #ffffff;
+    font-size: 1.3vw;
+    font-family: 'Open Sans' sans-serif;
+    word-wrap: break-word;
+    padding: 2vh 1vw;
+    background-color: #1F232A;
+    border-bottom: #ffffff solid;
+    border-top: #000000;
+    border-left: #000000;
+    border-right: #000000;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+	width: 20vw;
+	height: 7.5vh;
+}
+
+.inputfb::placeholder {
+    color: #FFFFFF; /* Cambia el color deseado para el placeholder */
+	font-size: 1.4vw;
+}
+::-ms-reveal {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 3px currentColor;
+	background-color: #FFFFFF;
+}
+
+
+
+@media screen and (max-width: 700px){
+	nav, .layoutwh .row{
+		flex-direction: column;
+	}
+}
+
+
+
+
+
+.Boton{
+	background:    #073763;
+	background:    linear-gradient(#0067c4, #073763 50%, #0067c4);
+	border:        1px solid #134f5c;
+	border-radius: 13px;
+	padding:       15px 36px;
+	color:         #ffffff;
+	display:       inline-block;
+	font:          normal bold 19px/1 "Open Sans", sans-serif;
+	text-align:    center;
+}
+
+/* FORMULARIO DE PROGRAMACIÓN ORIENTADA A OBJETOS*/
+h1 {
+  
+ color: black;
+ font-size: 28px;
+ font-family: 'Open Sans' sans-serif;
+ font-weight: 600;
+ line-height: 27px;
+ word-wrap: break-word
+}
+
+h2{
+    font-size: 1.5vw;
+	margin-top: 2vh;
+}
+.h22{
+	color: #ffffff;
+	font: normal bold 16px/1 "Open Sans", sans-serif;
+	padding: 2vh;
+}
+
+.h23{
+	color: #000000;
+	font: normal bold 16px/1 "Open Sans", sans-serif;
+}
+.h21 {
+	color: #ffffff;
+	font: normal bold 2vw/1 "Open Sans", sans-serif;
+	margin-left: 4vw;
+	margin-top: -10vh;
+}	
+h3 {
+	color: #FFFFFF;
+	font: normal bold 16px/1 "Open Sans", sans-serif;
+	padding: 8px;
+	text-indent: 22%;
+}
+
+
+p {
+	color: #000000;
+	font-size: 15px;
+	font-family: 'Open Sans' sans-serif;
+	font-weight: 400;
+	line-height: 27px;
+	word-wrap: break-word;
+	padding: 25px;
+
+}
+
+#borde {
+	background-color: #A7B4C8;
+	border-radius: 10px;
+}
+
+label {
+	padding: 4px 15px;
+	justify-content: flex-start; align-items: center; display: inline-flex;
+	border: #C9C9C9 1px solid;
+	gap: 10px;
+	word-wrap: break-word;
+	width: 100%;
+}
+
+hr {
+	height: 1vh;
+	background-color: #347499;
+}
+
+.Botona{
+	text-align: center; 
+	color: #FEFEFE; 
+	font-size: 1.3vw; 
+	font-family: 'Open Sans' sans-serif;
+	font-size: 1.5vw; 
+	word-wrap: break-word;
+	background: #347499; 
+	border-radius: 11px; 
+	justify-content: center;
+	align-items: center; 
+	gap: 8px; 
+	display: inline-flex;
+	position: relative;
+	width: 8vw;
+	height: 8vh;
+	margin-top: -2vh;
+
+}
+
+.Botonb{
+	text-align: center; 
+	color: #FEFEFE; 
+	font-size: 1.3vw; 
+	font-family: 'Open Sans' sans-serif;
+	font-size: 1.5vw; 
+	word-wrap: break-word;
+	background: #347499; 
+	border-radius: 11px; 
+	justify-content: center;
+	align-items: center; 
+	gap: 8px; 
+	display: inline-flex;
+	width: 10vw;
+	height: 8vh;
+	margin-top: -2vh;
+
+}
+.Botona:before{
+	background: rgba(255, 255, 255, 0.1);
+	transition: all 1s ease;
+	content:"";
+	width: 100%;
+}
+.Botona:hover:before {
+	height: 100%;
+	}
+.imglogo{
+		margin-top: 1vh;
+		width: 4vw;
+		height: 9vh;
+		margin-left: 1vw;
+		align-content: center;
+		text-align: center;
+		justify-content: flex-start;
+		align-items: center;
+		display: inline-flex;
+	}
+	.imglogo {
+		display: flex;
+		align-items: center;
+	}
+	
+.imgusu{
+	width: 4vw;
+	height: 8vh;
+	margin-top: -6vh;
+}
+.imgusu2{
+	width: 4vw;
+	height: 9vh;
+	margin-top: 3vh;
+}
+
+.instruction{
+	margin-top: 4vh;
+	margin-left: 6vw;
+	height: 9vh;
+	width: 68vw;
+	text-align: center;font-family: 'Open Sans' sans-serif;
+	color: #ffffff;
+	font-size:1.5vw;
+}
+
+.layoutbl {
+	width: 80vw;
+	height: 94vh;
+	flex-shrink: 0;
+	border-radius: 10px;
+	background-color: #1F232A;
+	font-family: 'Open Sans' sans-serif;
+	align-self: center;
+	color: #ffffff;
+	justify-content: center;
+	text-align: justify;
+	flex-direction: row;
+}
+
+.layoutlogin {
+    text-align: center;
+    width: 34vw;
+    height: 60vh;
+    margin-left: 4vw;
+    margin-top: 4vh; /* Ajusta este valor según tus necesidades para mover los elementos más arriba */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.layoutwh {	
+	width: 34vw;
+	height: 70vh;
+	flex-shrink: 0;
+	border-radius: 10px;
+	background-color: #ffffff;
+	float: right;
+	margin-right: 4vw;
+	margin-top: -60vh;
+	text-align: center;
+	flex-direction: row;
+	margin-left: 4px;
+}
+
+.formsa {
+	padding: 0px 120px;
+}
+.alinearegis{
+	text-indent: 8%;
+}
+
+.txbn{
+	color: #000000;
+}
+
+#alinearizq{
+	text-align: justify;
+}

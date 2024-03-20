@@ -1,0 +1,195 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 1em/150% "Calibri", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.bitacora {
+    border: 3px solid #094893;
+    border-radius: 5px;
+    border-color: #347499;
+    border-collapse: collapse; /* Agregado para colapsar los bordes */
+    width: 98%; /* Hace que la tabla sea 100% de ancho */
+    margin: 2vh;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px; /* Ajuste de espaciado */
+    font-size: 1em; /* Tamaño de fuente relativo */
+}
+
+th {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5vw;
+    border-bottom: 2px solid #094893;
+}
+header {
+    padding: 1vh;
+    background-color: #283447;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw;
+}
+
+header .h21 {
+    color: #ffffff;
+    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
+    margin-right: 69vw;
+}
+
+
+.nav-container {
+    width: 100%;
+    padding: 13px 24px;
+    background: white;
+    box-shadow: 0px -3px 0px #1589EE inset;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.h21 {
+    color: #ffffff;
+    font: normal bold 2vw/1 "Open Sans", sans-serif;
+}
+h2{
+    font-size: 2.5vw;
+}
+.fontdiv {
+	color: #000000;
+	font: normal bold;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: #0067c4;
+    height: 8vh;
+}
+
+.Botona {
+    background: #004081;
+    border: 1px solid #004081;
+    border-radius: 13px;
+    color: #ffffff;
+    font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+    text-align: center;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    float: left;
+    height: 8vh;
+    width: 10vw;
+}
+
+.imglogo {
+    width: 2vw;
+    height: 5vh;
+    align-content: center;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    display: inline-flex;
+}
+#alinearder {
+    text-align: right;
+    vertical-align: 50%;
+}
+
+.flujo {
+    height: 5vh;
+    width: 20vw;
+    margin-top: 1vh;
+}
+.flujo2 {
+    margin-left: 20vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}
+
+.flujo21 {
+    margin-left: 10vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}
+.flujo3 {
+    margin-left: 32vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}
+.flujo31 {
+    margin-left: 20vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}
+
+.imgflujo {
+    margin-left: 1vw;
+    width: 3vw;
+    height: 6vh;
+}
+
+.txtflujo {
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 4.5vw;
+    font-size: 1.3vw;
+}
+
+.imgflujo2 {
+    width: 3vw;
+    height: 6vh;
+}
+
+.txtflujo2 {
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 4.5vw;
+    font-size: 1.3vw;
+}
+
+.flujo3 {
+    margin-left: 33vw;
+    height: 5vh;
+    width: 15vw;
+    margin-top: -5vh;
+}
+
+.imgflujo3 {
+    width: 3vw;
+    height: 6vh;
+}
+
+.txtflujo3 {
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 4.5vw;
+    font-size: 1.3vw;
+}
+
+.imgflujo4 {
+    width: 3vw;
+    height: 6vh;
+}
+.txtflujo4{
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 4vw;
+    font-size:1.3vw;
+}

@@ -1,0 +1,100 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.ipn {
+    height: 20vh;
+    width: 14vw;
+    float: left;
+    margin-left: 4vw;
+}
+
+.cecyt9 {
+    height: 20vh;
+    width: 14vw;
+    float: right;
+    margin-right: 4vw;
+}
+
+.msdev {
+    height: 25vh;
+    width: 15em;
+    float: right;
+    margin-right: 4%;
+}
+
+.text1{
+    padding-left:10em ;
+    padding-right: 10em ;
+    text-align: justify;    
+}
+.text2{
+    padding-left:10em ;
+    padding-right: 10em ;   
+}
+.text2{
+    padding-left:10em ;
+    padding-right: 10em ;   
+}
+.text2{
+    padding-left:10em ;
+    padding-right: 10em ;   
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.Botonpdf {
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    padding: 10px 30px;
+    border-radius: 11px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    display: inline-flex;
+    height: 5vh;
+    width: 10vw;
+    margin-bottom: 5vh;
+    background-color: #347499;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.flujo {
+    height: 5vh;
+    width: 20vw;
+    margin-top: 1vh;
+}
+.flujo2 {
+    margin-left: 20vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}
+
+.flujo21 {
+    margin-left: 10vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}
+.flujo3 {
+    margin-left: 32vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}
+.flujo31 {
+    margin-left: 20vw;
+    height: 5vh;
+    width: 20vw;
+    margin-top: -5vh;
+}

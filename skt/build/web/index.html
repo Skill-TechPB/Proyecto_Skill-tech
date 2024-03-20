@@ -1,0 +1,87 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="shortcut icon" href="./assets/logo1.png" />
+  <link rel="stylesheet" type="2/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+  <title>Skill-Tech</title>
+</head>
+<body>
+  <header>
+    <img src="./assets/logo1.png" class="imglogo"/>
+    <div class="Boton" id="alinearder"><a href="iniciosesion.html"><input type="submit" value="Registrate" class="Botona"></a></div>
+</header>
+    <div class="main-rectangle">
+      <img class="rectangle-image" src="assets/logo2.png" alt="Image 3">
+      <div class="text-section">
+        <h1 class="skill-tech-text">Skill-Tech</h1>
+        <h2 class="skill-tech-text2">Medición con propósito, desarrollo continuo.</h2>
+      </div>
+    </div>
+    <div class="about-us-section1">
+      <h1 class="h11">Objetivo</h1>
+      <hr>
+      <p class="obj">Este proyecto busca cuantificar el nivel de conocimientos de los egresados en las materias de programación orientada a objetos (POO) y base de datos (BD), que son fundamentales para el desempeño profesional en el campo de la programación. Con este fin, hemos diseñado una herramienta que evalúa las competencias de los egresados en dichas materias mediante un cuestionario en línea. Los resultados de esta evaluación se envían a los administrativos y docentes de la carrera, para que puedan conocer el nivel de conocimientos de cada generación y tomar medidas para mejorar la calidad educativa.</p>
+    </div>
+    <div class="conteimg1">
+    <img class="imgre" src="assets/reporte-de-negocios.png">
+    </div>
+    <div class="about-us-section">
+      <h1 class="h11">¿Quiénes somos?</h1>
+      <hr>
+      <p class="obj">MS DEV una empresa creada para el desarrollo de software en busca de soluciones a problemáticas de la vida real. Nuestra misión es ofrecer productos de calidad que satisfagan las necesidades de nuestros clientes y contribuyan al progreso de la sociedad.</p>
+    </div>
+    <div class="conteimg2">
+      <img class="imgre2" src="assets/liderazgo.png">
+      </div>
+    <div class="about-us-section3">
+      <p class="obj3">Cualquier duda o aclaración, favor de enviarla al siguiente correo: <br> skilltech@gmail.com</p>
+    </div>
+    <div class="boton-con-imagen">
+    <img src="assets/sop.png" id="showChatBox">
+    </div>
+        
+</body>
+<script>
+document.getElementById('showChatBox').addEventListener('click', function() {
+  var chatBox = document.createElement('div');
+  chatBox.classList.add('chat-box');
+  chatBox.innerHTML = `
+    <div class="chat-box-header">
+      <p>Chatbot</p>
+      <button id="closeChatBoxBtn">Cerrar</button>
+    </div>
+    <div class="chat-box-body">
+          <div class="user-message">
+            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
+            <p class="user-text">Hola! ¿en qué podemos ayudarte?</p>
+        </div>
+        <div class="user-message">
+            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
+            <p class="user-text">A) Ejemplo 1</p>
+        </div>
+        <div class="user-message">
+            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
+            <p class="user-text">B) Ejemplo 2</p>
+        </div>
+        <div class="user-message">
+            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
+            <p class="user-text">C) Ejemplo 3</p>
+        </div>
+    </div>
+    <div class="chat-box-input">
+      <textarea placeholder="Type your message here..."></textarea>
+      <button>Send</button>
+    </div>
+  `;
+  document.body.appendChild(chatBox);
+  document.getElementById('closeChatBoxBtn').addEventListener('click', function() {
+    document.body.removeChild(chatBox);
+  });
+});
+</script>
+</html>
