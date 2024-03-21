@@ -36,7 +36,7 @@ header .h21 {
 .nav-container {
     width: 100%;
     padding: 13px 24px;
-    background: white;
+    background: rgb(255, 255, 255);
     box-shadow: 0px -3px 0px #1589EE inset;
     display: flex;
     justify-content: flex-start;
@@ -65,7 +65,7 @@ header .imglogo {
 nav {
     display: flex;
     flex-direction: row;
-    background-color: #0067c4;
+    /*background-color: #0067c4;*/
     height: 8vh;
 }
 
@@ -98,12 +98,11 @@ nav {
 }
 
 .nav-container .btn-primary {
-    border-radius: 50%; /* Hace el botón circular */
-    width: 40px; /* Ajusta el ancho del botón según tu preferencia */
-    height: 40px; /* Ajusta la altura del botón según tu preferencia */
-    padding: 0; /* Elimina el relleno para tener un círculo perfecto */
-    font-size: 16px; /* Ajusta el tamaño del texto */
-    margin-left: 10px; /* Ajusta el margen izquierdo según tu preferencia */
+    border-radius: 10px; /* Hace el botón circular */
+    width:8vw; /* Ajusta el ancho del botón según tu preferencia */
+    height: 6vh; /* Ajusta la altura del botón según tu preferencia */
+    font-size: 1.2vw; /* Ajusta el tamaño del texto */
+    margin-left: 68.5vw; /* Ajusta el margen izquierdo según tu preferencia */
 }
 
 .nav-container .btn-primary span {
@@ -123,12 +122,13 @@ nav {
 
 .a {
    margin-top: 30vh;
-    border: 2px solid #979696;
+    border: 2px solid #000000;
     border-radius: 11px;
     width: 37vw;
-    height: 60vh;
+    height: 62vh;
     margin-right: 5vw;
     margin-left: 5vw;
+    /*background: #e1ff00;*/
 
 }
 
@@ -136,21 +136,24 @@ nav {
     height: 53vh;
     border-radius: 11px;
     margin-left: .4vw;
+    /*background: #8d2121;*/
+    margin-top: -1.5vh;
 }
 
-.grafica {
-    margin-top: -2%; /* Cambiado a un porcentaje */
+.grafica{
+    margin-top: -1vh;
     width: 100%;
     height: 100%;
 }
+
 .titulo {
-   background-color: #20516F;
+   background-color: #004081;
     text-align: center;
-    font-size: 1.5vw;
+    font: normal bold 1.5vw/1 "Open Sans", sans-serif;
     color: #FFFFFF;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-    height: 6vh;
+    height: 7vh;
 }
 
 #grafica-labels {
@@ -215,7 +218,7 @@ hr {
 height: 3px;
 background-color: #347499;
 }
-
+/*
 .Botona, .Botonab{
 text-align: center; 
 color: #FEFEFE; 
@@ -230,28 +233,30 @@ justify-content: center;
 align-items: center; 
 gap: 8px; 
 display: inline-flex;
-}
-.Botonab{
-    text-align: center; 
-    color: #FEFEFE; 
-    font-size: 2vw; 
-    font-family: 'Open Sans' sans-serif;
-    word-wrap: break-word;
-    background: #347499; 
-    border-radius: 11px; 
-    justify-content: center;
-    align-items: center; 
-    gap: 8px; 
-    display: inline-flex;
-    width: 5vw;
-    }
+}*/
+
 .Botona {
     margin-top: 2vh;
 }
 .Botonab{
-margin-left: 4vw;  
-width: 15vw;
+margin-left: 4vw;
 }
+
+.Botonab{
+    text-align: center; 
+    color: #FEFEFE; 
+    font-size: 1.2vw; 
+    font-family: 'Open Sans' sans-serif;
+    background: #004081; 
+    border-radius: 30px; 
+    justify-content: center;
+    align-items: center; 
+    margin-top: 3vh;
+    display: inline-flex;
+    width: 5vw;
+    height: 6vh;
+    }
+
 .reporte{
 /*background-color: #ff0000;*/
 height: 9vh;
@@ -275,13 +280,13 @@ width: 60vw;
 }
 
 .alincentro{
-/*background-color: #ff0000;*/
 text-align: center;
 padding-left: 10%;
 height: 12vh;
 width: 95vw;
 margin-left:1vw;
 margin-top: 2vh;
+
 }
 
 a{
@@ -292,31 +297,73 @@ h2{
     font-size: 2.5vw;
 }
 
-.layoutgr {
-width: 10vw;
-height: 53.5vh;
-flex-shrink: 0;
-background-color: #777f8b;
-position: relative;
-margin-left: 26.7vw;
-margin-top: -53vh;
-text-align: justify;
-flex-direction: row;
-border-bottom-right-radius: 11px;
+.layougr {
+    width: 10vw;
+    height: 55vh;
+    background-color: #000000;
+    margin-left: 26.8vw;
+    text-align: justify;
+    margin-top: -53vh;
+    border-bottom-right-radius: 11px;
+    color: #FFFFFF;
+    display: grid; /* Utiliza display: grid en lugar de display: flex */
+    grid-template-rows: repeat(4, auto); /* Crea un grid de 4 filas automáticas */
+    gap: 0vh; /* Establece el espacio entre las filas */
+}
+
+.conti {
+   /* background-color: rgb(4, 0, 255);*/   
+    align-items: center;
+    align-content: center;
+    margin-top: 5vh;
+    height: 5vh;
+
+}
+
+.conti2{
+    /*background-color: rgb(255, 0, 183);*/
+    align-items: center;
+    align-content: center;
+    margin-top: 1vh;
+    height: 5vh;
+
+}
+.conti3{
+    /*background-color: rgb(255, 225, 0);*/
+    align-items: center;
+    align-content: center;
+    height: 5vh;
+}
+.conti4{
+  /* background-color: rgb(135, 0, 0);*/
+    align-items: center;
+    align-content: center;
+    height: 5vh;    
 }
 
 .alinearrec{
-vertical-align: auto;
-position: relative;
-left: -5%;
+width: 2vw;
+height: 4.5vh;
+border-radius: 2px;
+margin-left: 1vw;
 }
 
-
 .alineatext{
-
 height: 47vh;
 padding-left: 1.5vw;
 font-size: 1.4vw;
+background: #1589EE;
 }
 
+.flujo2 .imgflujo2, .flujo2 .txtflujo2,
+.flujo31 .imgflujo4, .flujo31 .txtflujo4 {
+    filter: brightness(3); /* Ajusta el valor para aumentar el brillo según tu preferencia */
+    /* También puedes agregar otras propiedades como sombra o animaciones para un efecto más llamativo si lo deseas */
+}
+
+/* Si quieres que el efecto sea más evidente al pasar el ratón sobre ellos, puedes añadir reglas de hover */
+.flujo2:hover .imgflujo2, .flujo2:hover .txtflujo2,
+.flujo31:hover .imgflujo4, .flujo31:hover .txtflujo4 {
+    filter: brightness(4); /* Ajusta el valor para aumentar el brillo al pasar el ratón */
+}
 
