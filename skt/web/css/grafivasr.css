@@ -19,12 +19,12 @@ body {
 
 header {
     padding: 1vh;
-    background-color: #283447;
-    height: 13vh;
+    background-color: rgb(0, 43, 93);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2vw;
+    height: 12vh;
 }
 
 header .h21 {
@@ -35,22 +35,23 @@ header .h21 {
 }
 .nav-container {
     width: 100%;
-    padding: 13px 24px;
-    background: rgb(255, 255, 255);
-    box-shadow: 0px -3px 0px #1589EE inset;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    height: 10vh;
+
 }
 .h21 {
     color: #ffffff;
     font: normal bold 2vw/1 "Open Sans", sans-serif;
 }
 
-.fontdiv {
+
+.fontdiv2 {
+    background: #004081;
     color: #000000;
-    font: normal bold 15px/1;
+    font: normal bold 2vw/1;
     font-family: 'Open Sans', sans-serif;
+    width: 40vw;
+    height: 20vh;
 }
 header .imglogo {
     width: 2vw;
@@ -68,7 +69,12 @@ nav {
     /*background-color: #0067c4;*/
     height: 8vh;
 }
+#salir{
+    background: #ffffff;
+    color: #000000;
+}
 
+  
 .BotonCe {
     background: #004081;
     border: 1px solid #004081;
@@ -102,7 +108,7 @@ nav {
     width:8vw; /* Ajusta el ancho del botón según tu preferencia */
     height: 6vh; /* Ajusta la altura del botón según tu preferencia */
     font-size: 1.2vw; /* Ajusta el tamaño del texto */
-    margin-left: 68.5vw; /* Ajusta el margen izquierdo según tu preferencia */
+    margin-left:62.5vw; /* Ajusta el margen izquierdo según tu preferencia */
 }
 
 .nav-container .btn-primary span {
@@ -121,8 +127,8 @@ nav {
 
 
 .a {
-   margin-top: 30vh;
-    border: 2px solid #000000;
+   margin-top: 15vh;
+   /*border: 2px solid #000000;*/   
     border-radius: 11px;
     width: 37vw;
     height: 62vh;
@@ -147,13 +153,16 @@ nav {
 }
 
 .titulo {
-   background-color: #004081;
+   background-color: rgb(0, 43, 93);
     text-align: center;
     font: normal bold 1.5vw/1 "Open Sans", sans-serif;
     color: #FFFFFF;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     height: 7vh;
+    display: flex; /* Utilizar display flex */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center;
 }
 
 #grafica-labels {
@@ -185,12 +194,10 @@ word-wrap: break-word
 }
 
 
-
-h2 {
-color: #000000;
-font: normal bold 18px/1 "Open Sans", sans-serif;
-text-align: justify;
-}
+.ttl{
+    color: #000000;
+    font-size: 1.5vw;
+}   
 h3 {
 color: #FFFFFF;
 font: normal bold 16px/1 "Open Sans", sans-serif;
@@ -280,13 +287,17 @@ width: 60vw;
 }
 
 .alincentro{
-text-align: center;
 padding-left: 10%;
-height: 12vh;
+height: 8vh;
 width: 95vw;
 margin-left:1vw;
-margin-top: 2vh;
-
+margin-top: 9vh;
+/*background:#ff0000;*/
+font-size: 1.3vw;
+color: #000000;
+}
+.alincentro h4{
+margin-left: -7vw;
 }
 
 a{
@@ -296,23 +307,154 @@ a{
 h2{
     font-size: 2.5vw;
 }
+.ttl{
+    color: #000000;
+    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+    /*background: #FF5733;*/
+
+}
+.ttl2{
+    color: #000000;
+    font: normal bold 3 vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+    /*background: #004081;*/
+    margin-top: 15vh;
+    margin-left: -53vw;
+
+}
+.ttlo2{
+    color: #000000;
+    font: normal bold 3 vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+    /*background: #004081;*/
+    margin-top: 15vh;
+    margin-left: -33vw;
+
+}
+.nvl{
+    margin-top: -4vh;
+    margin-left: 3.5vw;
+    font-size:1.3vw;
+    color: #000000;
+    /*background: #004081;*/
+}
+.opcn {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 2vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+  }
+  .opcn:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn:active {
+    transform: scale(0.95);
+  }
+  .opla{
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 3vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+  }
+  .opla:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opla:active {
+    transform: scale(0.95);
+  }  
+
+  .opcn2 {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.2vw;
+    font-weight: 700;
+    padding: .8vh 1vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    margin-left: 70vw;
+  }
+  .opcn2:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn2:active {
+    transform: scale(0.95);
+  }
+
+  .opn2 {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.2vw;
+    font-weight: 700;
+    padding: .8vh 1vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    margin-left: 5  0vw;
+  }
+  .opn2:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opn2:active {
+    transform: scale(0.95);
+  }
+
+  .opcn3{
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 2vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 2vh;
+  }
+  .opcn3:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn3:active {
+    transform: scale(0.95);
+  }
 
 .layougr {
     width: 10vw;
     height: 55vh;
-    background-color: #000000;
+    /*background-color: #ffffff;*/  
     margin-left: 26.8vw;
     text-align: justify;
     margin-top: -53vh;
     border-bottom-right-radius: 11px;
-    color: #FFFFFF;
+    color: #000000;
     display: grid; /* Utiliza display: grid en lugar de display: flex */
     grid-template-rows: repeat(4, auto); /* Crea un grid de 4 filas automáticas */
     gap: 0vh; /* Establece el espacio entre las filas */
 }
 
 .conti {
-   /* background-color: rgb(4, 0, 255);*/   
+   /*background-color: rgb(4, 0, 255);   */
     align-items: center;
     align-content: center;
     margin-top: 5vh;

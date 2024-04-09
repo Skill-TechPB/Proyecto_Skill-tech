@@ -10,8 +10,7 @@
 
         header {
             padding: 1vh;
-            background-color: #283447;
-            height: 13vh;
+            background-color: rgb(0, 43, 93);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -26,27 +25,87 @@
         }
         .nav-container {
             width: 100%;
-            padding: 13px 24px;
-            background: rgb(255, 255, 255);
-            box-shadow: 0px -3px 0px #1589EE inset;
             display: flex;
+            height: 10vh;
             justify-content: flex-start;
             align-items: center;
+        }
+        .ttl{
+            color: #000000;
+            font: normal bold 3vw/1 "Open Sans", sans-serif;
+            padding-left: 4vw;
+            padding-right: 2vw;
+            /*background: #FF5733;*/
+        }
+        .ttlo{
+            color: #000000;
+            font: normal bold 3vw/1 "Open Sans", sans-serif;
+            padding-left: 4vw;
+            padding-right: 2vw;
+            /*background: #FF5733;*/
+
+        }
+        
+        .opn2 {
+            border-radius: 10px;
+           background-color: #ffffff;
+            color: #000000;
+            font-size: 1.2vw;
+            font-weight: 700;
+            padding: .8vh 1vw;
+            letter-spacing: 1px;
+            text-transform: capitalize;
+            transition: 0.3s ease-in-out;
+            margin-left: 50vw;
+          }
+          .opn2:hover {
+            letter-spacing: 3px;
+          }
+          
+          .opn2:active {
+            transform: scale(0.95);
+          }
+        .ttl2{
+            color: #000000;
+            font: normal bold 3vw/1 "Open Sans", sans-serif;
+            padding-left: 4vw;
+            padding-right: 2vw;
+            /*background: #004081;*/
+            margin-top: 10vh;
+
+        }
+        .ttlo2{
+            color: #000000;
+            font: normal bold 3vw/1 "Open Sans", sans-serif;
+            padding-left: 4vw;
+            padding-right: 2vw;
+            /*background: #004081;*/
+            margin-top: 15vh;
+            margin-left: -33vw;
+        
+        }
+        .ins{
+            font-size: 1.6vw;
+            /*background-color: #004081;*/
+                margin-left: -7vw;
+                font-weight: 700;
+                margin-top: 4vh;
         }
         .h21 {
             color: #ffffff;
             font: normal bold 2vw/1 "Open Sans", sans-serif;
         }
-        .nvl{
-            margin-top: -4vh;
-            margin-left: 3.5vw;
-            font-size:1.3vw;
-            color: #ffffff;
-        }
         .fontdiv {
             color: #000000;
-            font: normal bold 15px/1;
+            font: normal bold 2vw/1;
             font-family: 'Open Sans', sans-serif;
+        }
+        .fontdiv2 {
+            color: #000000;
+            font: normal bold 2vw/1;
+            font-family: 'Open Sans', sans-serif;
+            width: 100%;
+            height: 10vh;
         }
         header .imglogo {
             width: 2vw;
@@ -107,14 +166,18 @@
         }
         
         #myInput{
-            width: 3vw;
-            background-color: rgb(4, 0, 255);
             margin-right: 45vw;
             border-radius: 70px;
             position: fixed;
             bottom: 5vh; /* Ajusta la distancia desde la parte inferior de la pantalla según tus preferencias */
             right: -44vw; /* Ajusta la distancia desde el borde derecho de la pantalla según tus preferencias */
             z-index: 1000;
+            border-radius: 10px;
+            background-color: rgb(0, 43, 93);
+            color: #ffffff;
+            font-size: 1.2vw;
+            font-weight: 700;
+            padding: .8vh 1vw;
         }
 /*
         #gnrcn{
@@ -138,7 +201,7 @@
             }
 
             .titulo {
-                background-color: #FF5733;
+
                 text-align: center;
                 font-size: 18px; /* Reducción del tamaño de la fuente */
                 font-weight: bold;
@@ -184,38 +247,58 @@
             }
 
             .flujo2 {
-                background: #1589EE;
+               /* background: #FF5733;*/
                 margin-left: 3vw;
                 height: 6.3vh;
-                width: 10vw;
-                margin-top: 1vh;
-                border-radius: 10px;
+                width: 12vw;
+                margin-top: -1vh;
+
             }
+           
             .flujo21 {
-                margin-left: 10vw;
-                height: 5vh;
-                width: 20vw;
-                margin-top: -5vh;
+                /*background: #FF5733;*/
+                margin-left: 3vw;
+                height: 6.3vh;
+                width: 12vw;
+                margin-top: -1vh;
             }
             .flujo3 {
-                margin-left: 32vw;
+                /*background: rgb(255, 145, 0);*/
+                margin-left: 15vw;
                 height: 5vh;
                 width: 20vw;
-                margin-top: -5vh;
+                margin-top: -6.3vh;
             }
+            .opla{
+                border-radius: 10px;
+               background-color: #ffffff;
+                color: #000000;
+                font-size: 1.5vw;
+                font-weight: 700;
+                padding: .8vh 3vw;
+                letter-spacing: 1px;
+                text-transform: capitalize;
+                transition: 0.3s ease-in-out;
+              }
+              .opla:hover {
+                letter-spacing: 3px;
+              }
+              
+              .opla:active {
+                transform: scale(0.95);
+              } 
             .flujo31 {
-                background: #1589EE;
+                /*background: #1589EE;*/
                 margin-left: 15vw;
                 height: 6.3vh;
-                width: 10vw;
+                width: 12vw;
                 margin-top: -6vh;
-                border-radius: 10px;
             }
             .flujo4{
-            
-                margin-left: 45vw;
-                height: 5vh;
-                width: 20vw;
+                /*background: brown;*/
+                margin-left: 35.2vw;
+                height: 6.3vh;
+                width: 12vw;
                 margin-top: -5vh;
             }
 

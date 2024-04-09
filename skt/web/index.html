@@ -1,17 +1,17 @@
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="shortcut icon" href="./assets/logo1.png" />
-  <link rel="stylesheet" type="2/css" href="slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-  <script type="text/javascript" src="slick/slick.min.js"></script>
-  <title>Skill-Tech</title>
+            <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/index.css">
+      <link rel="shortcut icon" href="./assets/logo1.png" />
+      <link rel="stylesheet" type="2/css" href="slick/slick.css"/>
+      <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+      <script type="text/javascript" src="slick/slick.min.js"></script>
+      <title>Skill-Tech</title>
 </head>
 <body>
-  <header>
+  <header>                                      
     <img src="./assets/logo1.png" class="imglogo"/>
     <div class="Boton" id="alinearder"><a href="iniciosesion.html"><input type="submit" value="Registrate" class="Botona"></a></div>
 </header>
@@ -41,47 +41,26 @@
     <div class="about-us-section3">
       <p class="obj3">Cualquier duda o aclaración, favor de enviarla al siguiente correo: <br> skilltech@gmail.com</p>
     </div>
-    <div class="boton-con-imagen">
-    <img src="assets/sop.png" id="showChatBox">
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
-        
 </body>
-<script>
-document.getElementById('showChatBox').addEventListener('click', function() {
-  var chatBox = document.createElement('div');
-  chatBox.classList.add('chat-box');
-  chatBox.innerHTML = `
-    <div class="chat-box-header">
-      <p>Chatbot</p>
-      <button id="closeChatBoxBtn">Cerrar</button>
-    </div>
-    <div class="chat-box-body">
-          <div class="user-message">
-            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
-            <p class="user-text">Hola! ¿en qué podemos ayudarte?</p>
-        </div>
-        <div class="user-message">
-            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
-            <p class="user-text">A) Ejemplo 1</p>
-        </div>
-        <div class="user-message">
-            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
-            <p class="user-text">B) Ejemplo 2</p>
-        </div>
-        <div class="user-message">
-            <img src="assets/logo2.png" alt="User Photo" class="user-photo">
-            <p class="user-text">C) Ejemplo 3</p>
-        </div>
-    </div>
-    <div class="chat-box-input">
-      <textarea placeholder="Type your message here..."></textarea>
-      <button>Send</button>
-    </div>
-  `;
-  document.body.appendChild(chatBox);
-  document.getElementById('closeChatBoxBtn').addEventListener('click', function() {
-    document.body.removeChild(chatBox);
-  });
-});
-</script>
 </html>

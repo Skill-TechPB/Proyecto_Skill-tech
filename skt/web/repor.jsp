@@ -165,34 +165,53 @@ if (min != 0) {
                 </form>
         </div>
       </div>
-    <header>
+      <header>
+                
         <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
-        <p class="h21">Skill-tech</p>
-        <div  id="alinearder"><form action="Cerrar" method="post"><input type="submit" value="Cerrar Sesión" class="BotonCe"></form></div>
-    </header>
-   <div style="width: 100%; height: 100%; padding-bottom: 13px; padding-left: 24px; padding-right: 808px; background: white; box-shadow: 0px -3px 0px #1589EE inset; justify-content: flex-start; align-items: center; display: inline-flex">
-            <div style="justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
-                <div class="fontdiv">
-                    <div class="flujo">
-                        <a href="graficas.jsp"><img class="imgflujo2" src="./assets/grafico-circular (1).png"><P class="txtflujo2">Gráficas</P></a>
-                    </div>
-                 <div class="flujo21">
-                        <a href="bita.jsp"><img class="imgflujo3" src="./assets/archivo.png"><P class="txtflujo3">Bitacora</P></a>
+        <div class="barra">
+            <div class="fontdiv">
+
+                    <%if(tipou.equals("1") ){%>
+                    <div class="flujo2">
+                        <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas</button></a>
                     </div>
                     <div class="flujo31">
-                        <a href="repor.jsp"><img class="imgflujo4" src="./assets/reporte.png"><P class="txtflujo4">Reportes</P></a>
+                        <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
                     </div>
+                    <div class="flujoal">
+                        <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onclick="toggleMenu()" id="gnrcn">Generaciones</button>
+                    </div>
+                <%}else if(tipou.equals("2")){%>
+                <div class="flujo">
+                    <a href="Editform.jsp"> <img class="imgflujo" src="./assets/formulario-de-contacto.png"><P class="txtflujo">Edición de formularios</P></a>
                 </div>
+                <div class="flujo">
+                    <a href="graficas.jsp"><img class="imgflujo2" src="./assets/grafico-circular (1).png"><P class="txtflujo2">Gráficas</P></a>
+                </div>
+            <div class="flujo21">
+                    <a href="bita.jsp"><img class="imgflujo3" src="./assets/archivo.png"><P class="txtflujo3">Bitacora</P></a>
+                </div>
+                
+                <%}%>
             </div>
-        </div>
-    <nav>
-        <div class="nav-container">
-            <div class="fontdiv"><h2>Reporte General</h2></div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <div class="menu-btn" onclick="toggleMenu()">☰</div>
-              </button>
     </div>
-    </nav>
+    <form action="Cerrar" method="post">
+    <button class="btn btn-secon    dary" type="submit" value="Cerrar Sesión" id="salir">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2vw" height="5vh" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+          </svg>    
+    </button>
+</form>
+    </header>
+    <!--  <nav>
+        <div class="nav-container">
+            <p class="ttl">Reporte General del profesor: </p>
+            <p class="ttl2">nombre</p>
+            <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onclick="toggleMenu()" id="gnrcn">Generaciones</button>
+    </div> 
+    </nav>-->
+
     <br>
     <br>
     <div class="reportes" id="reporte">
@@ -200,7 +219,7 @@ if (min != 0) {
     <img class="cecyt9" src="assets/cecyt-logo.png">
 
     <center>
-        <h3>REPORTE GENERAL DE EGRESADOS </h3>
+        <h3>REPORTE GENERAL DE LOS ALUMNOS DE 4TO SEMESTRE </h3>
         <h3>CENTRO DE ESTUDIOS CIENTIFICOS Y TECNOLÓGICOS</h3>
         <h3>"JUAN DE DIOS BATIZ"</h3>
         <h4>CARRERA: PROGAMACIÓN</h4>

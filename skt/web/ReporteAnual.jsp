@@ -222,6 +222,8 @@ if (min != 0) {
     <img class="msdev" src="assets/logo_msdev.png">
 
 </div>
+
+<button class="pdf" onclick="">Descargar</button>
 </body>
 <%
      total = 0;

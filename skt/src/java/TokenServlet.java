@@ -48,7 +48,9 @@ String error, token;
         if (rs.next()){
         String tokensito = rs.getString("usu_tk");
         if(tokensito != null){
-        if (tipou.equals("1")|| (tipou.equals("2"))){
+        if (tipou.equals("1")){
+        response.sendRedirect("graficasProf.jsp");
+        }else if(tipou.equals("2")){
         response.sendRedirect("graficas.jsp");
         }else if(tipou.equals("0")){
             String egresadoConsulta = "select egr_bandPOO, egr_banBD from egresado where usu_id= ? ";
@@ -101,7 +103,14 @@ String error, token;
                     insertStatement.executeUpdate();
                     response.sendRedirect("FPOO.jsp");
                     return;
-                }else if (tipou.equals("1")|| (tipou.equals("2"))){
+                }else if (tipou.equals("1")){
+                    PreparedStatement updateStatement = con.prepareStatement("UPDATE usuario SET usu_tk = ? WHERE usu_id = ?");
+                    updateStatement.setString(1, token);
+                    updateStatement.setInt(2, idUsuario);
+                    updateStatement.executeUpdate();
+                    response.sendRedirect("graficasProf.jsp");
+                    return;
+                }else if (tipou.equals("2")){
                     PreparedStatement updateStatement = con.prepareStatement("UPDATE usuario SET usu_tk = ? WHERE usu_id = ?");
                     updateStatement.setString(1, token);
                     updateStatement.setInt(2, idUsuario);

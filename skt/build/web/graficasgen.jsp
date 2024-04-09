@@ -100,51 +100,134 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/Chart.min.css">
     <link rel="stylesheet" href="css/graf.css">
     <link rel="stylesheet" href="css/grafivasr2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <link rel="shortcut icon" href="./assets/logo1.png" />
 </head>
 <body>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Aquí podrá encontrar las gráficas de las generaciones disponibles dentro del sistema</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form method="POST" action="gen">
+                <a><input class="opcn3" type="submit" value="2020" name="gene"></a>      
+                <a><input class="opcn3" type="submit" value="2021" name="gene1"></a>
+                <a><input class="opcn3" type="submit" value="2022" name="gene2"></a>
+            </form>
+        </div>
+      </div>
+
     <header>
+                
         <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
-        <p class="h21">Skill-tech</p>
-        <div class="Boton" id="alinearder"><form action="Cerrar" method="post"><input type="submit" value="Cerrar Sesión" class="BotonCe"></form></div>
+        <div class="barra">
+            <div class="fontdiv">
+                <%if(tipou.equals("1") ){%>
+                
+                <div class="flujo2">
+                    <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
+                </div>
+                <div class="flujo31">
+                    <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
+                </div>
+                <%}else if(tipou.equals("2")){%>
+                <div class="flujo">
+                    <a href="Editform.jsp"> <img class="imgflujo" src="./assets/formulario-de-contacto.png"><P class="txtflujo">Edición de formularios</P></a>
+                </div>
+                <div class="flujo">
+                    <a href="graficas.jsp"><img class="imgflujo2" src="./assets/grafico-circular (1).png"><P class="txtflujo2">Gráficas</P></a>
+                </div>
+            <div class="flujo21">
+                    <a href="bita.jsp"><img class="imgflujo3" src="./assets/archivo.png"><P class="txtflujo3">Bitacora</P></a>
+                </div>
+                
+                <%}%>
+            </div>
+    </div>
+    <form action="Cerrar" method="post">
+    <button class="btn btn-secondary" type="submit" value="Cerrar Sesión" id="salir">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2vw" height="5vh" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+          </svg>    
+    </button>
+</form>
     </header>
  
     <nav>
         <div class="nav-container">
-                <div class="fontdiv"><h2>Graficas por Generacion</h2></div>
+            <p class="ttl">Graficas de la Generación:</p>
+            <p class="ttl2">2021</p>
+            <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
         </div>
     </nav>
-    <div class="alincentro"><h4 id='borde'>A continuacion se muestran las graficas de los egresados evaluados en las areas de programacion y bases de datos:</h4></div>
-    <br>
-    <br>
+        <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
+
     <section class="bodyg" id="1">
         <div class="a">
             <div class="titulo">POO</div>
             <div id="graficaBD" class="grafica-container">
             <canvas class="grafica"></canvas>
         </div>
-            <div class="layoutgr"> <div class="alineatext"><br><br><img src="assets/rectangulo avanzado.jpg" class="alinearrec"> Avanzado <br><br> <img src="assets/rectangulo intermedio.png" class="alinearrec">Intermedio <br><br> <img src="assets/rectangulo basico.png" class="alinearrec">Basico <br><br> <img src="assets/rectangulo minimo.png" class="alinearrec">Minimo </div></div>
-            <canvas id="grafica"></canvas>
+        <div class="layougr">
+            <div class="conti" id="cnt">
+                <img src="assets/recavanzado.jpg" class="alinearrec">
+                <p class="nvl"> Avanzado </p>
+            </div>
+            <div class="conti2">
+                <img src="assets/recintermedio.jpg" class="alinearrec">
+                <p class="nvl">Intermedio </p>
+            </div>
+            <div class="conti3">
+                <img src="assets/recbasico.jpg" class="alinearrec">
+                <p class="nvl">Basico</p>
+            </div>
+            <div class="conti4">
+                <img src="assets/recminimo.jpg" class="alinearrec">
+                <p class="nvl">Minimo</p>
+            </div>
+        </div>
         </div>
         <div class="a">
             <div class="titulo">BD</div>
              <div id="graficaPOO" class="grafica-container">
             <canvas class="grafica"></canvas>
         </div>
-            <div class="layoutgr"> <div class="alineatext"><br><br><img src="assets/rectangulo avanzado.jpg" class="alinearrec"> Avanzado <br><br> <img src="assets/rectangulo intermedio.png" class="alinearrec">Intermedio <br><br> <img src="assets/rectangulo basico.png" class="alinearrec">Basico <br><br> <img src="assets/rectangulo minimo.png" class="alinearrec">Minimo </div></div>
-            <canvas id="pol"></canvas>
+        <div class="layougr">
+            <div class="conti" id="cnt">
+                <img src="assets/recavanzado.jpg" class="alinearrec">
+                <p class="nvl"> Avanzado </p>
+            </div>
+            <div class="conti2">
+                <img src="assets/recintermedio.jpg" class="alinearrec">
+                <p class="nvl">Intermedio </p>
+            </div>
+            <div class="conti3">
+                <img src="assets/recbasico.jpg" class="alinearrec">
+                <p class="nvl">Basico</p>
+            </div>
+            <div class="conti4">
+                <img src="assets/recminimo.jpg" class="alinearrec">
+                <p class="nvl">Minimo</p>
+            </div>
+        </div>
+
         </div>
     </section>
     <br>
     <br>
     <section class="bodyg2" id="2">
-        <div class="po1" id="a">
+        <div class="a1" id="a">
             <div class="titulo">Preguntas POO</div>
             <canvas id="grafica" class="bar"></canvas>
         </div>
 
-        <div class="bd1" id="a">
+        <div class="a1" id="a">
             <div class="titulo">Preguntas BD</div>
         <canvas id="grafica" class="bar2"></canvas>
         </div>
@@ -152,7 +235,8 @@
     <br>
     <br>
 	<footer id="alinderecha">
-      <a href="graficas.jsp"><div class="Botona">Regresar</div></a>
+
+        <a href="graficas.jsp"><button type="button" class="opn">Regresar</button></a>
     </footer>
 
  
@@ -178,7 +262,7 @@
         const xd8 = parseInt(Nivbas2);
 
         const labels = ['Avanzado', 'Intermedio', 'Básico', 'Mínimo'];
-        const colors = ['#20516F', '#585bb2', '#56D0FC', '#C23934'];
+        const colors = ['#3D29F5', '#05ACFF', '#DA82AF', '#91043D'];
 
         const graphPOO = document.querySelector("#graficaBD .grafica");
         const graphBD = document.querySelector("#graficaPOO .grafica");
@@ -240,15 +324,15 @@
         const datosVentas2020 = {
             label: "Aciertos",
             data: [ppo1,ppo2,ppo3,ppo4,ppo5,ppo6,ppo7,ppo8,ppo9,ppo10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-            backgroundColor: "#008000", // Color de fondo
-            borderColor: "#008000", // Color del borde
+            backgroundColor: "#3D29F5", // Color de fondo
+            borderColor: "#3D29F5", // Color del borde
             borderWidth: 1// Ancho del borde
         };
         const datosVentas2021 = {
             label: "Errores",
             data: [ppoi1,ppoi2,ppoi3,ppoi4,ppoi5,ppoi6,ppoi7,ppoi8,ppoi9,ppoi10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-            backgroundColor:  "#cc0605",// Color de fondo
-            borderColor: "#cc0605",// Color del borde
+            backgroundColor:  "#91043D",// Color de fondo
+            borderColor: "#91043D",// Color del borde
             borderWidth: 1// Ancho del borde
         };
 
@@ -269,6 +353,19 @@
                         }
                     }],
                 },
+                plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 14, // Tamaño de la fuente
+                        family: 'Arial', // Familia de fuente
+                        weight: 'bold', // Peso de la fuente (puede ser 'normal', 'bold', 'lighter', 'bolder', etc.)
+                        style: 'italic', // Estilo de la fuente (puede ser 'normal', 'italic', 'oblique')
+                    }
+                }
+            }
+        }
+
             }
         });
     </script>
@@ -304,15 +401,15 @@
         const datosVentas20201 = {
             label: "Aciertos",
             data: [pbd1,pbd2,pbd3,pbd4,pbd5,pbd6,pbd7,pbd8,pbd9,pbd10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-            backgroundColor: "#008000", // Color de fondo
-            borderColor: "#008000", // Color del borde
+            backgroundColor: "#3D29F5", // Color de fondo
+            borderColor: "#3D29F5", // Color del borde
             borderWidth: 1// Ancho del borde
         };
         const datosVentas20211 = {
             label: "Errores",
             data: [pbdi1,pbdi2,pbdi3,pbdi4,pbdi5,pbdi6,pbdi7,pbdi8,pbdi9,pbdi10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-            backgroundColor:  "#cc0605",// Color de fondo
-            borderColor: "#cc0605",// Color del borde
+            backgroundColor:  "#91043D",// Color de fondo
+            borderColor: "#91043D",// Color del borde
             borderWidth: 1// Ancho del borde
         };
 
@@ -333,6 +430,7 @@
                         }
                     }],
                 },
+                
             }
         });
     </script>

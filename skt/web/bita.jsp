@@ -15,7 +15,7 @@
         }
     %>
     <%
-          if (tipou == null || tipou.equals("0") || tipou.equals("4") || tipou.equals("1")) {
+          if (tipou == null || tipou.equals("0")) {
         response.sendRedirect("index.html");
         return;
     }
@@ -27,7 +27,6 @@
     Statement stmt;
     ResultSet rs, rs2;
     int cont=0, reg= 0;
-    String filform="", filfch="";
     %>
     <%
     pal = new Conexion();
@@ -45,18 +44,9 @@
     int[] indice = new int[reg];
     String[] origen = new String[reg];
     String[] cambio = new String[reg];
-    //Preparacion del statment
-    filform = request.getParameter("filform");
-    filfch = request.getParameter("filfch");
-    System.out.println(filform+filfch);
-    if(filform==null){
-    filform="1";
-    }
-    if(filfch==null){
-    filfch="desc";
-    }
+
     //introduccion de los registros de la bita
-    rs2=stmt.executeQuery("select bitacora.bit_fchmod, profesor.pro_nombre, formulario.for_nombre, bitacora.elf_id,bitacora.bit_indice, bitacora.bit_origen, bitacora.bit_cambio from bitacora inner join profesor on profesor.pro_id=bitacora.pro_id inner join formulario on formulario.for_id=bitacora.for_id where bitacora.for_id ="+filform+" order by bitacora.bit_fchmod "+filfch+"");
+    rs2=stmt.executeQuery("select bitacora.bit_fchmod, profesor.pro_nombre, formulario.for_nombre, bitacora.elf_id,bitacora.bit_indice, bitacora.bit_origen, bitacora.bit_cambio from bitacora inner join profesor on profesor.pro_id=bitacora.pro_id inner join formulario on formulario.for_id=bitacora.for_id");
     while(rs2.next()){
     fecha[cont]=rs2.getString("bit_fchmod");
     pronombre[cont]=rs2.getString("pro_nombre");
@@ -74,52 +64,43 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <link rel="stylesheet" href="css/bit.css">
             <link rel="shortcut icon" href="./assets/logo1.png" />
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX  6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
             <title>Bitacora</title>
         </head>
         <body>
-            <header>
+            <header>   
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
-                <p class="h21">Skill-tech</p>
-                <div class="Boton" id="alinearder"><form action="Cerrar" method="post"><input type="submit" value="Cerrar Sesión" class="Botona"></form></div>
-            </header>
-           <div style="width: 100%; height: 100%; padding-bottom: 13px; padding-left: 24px; padding-right: 808px; background: white; box-shadow: 0px -3px 0px #1589EE inset; justify-content: flex-start; align-items: center; display: inline-flex">
-                    <div style="justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
-                        <div class="fontdiv">
-                            <div class="flujo">
-                                <a href="graficas.jsp"><img class="imgflujo2" src="./assets/grafico-circular (1).png"><P class="txtflujo2">Gráficas</P></a>
-                            </div>
-                            <div class="flujo21">
-                                <a href="bita.jsp"><img class="imgflujo3" src="./assets/archivo.png"><P class="txtflujo3">Bitacora</P></a>
-                           </div>
-                            <div class="flujo31">
-                                <a href="repor.jsp"><img class="imgflujo4" src="./assets/reporte.png"><P class="txtflujo4">Reportes</P></a>
-                            </div>
+                <div class="barra">
+                    <div class="fontdiv">
+                        <div class="flujo21">
+                            <a href="graficas.jsp"><button type="button" class="opcn">Graficas</button></a>
+                        </div>
+                        <div class="flujo3">
+                            <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
+                        </div>  
+                        <div class="flujo4">
+                            <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
                         </div>
                     </div>
-                </div>
+            </div>
+            <form action="Cerrar" method="post">
+            <button class="btn btn-secondary" type="submit" value="Cerrar Sesión" id="salir">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2vw" height="5vh" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                  </svg>    
+            </button>
+        </form>
+            </header>
             <nav>
                 <div class="nav-container">
-                        <div class="fontdiv"><h2>Bitácora</h2></div>
+                    <p class="ttl">Bitacora</p>
                 </div>
             </nav>
-            
-            <div class="classform2">
-                <form class="form" method="POST">
-                <label for="tipousu" class="small-text">Filtrar por formulario: </label>
-                <select id="tipousu" name="filform" class="inputf2" required>
-                    <option value="1">Programaci&oacuten Intermedia</option>
-                    <option value="2">Base de datos</option>
-                </select>
-                <br>
-                <label for="tipousu" class="small-text">Filtrar por fecha: </label>
-                <select id="tipousu" name="filfch" class="inputf2" required>
-                    <option value="desc">M&aacutes reciente</option>
-                    <option value="asc">Menos reciente</option>
-                </select>
-                <button type="button" onclick="" class="Botona">Registrar usuario</button>
-                </form>
-            </div>
-            
+            <div class="alincentro"><p class="ins">A continuación se presentan los cambios realizados en los formularios</p></div>
             <table class="bitacora">
             <tr>
                 <th>Fecha de modificación</th>
@@ -132,7 +113,9 @@
             <%
             if(reg==0){
             %>
-            <td colspan="6"><h4>Sin cambios por reportar, vuelva mas tarde :)</h4></td>
+            <tr>
+            <td colspan="6"><h4>Sin cambios por reportar, vuelva mas tarde</h4></td>
+            </tr>
             <%
                 }
             for(int i=0; i<reg;i++){

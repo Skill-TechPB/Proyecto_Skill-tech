@@ -75,7 +75,7 @@ String x;
             
             
 
-            if (rs.next()) {
+                if (rs.next()) {
                 // El usuario existe en la base de datos
                 int habilitado = rs.getInt("usu_hab");
                 if(habilitado == 0){
@@ -106,7 +106,7 @@ String x;
                     if (rs.next()){
                         String tokensito = rs.getString("usu_tk");
                     if(tokensito != null){
-                        response.sendRedirect("graficas.jsp");
+                        response.sendRedirect("graficasProf.jsp");
                         profesorRs.close();
                         profesorPst.close();
                         tkst.close();

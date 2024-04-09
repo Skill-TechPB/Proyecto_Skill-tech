@@ -31,14 +31,6 @@
     <header>
         <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
     </header>
-    <nav>
-        <div style="width: 100%; height: 100%; padding-bottom: 13px; padding-left: 24px; padding-right: 808px; background: white; box-shadow: 0px -3px 0px #1589EE inset; justify-content: flex-start; align-items: center; display: inline-flex">
-        <div style="justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
-            
-            <a href="#"><div class="fontdiv">Inicio de sesion / Registro</div></a>
-        </div>
-
-    </nav>
     <div class="row">
         <section>
             <div class="layoutbl">
@@ -50,9 +42,10 @@
                     <form class="formsa" id="formsa" action="TokenServlet" method="POST" >
                       <br>
                       <input type="password" id="Token" name="token" placeholder="Token" class="inputfb" required>
-                     
+                      <input style="display: none;" type="text" name="anio" value="<%=anio%>" disabled>
+                      <input style="display: none;" type="text" name="id" value="<%=idUsuario%>" disabled>
                       <br><br><br>
-                        <div class="alinearegis"><input type="button" onclick="validarToken()" id="login" value="Ingresar" style="border: #000000 solid; border-radius: 11px; color: #FFF; background-color: #347499; padding: 11px 25px;"></div>
+                        <div class="alinearegis"><input type="button" class="juan" onclick="validarToken()" id="login" value="Ingresar"></div>
                       </form>
                 </div>
             </div>
@@ -61,9 +54,27 @@
         
     </div>
 
-    <footer id="alinearizq">
-      <a href="index.html"><div class="Botona">Regresar</div></a>
-    </footer>
-
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <script src="js/script.js"></script>
   </body>
 </html>

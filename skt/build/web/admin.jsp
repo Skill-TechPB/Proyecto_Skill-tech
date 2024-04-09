@@ -178,7 +178,7 @@ String mensajeselec2="";
                         </div>
                     </div>
             </div>
-
+            
     </body>
 <script>
   const checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');

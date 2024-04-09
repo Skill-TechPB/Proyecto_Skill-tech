@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
 }
@@ -9,7 +8,80 @@ body {
     float: left;
     margin-left: 4vw;
 }
+header {
+    padding: 1vh;
+    background-color: rgb(0, 43, 93);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw;
+    height: 12vh;
+}
+#salir{
+    background: #ffffff;
+}
+.ttl{
+    color: #000000;
+    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+    margin-top: -7vh;
+    /*background: #FF5733;*/
 
+}
+.ttl2{
+    color: #000000;
+    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+    /*background: #004081;*/
+    margin-top: 7vh;
+    margin-left: -49vw;
+}
+.nav-container {
+    width: 100%;
+    display: flex;
+    height: 18vh;
+    justify-content: flex-start;
+    align-items: center;
+    /*background: rgb(0, 255, 128);*/
+    box-shadow: 0px -1px 0px rgb(0, 43, 93) inset;
+}
+.ttl{
+    color: #000000;
+    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+
+}
+.opcn2 {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.2vw;
+    font-weight: 700;
+    padding: .8vh 1vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    /*
+    margin-left: 70vw;
+    margin-top: -7vh;*/
+  }
+  .opcn2:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn2:active {
+    transform: scale(0.95);
+  }
+
+nav {
+    display: flex;
+    flex-direction: row;
+    /*background-color: #0067c4;*/
+    height: 18vh;
+}
 .cecyt9 {
     height: 20vh;
     width: 14vw;
@@ -45,7 +117,24 @@ body {
 .bold{
     font-weight: bold;
 }
-
+.opcn {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 2vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+  }
+  .opcn:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn:active {
+    transform: scale(0.95);
+  }
 .Botonpdf {
     text-align: center;
     font-size: 22px;
@@ -67,19 +156,26 @@ a{
     text-decoration: none;
     color: inherit;
 }
+.barra{
+    width: 100%; 
+    height: 8vh;
+    /*background: rgb(0, 255, 68); */
+    /*box-shadow: 0px -3px 0px #1589EE inset;*/
+}
 
 .flujo {
     height: 5vh;
     width: 20vw;
     margin-top: 1vh;
 }
-.flujo2 {
-    margin-left: 20vw;
-    height: 5vh;
-    width: 20vw;
-    margin-top: -5vh;
-}
 
+.flujo2 {
+    /*background: #FF5733;*/
+     margin-left: 3vw;
+     height: 6.3vh;
+     width: 12vw;
+     top: 5vh;
+ }
 .flujo21 {
     margin-left: 10vw;
     height: 5vh;
@@ -93,8 +189,123 @@ a{
     margin-top: -5vh;
 }
 .flujo31 {
-    margin-left: 20vw;
+    /*background: #1589EE;*/
+    margin-left: 15.5vw;
+    height: 6.3vh;
+    width: 12vw;
+    margin-top: -6.3vh;
+}
+
+
+.flujoal{
+   /* background: #FF5733;*/
+    margin-left: 77vw;
+    height: 6.3vh;
+    width: 12vw;
+    margin-top: -5.7vh;
+}
+.flujo4{
+
+    margin-left: 45vw;
     height: 5vh;
     width: 20vw;
     margin-top: -5vh;
+}
+
+.imgflujo {
+    margin-left: 1vw;
+    width: 3vw;
+    height: 6vh;
+}
+
+.txtflujo {
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 5vw;
+    font-size: 1.3vw;
+}
+
+.imgflujo2 {
+    width: 3vw;
+    height: 6vh;
+}
+.txtflujo2 {
+    margin-top: -5vh;
+    color: #ffffff;
+    margin-left: 4vw;
+    font-size:1.3vw;
+}
+.imgflujo3 {
+    width: 3vw;
+    height: 6vh;
+}
+.txtflujo3 {
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 4vw;
+    font-size:1.3vw;
+}
+.imgflujo4 {
+    width: 3vw;
+    height: 6vh;
+}
+.txtflujo4{
+    margin-top: -5vh;
+    color: #ffffff;
+    margin-left: 4vw;
+    font-size:1.3vw;
+}
+
+
+.flujo2 .imgflujo2, .flujo2 .txtflujo2,
+.flujo31 .imgflujo4, .flujo31 .txtflujo4 {
+filter: brightness(3); /* Ajusta el valor para aumentar el brillo según tu preferencia */
+/* También puedes agregar otras propiedades como sombra o animaciones para un efecto más llamativo si lo deseas */
+}
+
+/* Si quieres que el efecto sea más evidente al pasar el ratón sobre ellos, puedes añadir reglas de hover */
+.flujo2:hover .imgflujo2, .flujo2:hover .txtflujo2,
+.flujo31:hover .imgflujo4, .flujo31:hover .txtflujo4 {
+filter: brightness(4); /* Ajusta el valor para aumentar el brillo al pasar el ratón */
+}
+
+.flujo2 a {
+text-decoration: none;
+}
+
+.flujo31 a {
+text-decoration: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: fixed;
+    top: 8vh;
+    right: 0;
+    background-color: #004081;
+    border: 1px solid #000000;
+    padding: 10px;
+    z-index: 1;
+}
+
+.offcanvas-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Alinea los elementos al final del contenedor */
+    align-items: center;
+    padding: 10px;
+}
+
+.offcanvas-header div {
+    margin-bottom: 10px;
+}
+
+.vertical-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.offcanvas.offcanvas-end {
+    width: 50%; /* Cambia el valor según tus necesidades */
 }
