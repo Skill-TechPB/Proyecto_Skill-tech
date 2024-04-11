@@ -5,7 +5,7 @@
         const textoInput = document.getElementById('Nombrepr');
         var formatoPass= /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/;
         const valorInput = textoInput.value;
-        const soloLetras = /^[A-Za-z]+$/;
+        const soloLetras = /^[a-zA-Z\s\p{P}]+$/;
         var formulario = document.querySelector('.form');
         var botonRegistro = document.querySelector('.Botona');
         // Validaciones
@@ -52,4 +52,14 @@
     function esCorreoValido(correo) {
         var expresionCorreo = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/;
         return expresionCorreo.test(correo);
+    }
+        function mostrarCodigo() {
+        var selectElement = document.getElementById("tipousu");
+        var codigoDiv = document.getElementById("codigo_oculto");
+        
+        if (selectElement.value == "1") { // Si la opción seleccionada es "Profesor"
+            codigoDiv.style.display = "block"; // Mostrar el código
+        } else {
+            codigoDiv.style.display = "none"; // Ocultar el código
+        }
     }

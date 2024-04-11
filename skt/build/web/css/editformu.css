@@ -10,12 +10,12 @@ body {
 
 header {
     padding: 1vh;
-    background-color: rgb(0, 43, 93);
+    background-color: #283447;
+    height: 13vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2vw;
-    height: 12vh;
 }
 
 header .h21 {
@@ -25,48 +25,16 @@ header .h21 {
     margin-right: 69vw;
 }
 
-.barra{
-    width: 100%; 
-    height: 8vh;
-    /*background: rgb(0, 255, 68); */
-    /*box-shadow: 0px -3px 0px #1589EE inset;*/
-    justify-content: flex-start; 
-    align-items: center; 
-    display: inline-flex;
-}
 
 .nav-container {
     width: 100%;
+    padding: 13px 24px;
+    background: white;
+    box-shadow: 0px -3px 0px #1589EE inset;
     display: flex;
-    height: 10vh;
     justify-content: flex-start;
     align-items: center;
 }
-.ttl{
-    color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
-    padding-left: 4vw;
-    padding-right: 2vw;
-    /*background: #FF5733;*/
-}
-.alincentro{
-    padding-left: 10%;
-    height: 8vh;
-    width: 95vw;
-    margin-left:1vw;
-    margin-top: 1vh;
-    /*background:#ff0000;*/
-    font-size: 1.3vw;
-    color: #000000;
-    }
-
-.ins{
-    font-size: 1.6vw;
-    /*background-color: #004081;*/
-    margin-left: -7vw;
-    font-weight: 700;
-    margin-top: 4vh;
-    }
 .h21 {
     color: #ffffff;
     font: normal bold 2vw/1 "Open Sans", sans-serif;
@@ -75,19 +43,18 @@ h2{
     font-size: 2.5vw;
 }
 .fontdiv {
-    /*background: #004081;*/
-    color: #000000;
-    font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
+	color: #000000;
+	font: normal bold;
+	font-family: 'Open Sans', sans-serif;
 }
+
 
 nav {
     display: flex;
     flex-direction: row;
-    /*background-color: #0067c4;*/
+    background-color: #0067c4;
     height: 8vh;
 }
-
 
 .row {
     display: flex;
@@ -232,12 +199,11 @@ h2{
     height: 50vh;
     margin: 1vw;
     padding: 1vw;
-    background: rgb(0, 43, 93);
+    border: 2px solid #347499;
     border-radius: 10px;
     margin-left: 15vw;
     margin-top: 1vh;
-  }
-
+}
 
 .op2 {
     display: flex;
@@ -247,41 +213,28 @@ h2{
     width: 30vw;
     height: 50vh;
     padding: 1vw;
-    background: rgb(0, 43, 93);
+    border: 2px solid #347499;
     border-radius: 10px;
     margin-left: 55vw;
     margin-top: -52.5vh;
-  }
- 
-
+}
 .op1 p,
 .op2 p {
+
+    font-size: 2vw;
     margin-top: 2vh;
 }
 
-.op1 img{
-    width: 13vw; /* Cambia este valor según el tamaño que desees */
+.op1 img,
+.op2 img {
+    width: 10vw; /* Cambia este valor según el tamaño que desees */
     height: 25vh;
-    margin-top: 2vh;
-}
-
-#dtb{
-   color: #ffffff; 
-}
-.capt1{
-    width: 13vw; /* Cambia este valor según el tamaño que desees */
-    height: 25vh;
-    margin-top: 2vh;
-}
-.op1:hover,
-.op2:hover {
-    transform: scale(1.1); /* Aumenta el tamaño del div al 110% */
-    transition: transform 0.3s ease; /* Agrega una transición suave */
+    margin-top: 4vh;
 }
 
 .imglogo {
-    width: 2vw;
-    height: 5vh;
+    width: 25px;
+    height: 25px;
     align-content: center;
     text-align: center;
     justify-content: flex-start;
@@ -295,74 +248,41 @@ h2{
     width: 20vw;
     margin-top: 1vh;
 }
+
+.flujo2 {
+    margin-left: 18vw;
+    margin-top: -5vh;
+}
+
+.imgflujo,
+.imgflujo2 {
+    width: 3vw;
+    height: 6vh;
+}
 .flujo21 {
-   /* background: #FF5733;*/
-    margin-left: 3vw;
-    height: 7vh;
-    width: 12vw;
-    margin-top: -.5vh;
-}
-.flujo3 {
-   /* background: rgb(255, 145, 0);*/
-    margin-left: 15vw;
-    height: 7vh;
-    width: 20vw;
-    margin-top: -7vh;
-}
-
-.opla{
-    border-radius: 10px;
-   background-color: #ffffff;
+                margin-left: 28vw;
+                height: 5vh;
+                width: 20vw;
+                margin-top: -5vh;
+            }
+.imgflujo3 {
+                width: 3vw;
+                height: 6vh;
+            }
+.txtflujo,
+.txtflujo2 {
+    margin-top: -6vh;
     color: #000000;
-    font-size: 1.5vw;
-    font-weight: 700;
-    padding: .8vh 3vw;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    transition: 0.3s ease-in-out;
-  }
-  .opla:hover {
-    letter-spacing: 3px;
-  }
-  
-  .opla:active {
-    transform: scale(0.95);
-  } 
-  .flujo4{
-    /*background: brown;*/
-    margin-left: 35.2vw;
-    height: 7vh;
-    width: 12vw;
-    margin-top: -7vh;
+    font-size: 1.3vw;
+    margin-left: 4vw;
 }
-
-.opcn {
-    border-radius: 10px;
-   background-color: #ffffff;
-    color: #000000;
-    font-size: 1.5vw;
-    font-weight: 700;
-    padding: .8vh 2vw;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    transition: 0.3s ease-in-out;
-  }
-  .opcn:hover {
-    letter-spacing: 3px;
-  }
-  
-  .opcn:active {
-    transform: scale(0.95);
-  }
-
-  #salir{
-    background: #ffffff;
-    color: #000000;
-}
-
+.txtflujo3 {
+                margin-top: -6vh;
+                color: #000000;
+                margin-left: 4vw;
+                font-size:1.3vw;
+            }
 .bd,
 .poo {
     font-size: 2vw; /* Puedes ajustar este valor según tus preferencias */
-    font-weight: 700;
-    color: #ffffff;
 }

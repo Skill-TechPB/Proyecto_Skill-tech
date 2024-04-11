@@ -21,7 +21,8 @@
             }
         %>
         <%
-            if (tipou == null || tipou.equals("1") || tipou.equals("4")) {
+            //Nota: hay un if que tiene que ver con el profe, pero como esta pagina ya no admite a este usuario, es inservible
+            if (tipou == null || tipou.equals("0") || tipou.equals("1")) {
             response.sendRedirect("index.html");
             return;
         }
@@ -32,40 +33,20 @@
         <%
             Conexion pal = new Conexion();
             Connection con = pal.getConnection();
-            Statement stmth = con.createStatement();
-            Statement stmt2 = con.createStatement();
-            Statement stmt3 = con.createStatement();
-            ResultSet rs = stmth.executeQuery("select rbd_niv FROM resultadobd"); 
-            ResultSet rs2 = stmt2.executeQuery("select rpo_niv FROM resultadopo");
-       
-            String nivel, nivel2,nombre;
+            Statement stmt = con.createStatement();
+            ResultSet ip = stmt.executeQuery("select profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+""); 
+            String nivel="", nivel2="",nombre="";
             int pooavz = 0, pooint = 0, poomed = 0, poomin = 0;
             int bdavz = 0, bdint = 0, bdmed = 0, bdmin = 0;
-            while (rs.next()) {
-                nivel = rs.getString("rbd_niv");
-                if(nivel.equals("3")) {
-                    pooavz++;
-                } else if(nivel.equals("2")) {
-                    pooint++;
-                } else if(nivel.equals("1")) {
-                    poomed++;
-                } else if(nivel.equals("0")) {
-                    poomin++;
-                }
-            }       
+            int z=0;
+            String materia[] = new String[2];
+            z=0;
+            while(ip.next()){
+                nombre = ip.getString("pro_nombre");
+                materia[z]=ip.getString("asi_nombre");
+                z=z+1;
+            }z=0;
             
-            while (rs2.next()) {
-                nivel2 = rs2.getString("rpo_niv");
-                if(nivel2.equals("3")) {
-                    bdavz++;
-                } else if(nivel2.equals("2")) {
-                    bdint++;
-                } else if(nivel2.equals("1")) {
-                    bdmed++;
-                } else if(nivel2.equals("0")) {
-                    bdmin++;
-                }
-            }
         %>
         <html lang="en">
         <head>
@@ -78,7 +59,7 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX  6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
             <link rel="shortcut icon" href="./assets/logo1.png" />
         </head>
@@ -118,25 +99,15 @@
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
                 <div class="barra">
                     <div class="fontdiv">
-                        <%if(tipou.equals("0") ){%>
-                        
-                        <div class="flujo21">
-                            <a href="graficas.jsp"><button type="button" class="opcn">Gráficas Per.</button></a>
+                        <div class="flujo">
+                            <a href="Editform.jsp"> <img class="imgflujo" src="./assets/formulario-de-contacto.png"><P class="txtflujo">Edición de formularios</P></a>
                         </div>
-                        <div class="flujo31">
-                            <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
+                        <div class="flujo">
+                            <a href="graficas.jsp"><img class="imgflujo2" src="./assets/grafico-circular (1).png"><P class="txtflujo2">Gráficas</P></a>
                         </div>
-                        <%}else if(tipou.equals("2")){%>            
-                        <div class="flujo21">
-                            <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas Per.</button></a>
+                    <div class="flujo21">
+                            <a href="bita.jsp"><img class="imgflujo3" src="./assets/archivo.png"><P class="txtflujo3">Bitacora</P></a>
                         </div>
-                        <div class="flujo3">
-                            <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
-                        </div>  
-                        <div class="flujo4">
-                            <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
-                        </div>
-                        <%}%>
                     </div>
             </div>
             <form action="Cerrar" method="post">
@@ -152,21 +123,29 @@
                 ?
                 </button>
             <nav>
-               <div class="nav-container">
-                    <%if(tipou.equals("1") ){%>
-                        <p class="ttl">Graficas Generales </p>
-                        
-                        <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
-                    <%}else if(tipou.equals("2")){%>
-                    <p class="ttlo">Graficas Generales</p>
-                    <p class="ttlo2">de los Profesores</p>
-                    <button class="opn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
-                    <%}%>
+                <div class="nav-container">
+                    <p class="ttl">Graficas Generales</p>
+                    <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
                 </div>
             </nav>
                 <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
             <section class="bodyg">
-            <div class="a">
+                
+            <%if(materia[0].equals("POO") && materia[1]== null){
+                ResultSet rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
+                while (rs.next()) {
+                    nivel = rs.getString("rpo_niv");
+                    if(nivel.equals("3")) {
+                        pooavz++;
+                    } else if(nivel.equals("2")) {
+                        pooint++;
+                    } else if(nivel.equals("1")) {
+                        poomed++;
+                    } else if(nivel.equals("0")) {
+                        poomin++;
+                    }
+                }%>
+                <div class="a">
                 <div class="titulo">Programación Intermedia</div>
                     <div id="graficaPOO" class="grafica-container">
                     <canvas class="grafica"></canvas>
@@ -189,8 +168,22 @@
                         <p class="nvl">Minimo</p>
                     </div>
                 </div>
-            </div>
-            <div class="a">
+                </div>
+                <%} else if(materia[0].equals("BD") && materia[1]== null){
+                ResultSet rs2 = stmt.executeQuery("select rbd_niv FROM resultadobd");
+                while (rs2.next()) {
+                    nivel2 = rs2.getString("rbd_niv");
+                    if(nivel2.equals("3")) {
+                        bdavz++;
+                    } else if(nivel2.equals("2")) {
+                        bdint++;
+                    } else if(nivel2.equals("1")) {
+                        bdmed++;
+                    } else if(nivel2.equals("0")) {
+                        bdmin++;
+                    }
+                }%>
+                <div class="a">
                 <div class="titulo">Bases de Datos</div>
                     <div id="graficaBD" class="grafica-container">
                     <canvas class="grafica"></canvas>
@@ -213,9 +206,84 @@
                         <p class="nvl">Minimo</p>
                     </div>
                 </div>
-            </div>
+                </div>
+                <%} else {
+                ResultSet rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
+                while (rs.next()) {
+                    nivel = rs.getString("rpo_niv");
+                    if(nivel.equals("3")) {
+                        pooavz++;
+                    } else if(nivel.equals("2")) {
+                        pooint++;
+                    } else if(nivel.equals("1")) {
+                        poomed++;
+                    } else if(nivel.equals("0")) {
+                        poomin++;
+                    }
+                }       
+                ResultSet rs2 = stmt.executeQuery("select rbd_niv FROM resultadobd");
+                while (rs2.next()) {
+                    nivel2 = rs2.getString("rbd_niv");
+                    if(nivel2.equals("3")) {
+                        bdavz++;
+                    } else if(nivel2.equals("2")) {
+                        bdint++;
+                    } else if(nivel2.equals("1")) {
+                        bdmed++;
+                    } else if(nivel2.equals("0")) {
+                        bdmin++;
+                    }}%>
+                <div class="a">
+                <div class="titulo">Programación Intermedia</div>
+                    <div id="graficaPOO" class="grafica-container">
+                    <canvas class="grafica"></canvas>
+                </div>
+                <div class="layougr">
+                    <div class="conti" id="cnt">
+                        <img src="assets/recavanzado.jpg" class="alinearrec">
+                        <p class="nvl"> Avanzado </p>
+                    </div>
+                    <div class="conti2">
+                        <img src="assets/recintermedio.jpg" class="alinearrec">
+                        <p class="nvl">Intermedio </p>
+                    </div>
+                    <div class="conti3">
+                        <img src="assets/recbasico.jpg" class="alinearrec">
+                        <p class="nvl">Basico</p>
+                    </div>
+                    <div class="conti4">
+                        <img src="assets/recminimo.jpg" class="alinearrec">
+                        <p class="nvl">Minimo</p>
+                    </div>
+                </div>
+                </div>
 
-        </section>
+                <div class="a">
+                <div class="titulo">Bases de Datos</div>
+                    <div id="graficaBD" class="grafica-container">
+                    <canvas class="grafica"></canvas>
+                </div>
+                <div class="layougr">
+                    <div class="conti" id="cnt">
+                        <img src="assets/recavanzado.jpg" class="alinearrec">
+                        <p class="nvl"> Avanzado </p>
+                    </div>
+                    <div class="conti2">
+                        <img src="assets/recintermedio.jpg" class="alinearrec">
+                        <p class="nvl">Intermedio </p>
+                    </div>
+                    <div class="conti3">
+                        <img src="assets/recbasico.jpg" class="alinearrec">
+                        <p class="nvl">Basico</p>
+                    </div>
+                    <div class="conti4">
+                        <img src="assets/recminimo.jpg" class="alinearrec">
+                        <p class="nvl">Minimo</p>
+                    </div>
+                </div>
+                </div>
+                <%}%>
+            </section>
             <script>
                 var NivAvanz = "<%=pooavz%>";
                 var Nivint = "<%=pooint%>";
@@ -278,6 +346,16 @@
         myInput.focus()
         })
             </script>
-
+        <%
+        //IMPORTANTE
+        pooavz = 0;
+        pooint = 0;
+        poomed = 0;
+        poomin = 0;
+        bdavz = 0;
+        bdint = 0;
+        bdmed = 0;
+        bdmin = 0;
+        %>
         </body>
         </html>

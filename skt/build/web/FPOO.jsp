@@ -389,7 +389,7 @@
            <hr class="line2">
            <br>
     <footer>
-           <input type="button" onclick="valid1()" value="Enviar" id="Envio" class="opcn"> 
+           <input type="button" onclick="valid1()" value="Enviar" id="Envio"> 
     </footer>
 
     </form> 

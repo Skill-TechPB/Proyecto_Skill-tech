@@ -23,7 +23,7 @@
             int pooavz = 0, pooint = 0, poomed = 0, poomin = 0;
             int bdavz = 0, bdint = 0, bdmed = 0, bdmin = 0;
             int z=0;
-            String nivel, nivel2,nombre;
+            String nivel="", nivel2="",nombre="";
             String materia[] = new String[2];
         %>
         <!DOCTYPE html>
@@ -80,9 +80,16 @@
                 </div>
                 <div class="offcanvas-body">
                     <form method="POST" action="gen">
-                        <a><input class="opcn3" type="submit" value="2020" name="gene"></a>      
-                        <a><input class="opcn3" type="submit" value="2021" name="gene1"></a>
-                        <a><input class="opcn3" type="submit" value="2022" name="gene2"></a>
+                        <a><input class="opcn3" type="submit" value="2024" name="gene"></a>      
+                        <a><input class="opcn3" type="submit" value="2025" name="gene1"></a>
+                        <a><input class="opcn3" type="submit" value="2026" name="gene2"></a>
+                        <a><input class="opcn3" type="submit" value="2027" name="gene3"></a>      
+                        <a><input class="opcn3" type="submit" value="2028" name="gene4"></a>
+                        <a><input class="opcn3" type="submit" value="2029" name="gene5"></a>
+                        <a><input class="opcn3" type="submit" value="2030" name="gene6"></a>
+                        <a><input class="opcn3" type="submit" value="2031" name="gene7"></a>
+                        <a><input class="opcn3" type="submit" value="2032" name="gene8"></a>
+                        <a><input class="opcn3" type="submit" value="2033" name="gene9"></a>      
                     </form>
                 </div>
               </div>
@@ -92,25 +99,12 @@
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
                 <div class="barra">
                     <div class="fontdiv">
-                        <%if(tipou.equals("1") ){%>
-                        
                         <div class="flujo2">
-                            <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
+                            <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas</button></a>
                         </div>
                         <div class="flujo31">
                             <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
                         </div>
-                        <%}else if(tipou.equals("2")){%>            
-                        <div class="flujo21">
-                            <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
-                        </div>
-                        <div class="flujo3">
-                            <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
-                        </div>  
-                        <div class="flujo4">
-                            <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
-                        </div>
-                        <%}%>
                     </div>
             </div>
             <form action="Cerrar" method="post">
@@ -127,21 +121,15 @@
                 </button>
             <nav>
                <div class="nav-container">
-                    <%if(tipou.equals("1") ){%>
                         <p class="ttl">Graficas Generales del profesor:</p>
-                        <p class="ttl2"><%=nombre%></p>
+                        <p class="ttl"><%=nombre%></p>
                         <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
-                    <%}else if(tipou.equals("2")){%>
-                    <p class="ttlo">Graficas Generales</p>
-                    <p class="ttlo2">de los Profesores</p>
-                    <button class="opn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
-                    <%}%>
                 </div>
             </nav>
             <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
             <section class="bodyg">
                 <%if(materia[0].equals("POO") && materia[1]== null){
-                ResultSet rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id where egr_pro.pro_id="+profeID+"");
+                ResultSet rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+"");
                 while (rs.next()) {
                     nivel = rs.getString("rpo_niv");
                     if(nivel.equals("3")) {
@@ -179,7 +167,7 @@
                 </div>
                 </div>
                 <%} else if(materia[0].equals("BD") && materia[1]== null){
-                ResultSet rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id where egr_pro.pro_id="+profeID+"");
+                ResultSet rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+"");
                 while (rs2.next()) {
                     nivel2 = rs2.getString("rbd_niv");
                     if(nivel2.equals("3")) {
@@ -217,7 +205,7 @@
                 </div>
                 </div>
                 <%} else {
-                ResultSet rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id where egr_pro.pro_id="+profeID+"");
+                ResultSet rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+"");                
                 while (rs.next()) {
                     nivel = rs.getString("rpo_niv");
                     if(nivel.equals("3")) {
@@ -230,7 +218,7 @@
                         poomin++;
                     }
                 }       
-                ResultSet rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id where egr_pro.pro_id="+profeID+"");
+                ResultSet rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+"");
                 while (rs2.next()) {
                     nivel2 = rs2.getString("rbd_niv");
                     if(nivel2.equals("3")) {
@@ -355,6 +343,16 @@
             myInput.focus()
             })
             </script>
-
+        <%
+        //IMPORTANTE
+        pooavz = 0;
+        pooint = 0;
+        poomed = 0;
+        poomin = 0;
+        bdavz = 0;
+        bdint = 0;
+        bdmed = 0;
+        bdmin = 0;
+        %>
         </body>
         </html>

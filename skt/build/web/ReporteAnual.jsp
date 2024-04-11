@@ -20,7 +20,7 @@
 <%String aniorep = (String) sesion.getAttribute("reporte");%>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
 <%
-   if(tipou == null|| tipou.equals("0") || tipou.equals("3")|| tipou.equals("2")){
+   if(tipou == null|| tipou.equals("0") || tipou.equals("3")|| tipou.equals("1")){
    response.sendRedirect("index.html");
    return;
     }
@@ -222,8 +222,6 @@ if (min != 0) {
     <img class="msdev" src="assets/logo_msdev.png">
 
 </div>
-
-<button class="pdf" onclick="">Descargar</button>
 </body>
 <%
      total = 0;

@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Base64;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -26,6 +27,12 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 /**
  *
  * @author Josue
@@ -103,6 +110,7 @@ public class regAdmin extends HttpServlet {
                         insertStatement2.executeUpdate();
                         
                         }
+                        enviarCorreo(email, "Ingreso a Skilltech", "Hola "+nameprof+" se te ha registrado en Skill-tech con el siguiente correo "+email+" y con la contraseña "+passw);
                         response.sendRedirect("admin.jsp");
                         } catch (ClassNotFoundException | SQLException ex) {
                             error = "Error al registrar/actualizar los datos: " + ex.getMessage();
@@ -184,5 +192,30 @@ private static String encryptDES(String message, String secretKey) throws Except
     }
     public static boolean validarTipoUsuario(int tpu) {
         return tpu != 1 && tpu != 2;
+    }
+     private void enviarCorreo(String destinatario, String asunto, String cuerpo) {
+        final String remitente = "skilltechpg@gmail.com";
+        final String clave = "hgchqkoequuisqkn";
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                        return new javax.mail.PasswordAuthentication(remitente, clave);
+                    }
+                });
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(remitente));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+            message.setSubject(asunto);
+            message.setText(cuerpo);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -31,6 +31,7 @@ int cont2=0;
 int reg2=0;
 String mensajeselec="";
 String mensajeselec2="";
+//onchange="mostrarCodigo()"
 %>
     <html lang="es">
 
@@ -38,9 +39,13 @@ String mensajeselec2="";
         <meta charset="utf-8">
         <title>Administrador</title>
         <link rel="stylesheet" href="css/admin2.css">
+        <link rel="stylesheet" href="css/popup.css">
         <link rel="shortcut icon" href="./assets/logo1.png" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/Admin1.js"></script>
+     <script src="js/1.js"></script>
     </head>
 
     <body>
@@ -72,21 +77,21 @@ String mensajeselec2="";
                                     <option value="2">Jefe de Academia</option>
                                 </select>
                             </div>
-                        </article>
-                        <article class="column">
-                            <div class="divalform">
+                                                        <div class="divalform">
                                 <label for="Nombrepr" class="small-text">Nombre del profesor:</label>
                                 <input type="text" id="Nombrepr" name="nombrepr" placeholder="Apellido y nombre(s)" class="inputf" required><br>
                                 <label for="Email" id="alinearizq" class="small-text">Correo electrónico:</label>
                                 <input type="email" id="Email" name="email" placeholder="ejemplo@gmail.com" class="inputf" required><br>
                                 <label for="password" id="alinearizq" class="small-text">Contraseña:</label>
                                 <input type="password" id="Pasword" name="pasword" placeholder="Contraseña" class="inputf" required>
-                                <p>
-                                    <label for="password" id="alinearizq" class="small-text">Unidades de aprendizaje:</label><br>
-                                    <input type="checkbox" id="product-1-1" name="check" value="0"> POO
-                                    <input type="checkbox" id="product-1-2" name="check" value="1"> BDR
-                                    <input type="checkbox" id="product-1-3" name="check" value="2"> Ambas
-                                </p>
+                                <div id="codigo_oculto">
+                                    <p>
+                                        <label for="password" id="alinearizq" class="small-text">Unidades de aprendizaje:</label><br>
+                                        <input type="checkbox" id="product-1-1" name="check" value="0"> POO
+                                        <input type="checkbox" id="product-1-2" name="check" value="1"> BDR
+                                        <input type="checkbox" id="product-1-3" name="check" value="2"> Ambas
+                                    </p>
+                                </div>
 
                                 <div class="footer">
                                 <button type="button" onclick="validarFormulario()" class="Botona">Registrar usuario</button>
@@ -178,7 +183,39 @@ String mensajeselec2="";
                         </div>
                     </div>
             </div>
-            
+                        <button class="chatbot-toggler">
+                <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
+                <span class="material-symbols-outlined">close</span>
+              </button>
+              <div class="chatbot">
+                <header>
+                  <h5>Chatbot</h5>
+                  <span class="close-btn material-symbols-outlined">close</span>
+                </header>
+                <ul class="chatbox">
+                  <li class="chat incoming">
+                    <span class="material-symbols-outlined">person</span>
+                    <p>Hola! 👋<br>¿Cómo puedo ayudarte?</p>
+                  </li>
+                </ul>
+                <div class="chat-input">
+                  <textarea placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+                  <span id="send-btn" class="material-symbols-rounded">send</span>
+                </div>
+              </div>
+ 
+<script>
+    function mostrarCodigo() {
+        var selectElement = document.getElementById("tipousu");
+        var codigoDiv = document.getElementById("codigo_oculto");
+        
+        if (selectElement.value == "1") { // Si la opción seleccionada es "Profesor"
+            codigoDiv.style.display = "block"; // Mostrar el código
+        } else {
+            codigoDiv.style.display = "none"; // Ocultar el código
+        }
+    }
+</script>
     </body>
 <script>
   const checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');

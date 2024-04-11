@@ -16,7 +16,7 @@
 
 
 <%
-    if (tipou == null || tipou.equals("0") || tipou.equals("4")) {
+    if (tipou == null || tipou.equals("0") || tipou.equals("3")) {
     response.sendRedirect("index.html");
     return;
 }
@@ -100,28 +100,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/Chart.min.css">
     <link rel="stylesheet" href="css/graf.css">
     <link rel="stylesheet" href="css/grafivasr2.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <link rel="shortcut icon" href="./assets/logo1.png" />
 </head>
 <body>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasRightLabel">Aquí podrá encontrar las gráficas de las generaciones disponibles dentro del sistema</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <form method="POST" action="gen">
-                <a><input class="opcn3" type="submit" value="2020" name="gene"></a>      
-                <a><input class="opcn3" type="submit" value="2021" name="gene1"></a>
-                <a><input class="opcn3" type="submit" value="2022" name="gene2"></a>
-            </form>
-        </div>
-      </div>
-
     <header>
                 
         <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
@@ -130,7 +112,7 @@
                 <%if(tipou.equals("1") ){%>
                 
                 <div class="flujo2">
-                    <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
+                    <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas</button></a>
                 </div>
                 <div class="flujo31">
                     <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
@@ -161,9 +143,7 @@
  
     <nav>
         <div class="nav-container">
-            <p class="ttl">Graficas de la Generación:</p>
-            <p class="ttl2">2021</p>
-            <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
+                <p class="ttl">Graficas de la Generación:</p>
         </div>
     </nav>
         <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
@@ -192,6 +172,7 @@
                 <p class="nvl">Minimo</p>
             </div>
         </div>
+            <canvas id="grafica"></canvas>
         </div>
         <div class="a">
             <div class="titulo">BD</div>
@@ -235,8 +216,7 @@
     <br>
     <br>
 	<footer id="alinderecha">
-
-        <a href="graficas.jsp"><button type="button" class="opn">Regresar</button></a>
+      <a href="graficas.jsp"><div class="Botona">Regresar</div></a>
     </footer>
 
  
@@ -353,19 +333,6 @@
                         }
                     }],
                 },
-                plugins: {
-            legend: {
-                labels: {
-                    font: {
-                        size: 14, // Tamaño de la fuente
-                        family: 'Arial', // Familia de fuente
-                        weight: 'bold', // Peso de la fuente (puede ser 'normal', 'bold', 'lighter', 'bolder', etc.)
-                        style: 'italic', // Estilo de la fuente (puede ser 'normal', 'italic', 'oblique')
-                    }
-                }
-            }
-        }
-
             }
         });
     </script>
@@ -430,7 +397,6 @@
                         }
                     }],
                 },
-                
             }
         });
     </script>

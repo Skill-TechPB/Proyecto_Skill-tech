@@ -191,25 +191,6 @@ header {
     justify-content: space-between;
 }
 
-.opcn {
-  border-radius: 10px;
- background-color: #ffffff;
-  color: #000000;
-  font-size: 1.5vw;
-  font-weight: 700;
-  padding: 1vh 2vw;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  transition: 0.3s ease-in-out;
-}
-.opcn:hover {
-  letter-spacing: 3px;
-}
-
-.opcn:active {
-  transform: scale(0.95);
-}
-
 .nav-container {
     width: 100%;
     padding: 13px 24px;
@@ -329,6 +310,7 @@ input {
 
 /* FORMULARIO DE PROGRAMACIÓN ORIENTADA A OBJETOS*/
 h1 {
+  
  color: rgb(255, 255, 255);
  font-size: 28px;
  font-family: 'Open Sans' sans-serif;

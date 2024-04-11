@@ -42,8 +42,6 @@
                     <form class="formsa" id="formsa" action="TokenServlet" method="POST" >
                       <br>
                       <input type="password" id="Token" name="token" placeholder="Token" class="inputfb" required>
-                      <input style="display: none;" type="text" name="anio" value="<%=anio%>" disabled>
-                      <input style="display: none;" type="text" name="id" value="<%=idUsuario%>" disabled>
                       <br><br><br>
                         <div class="alinearegis"><input type="button" class="juan" onclick="validarToken()" id="login" value="Ingresar"></div>
                       </form>
@@ -76,5 +74,5 @@
       <div class="line"></div>
     </div>
     <script src="js/script.js"></script>
-  </body>
+  </body>
 </html>

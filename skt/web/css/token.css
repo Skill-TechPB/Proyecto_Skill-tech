@@ -259,7 +259,7 @@ hr {
     height: 80vh;
     flex-shrink: 0;
     border-radius: 10px;
-    /*background-color: #000000;*/
+    background-color: #000000;
     font-family: 'Open Sans' sans-serif;
     align-self: center;
     color: #ffffff;
@@ -518,5 +518,5 @@ hr {
   }
   .lines .line:nth-child(19)::after {
 	-webkit-animation-delay: 3.5s; 
-		animation-delay: 3.5  s;
-  }
+		animation-delay: 3.5s;
+  }

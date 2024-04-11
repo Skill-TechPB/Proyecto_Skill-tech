@@ -75,7 +75,7 @@ String x;
             
             
 
-                if (rs.next()) {
+            if (rs.next()) {
                 // El usuario existe en la base de datos
                 int habilitado = rs.getInt("usu_hab");
                 if(habilitado == 0){
@@ -140,6 +140,9 @@ String x;
                         response.sendRedirect("Editform.jsp");
                         tkst.close();
                         rs.close();
+                        String jsonResponse = "{\"status\": \"ok\"}";
+                        response.setContentType("application/json");
+                        response.getWriter().write(jsonResponse.toString());
                         return;
                     }else{
                         x = generarCadenaAleatoria();
@@ -273,8 +276,8 @@ public static String generarCadenaAleatoria() {
         return cadenaGenerada.toString();
     }
 private void enviarCorreo(String destinatario, String asunto, String cuerpo) {
-        String remitente = "skilltechpg@gmail.com";
-        String clave = "hgchqkoequuisqkn";
+        final String remitente = "skilltechpg@gmail.com";
+        final String clave = "hgchqkoequuisqkn";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");

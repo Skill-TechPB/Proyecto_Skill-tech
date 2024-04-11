@@ -1,4 +1,4 @@
-    * {
+ * {
   box-sizing: border-box;
 }
 
@@ -14,6 +14,10 @@ body {
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
+}
+div.lines{
+    overflow: hidden;
+    max-width: 100%;
 }
 
 header {
@@ -98,9 +102,9 @@ h2{
 }
 
 .fontdiv {
-	color: #000000;
-	font: normal bold;
-	font-family: 'Open Sans', sans-serif;
+    color: #000000;
+    font: normal bold;
+    font-family: 'Open Sans', sans-serif;
 }
 
 nav {
@@ -389,7 +393,7 @@ nav {
     left: -50%;
   }
   100% {
-    left: 110%;
+    left: 100%;
   }
 }
 
@@ -398,7 +402,7 @@ nav {
     left: -50%;
   }
   100% {
-    left: 110%;
+    left: 100%;
   }
 }
 

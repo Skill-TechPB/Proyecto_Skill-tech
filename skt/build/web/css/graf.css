@@ -35,65 +35,23 @@
             font: normal bold 3vw/1 "Open Sans", sans-serif;
             padding-left: 4vw;
             padding-right: 2vw;
-            /*background: #FF5733;*/
-        }
-        .ttlo{
-            color: #000000;
-            font: normal bold 3vw/1 "Open Sans", sans-serif;
-            padding-left: 4vw;
-            padding-right: 2vw;
-            /*background: #FF5733;*/
 
-        }
-        
-        .opn2 {
-            border-radius: 10px;
-           background-color: #ffffff;
-            color: #000000;
-            font-size: 1.2vw;
-            font-weight: 700;
-            padding: .8vh 1vw;
-            letter-spacing: 1px;
-            text-transform: capitalize;
-            transition: 0.3s ease-in-out;
-            margin-left: 50vw;
-          }
-          .opn2:hover {
-            letter-spacing: 3px;
-          }
-          
-          .opn2:active {
-            transform: scale(0.95);
-          }
-        .ttl2{
-            color: #000000;
-            font: normal bold 3vw/1 "Open Sans", sans-serif;
-            padding-left: 4vw;
-            padding-right: 2vw;
-            /*background: #004081;*/
-            margin-top: 10vh;
-
-        }
-        .ttlo2{
-            color: #000000;
-            font: normal bold 3vw/1 "Open Sans", sans-serif;
-            padding-left: 4vw;
-            padding-right: 2vw;
-            /*background: #004081;*/
-            margin-top: 15vh;
-            margin-left: -33vw;
-        
         }
         .ins{
             font-size: 1.6vw;
-            /*background-color: #004081;*/
+            /* background-color: #004081;*/
                 margin-left: -7vw;
                 font-weight: 700;
-                margin-top: 4vh;
         }
         .h21 {
             color: #ffffff;
             font: normal bold 2vw/1 "Open Sans", sans-serif;
+        }
+        .nvl{
+            margin-top: -4vh;
+            margin-left: 3.5vw;
+            font-size:1.3vw;
+            color: #000000;
         }
         .fontdiv {
             color: #000000;
@@ -256,37 +214,17 @@
             }
            
             .flujo21 {
-                /*background: #FF5733;*/
-                margin-left: 3vw;
-                height: 6.3vh;
-                width: 12vw;
-                margin-top: -1vh;
-            }
-            .flujo3 {
-                /*background: rgb(255, 145, 0);*/
-                margin-left: 15vw;
+                margin-left: 10vw;
                 height: 5vh;
                 width: 20vw;
-                margin-top: -6.3vh;
+                margin-top: -5vh;
             }
-            .opla{
-                border-radius: 10px;
-               background-color: #ffffff;
-                color: #000000;
-                font-size: 1.5vw;
-                font-weight: 700;
-                padding: .8vh 3vw;
-                letter-spacing: 1px;
-                text-transform: capitalize;
-                transition: 0.3s ease-in-out;
-              }
-              .opla:hover {
-                letter-spacing: 3px;
-              }
-              
-              .opla:active {
-                transform: scale(0.95);
-              } 
+            .flujo3 {
+                margin-left: 32vw;
+                height: 5vh;
+                width: 20vw;
+                margin-top: -5vh;
+            }
             .flujo31 {
                 /*background: #1589EE;*/
                 margin-left: 15vw;
@@ -295,10 +233,10 @@
                 margin-top: -6vh;
             }
             .flujo4{
-                /*background: brown;*/
-                margin-left: 35.2vw;
-                height: 6.3vh;
-                width: 12vw;
+            
+                margin-left: 45vw;
+                height: 5vh;
+                width: 20vw;
                 margin-top: -5vh;
             }
 

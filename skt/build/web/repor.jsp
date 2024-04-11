@@ -6,7 +6,7 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 <% HttpSession sesion = request.getSession(true); %>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
-
+<%int idUsuario = (int) sesion.getAttribute("usu_id");%>
 <%if(sesion.isNew() || sesion==null)
     {
     response.sendRedirect("index.html");
@@ -14,7 +14,7 @@
     }
 %>
 <%
-   if(tipou == null||tipou.equals("0")||tipou.equals("3")|| tipou.equals("2")){
+   if(tipou == null|| tipou.equals("0") || tipou.equals("3")){
    response.sendRedirect("index.html");
    return;
     }
@@ -27,7 +27,11 @@ Statement stmt1;
 ResultSet rs, rs2, rs3;
 String nivel = "";
 String nivelBD="";
-double total;
+int numEgresados=0;
+int numEgresados2=0;
+String nombre="";
+String materia[] = new String[2];
+double total=0;
 double masomenos = 0;
 double regular = 0;
 double malos = 0;
@@ -37,96 +41,32 @@ double avanzado = 0;
 double intermedio =0;
 double basico = 0; 
 double min = 0;
-double total2;
- double percentBD1;
- double percentBD2;
- double percentBD3 ;
- double percentBD4 ;
+double total2=0;
+double percentBD1=0;
+double percentBD2=0;
+double percentBD3=0;
+double percentBD4=0;
  
- double porcentajePOO1 ;
- double porcentajePOO2 ;
- double porcentajePOO3 ;
- double porcentajePOO4 ;
- 
-String numEgresados;
+double porcentajePOO1=0;
+double porcentajePOO2=0;
+double porcentajePOO3=0;
+double porcentajePOO4=0;
+int z=0, x=0;
+int profeID=0;
 %>
 <%
 pal = new Conexion();
 con = pal.getConnection();
 stmt1 = con.createStatement();
 
-rs = stmt1.executeQuery("select rpo_niv FROM resultadopo");
-
-while (rs.next()) {
-    nivel = rs.getString("rpo_niv");
-    
-    if (nivel.equals("2")) {
-        masomenos++;
-    }
-    if (nivel.equals("3")) {
-        buenas++;
-    }
-    if (nivel.equals("1")) {
-        regular++;
-    }
-    if (nivel.equals("0")) {
-        malos++;   
-    } 
-}
-
-rs3 = stmt1.executeQuery("select rbd_niv FROM resultadobd");
-while (rs3.next()) {
-    nivelBD = rs3.getString("rbd_niv");
-    
-    if (nivelBD.equals("2")) {
-        intermedio++;
-    }
-    if (nivelBD.equals("3")) {
-        avanzado++;
-    }
-    if (nivelBD.equals("1")) {
-        basico++;
-    }
-    if (nivelBD.equals("0")) {
-        min++;
-    }
-}
-
-rs2 = stmt1.executeQuery("select count(*) as 'egresados' from egresado");
-if (rs2.next()) {
-    numEgresados = rs2.getString("egresados");
-} else {
-    //System.out.println("XD");
-}
-total = masomenos + buenas + regular + malos;
-
-if (buenas != 0) {
-    porcentajePOO1 = buenas / total *100;
-}
-if (masomenos != 0) {
-    porcentajePOO2 = masomenos / total *100;
-}
-if (regular != 0) {
-    porcentajePOO3 =  regular / total *100;
-}
-if (malos != 0) {
-    porcentajePOO4 =  malos / total *100;
-}
-
-total2 = avanzado + intermedio + basico + min;
-
-if (avanzado != 0) {
-    percentBD1 = avanzado / total2 *100;
-}
-if (intermedio != 0) {
-    percentBD2 =intermedio / total2 *100;
-}
-if (basico != 0) {
-    percentBD3 = basico / total2 *100;
-}
-if (min != 0) {
-    percentBD4 = min / total2 *100;
-}
+ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+"");
+            z=0;
+            while(ip.next()){
+                profeID = ip.getInt("pro_id");
+                nombre = ip.getString("pro_nombre");
+                materia[z]=ip.getString("asi_nombre");
+                z=z+1;
+            }z=0;
 %>
 
 <html lang="en">
@@ -170,29 +110,12 @@ if (min != 0) {
         <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
         <div class="barra">
             <div class="fontdiv">
-
-                    <%if(tipou.equals("1") ){%>
-                    <div class="flujo2">
-                        <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas</button></a>
-                    </div>
-                    <div class="flujo31">
-                        <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
-                    </div>
-                    <div class="flujoal">
-                        <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onclick="toggleMenu()" id="gnrcn">Generaciones</button>
-                    </div>
-                <%}else if(tipou.equals("2")){%>
-                <div class="flujo">
-                    <a href="Editform.jsp"> <img class="imgflujo" src="./assets/formulario-de-contacto.png"><P class="txtflujo">Edición de formularios</P></a>
+                <div class="flujo2">
+                    <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas</button></a>
                 </div>
-                <div class="flujo">
-                    <a href="graficas.jsp"><img class="imgflujo2" src="./assets/grafico-circular (1).png"><P class="txtflujo2">Gráficas</P></a>
+                <div class="flujo31">
+                    <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
                 </div>
-            <div class="flujo21">
-                    <a href="bita.jsp"><img class="imgflujo3" src="./assets/archivo.png"><P class="txtflujo3">Bitacora</P></a>
-                </div>
-                
-                <%}%>
             </div>
     </div>
     <form action="Cerrar" method="post">
@@ -204,14 +127,12 @@ if (min != 0) {
     </button>
 </form>
     </header>
-    <!--  <nav>
+    <nav>
         <div class="nav-container">
-            <p class="ttl">Reporte General del profesor: </p>
-            <p class="ttl2">nombre</p>
+            <p class="ttl">Reporte General del profesor: <%=nombre%> </p>
             <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onclick="toggleMenu()" id="gnrcn">Generaciones</button>
-    </div> 
-    </nav>-->
-
+    </div>
+    </nav>
     <br>
     <br>
     <div class="reportes" id="reporte">
@@ -230,27 +151,101 @@ if (min != 0) {
     <div class="text1">
         <p>La empresa MSDEV, encargada del desarrollo del sistema Skill-Tech,
             ha recopilado información a través de este sistema sobre los conocimientos de los egresados de
-            la carrera de Técnico en Programación del CECyT 9 en las materias de Programación Orientada
-            a Objetos y Bases de Datos. El propósito de esta recopilación es obtener datos cuantificables
+            la carrera de Técnico en Programación del CECyT 9 en las materias de Programación Intermedia
+            y Bases de Datos. El propósito de esta recopilación es obtener datos cuantificables
             que faciliten el análisis y respalden la toma de decisiones futuras por parte de la academia de programación.
         </p>
     </div>
-
     <br>
+    <%
+    if(tipou.equals("1")){
+    if(materia[0].equals("POO") && materia[1]== null){
+        rs = stmt1.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+"");
+        x=0;
+        while (rs.next()) {
+        nivel = rs.getString("rpo_niv");
+        x=x+1;
+        if (nivel.equals("2")) {
+            masomenos++;
+        }
+        if (nivel.equals("3")) {
+            buenas++;
+        }
+        if (nivel.equals("1")) {
+            regular++;
+        }
+        if (nivel.equals("0")) {
+            malos++;   
+        } 
+        }
+        numEgresados=x;
+        total = masomenos + buenas + regular + malos;
+        if (buenas != 0) {
+            porcentajePOO1 = buenas / total *100;
+        }
+        if (masomenos != 0) {
+            porcentajePOO2 = masomenos / total *100;
+        }
+        if (regular != 0) {
+            porcentajePOO3 =  regular / total *100;
+        }
+        if (malos != 0) {
+            porcentajePOO4 =  malos / total *100;
+        }
+    %>
     <div class="text2" id="txtbd">
-        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:<label>
-
+    <label>De una muestra de <span><%= numEgresados%></span> egresados del CECyT de Programacion Intermedia se obtuvieron los siguientes resultados:</label>
     </div>
+    <br>
     <div class="text2" id="txt1bd">
         <p class="bold">
-            PROGRAMACIÓN ORIENTADA A OBJETOS (POO):
-            
+            PROGRAMACIÓN INTERMEDIA (PI):  
         </p>
         <label> Avanzado: </label><span><%= porcentajePOO1 %></span>%
         <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
         <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
         <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
     </div>
+    <%
+    x=0;
+    } else if(materia[0].equals("BD") && materia[1]== null){
+        rs3 = stmt1.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+"");
+        x=0;
+        while (rs3.next()) {
+        x=x+1;
+        nivelBD = rs3.getString("rbd_niv");
+        if (nivelBD.equals("2")) {
+            intermedio++;
+        }
+        if (nivelBD.equals("3")) {
+            avanzado++;
+        }
+        if (nivelBD.equals("1")) {
+            basico++;
+        }
+        if (nivelBD.equals("0")) {
+            min++;
+        }
+        }
+        numEgresados=x;
+        total2 = avanzado + intermedio + basico + min;
+        if (avanzado != 0) {
+            percentBD1 = avanzado / total2 *100;
+        }
+        if (intermedio != 0) {
+            percentBD2 =intermedio / total2 *100;
+        }
+        if (basico != 0) {
+            percentBD3 = basico / total2 *100;
+        }
+        if (min != 0) {
+            percentBD4 = min / total2 *100;
+        }
+    %>
+    <div class="text2" id="txtbd">
+    <label>De una muestra de <span><%= numEgresados%></span> egresados del CECyT de Base de Datos se obtuvieron los siguientes resultados:</label>
+    </div>
+    <br>
     <div class="text2" id="txt2bd">
         <p class="bold">
             BASES DE DATOS:
@@ -268,6 +263,215 @@ if (min != 0) {
             Mínimo: <span><%= percentBD4 %></span>%
         </p>
     </div>
+    <%
+    x=0;
+    }else{
+    //aqui son los dos
+    rs = stmt1.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+"");
+        while (rs.next()) {
+        x=x+1;
+        nivel = rs.getString("rpo_niv");
+        if (nivel.equals("2")) {
+            masomenos++;
+        }
+        if (nivel.equals("3")) {
+            buenas++;
+        }
+        if (nivel.equals("1")) {
+            regular++;
+        }
+        if (nivel.equals("0")) {
+            malos++;   
+        } 
+        }
+        numEgresados=x;
+        total = masomenos + buenas + regular + malos;
+        if (buenas != 0) {
+            porcentajePOO1 = buenas / total *100;
+        }
+        if (masomenos != 0) {
+            porcentajePOO2 = masomenos / total *100;
+        }
+        if (regular != 0) {
+            porcentajePOO3 =  regular / total *100;
+        }
+        if (malos != 0) {
+            porcentajePOO4 =  malos / total *100;
+        }
+    %>
+    <div class="text2" id="txtbd">
+    <label>De una muestra de <span><%= numEgresados%></span> egresados del CECyT de la materia de Programacion Intermedia se obtuvieron los siguientes resultados:</label>
+    </div>
+    <br>
+    <div class="text2" id="txt1bd">
+        <p class="bold">
+            PROGRAMACIÓN INTERMEDIA (PI):  
+        </p>
+        <label> Avanzado: </label><span><%= porcentajePOO1 %></span>%
+        <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
+        <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
+        <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
+    </div>
+    <%
+    rs3 = stmt1.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+"");
+        while (rs3.next()) {
+        z=z+1;
+        nivelBD = rs3.getString("rbd_niv");
+        if (nivelBD.equals("2")) {
+            intermedio++;
+        }
+        if (nivelBD.equals("3")) {
+            avanzado++;
+        }
+        if (nivelBD.equals("1")) {
+            basico++;
+        }
+        if (nivelBD.equals("0")) {
+            min++;
+        }
+        }
+        numEgresados2=z;
+        total2 = avanzado + intermedio + basico + min;
+        if (avanzado != 0) {
+            percentBD1 = avanzado / total2 *100;
+        }
+        if (intermedio != 0) {
+            percentBD2 =intermedio / total2 *100;
+        }
+        if (basico != 0) {
+            percentBD3 = basico / total2 *100;
+        }
+        if (min != 0) {
+            percentBD4 = min / total2 *100;
+        }
+    %>
+    <div class="text2" id="txtbd">
+    <label>De una muestra de <span><%= numEgresados2%></span> egresados del CECyT de la materia de Base de datos se obtuvieron los siguientes resultados:</label>
+    </div>
+    <br>
+    <div class="text2" id="txt2bd">
+        <p class="bold">
+            BASES DE DATOS:
+        </p>
+        <p>
+            Avanzado: <span><%= percentBD1 %></span>%
+        </p>
+        <p>
+            Intermedio: <span><%= percentBD2 %></span>%
+        </p>
+        <p>
+            Básico: <span><%= percentBD3 %></span>%
+        </p>
+        <p>
+            Mínimo: <span><%= percentBD4 %></span>%
+        </p>
+    </div>
+    <%
+    x=0;
+    z=0;
+    }
+    //aqui va del otro usuario
+    }else if(tipou.equals("2")){
+    rs = stmt1.executeQuery("select rpo_niv FROM resultadopo");
+    while (rs.next()) {
+        nivel = rs.getString("rpo_niv");
+
+        if (nivel.equals("2")) {
+            masomenos++;
+        }
+        if (nivel.equals("3")) {
+            buenas++;
+        }
+        if (nivel.equals("1")) {
+            regular++;
+        }
+        if (nivel.equals("0")) {
+            malos++;   
+        } 
+    }
+    rs3 = stmt1.executeQuery("select rbd_niv FROM resultadobd");
+    while (rs3.next()) {
+        nivelBD = rs3.getString("rbd_niv");
+
+        if (nivelBD.equals("2")) {
+            intermedio++;
+        }
+        if (nivelBD.equals("3")) {
+            avanzado++;
+        }
+        if (nivelBD.equals("1")) {
+            basico++;
+        }
+        if (nivelBD.equals("0")) {
+            min++;
+        }
+    }
+    rs2 = stmt1.executeQuery("select count(*) as 'egresados' from egresado");
+    if (rs2.next()) {
+    numEgresados = rs2.getInt("egresados");
+    } else {
+        //System.out.println("XD");
+    }
+    total = masomenos + buenas + regular + malos;
+    if (buenas != 0) {
+        porcentajePOO1 = buenas / total *100;
+    }
+    if (masomenos != 0) {
+        porcentajePOO2 = masomenos / total *100;
+    }
+    if (regular != 0) {
+        porcentajePOO3 =  regular / total *100;
+    }
+    if (malos != 0) {
+        porcentajePOO4 =  malos / total *100;
+    }
+
+    total2 = avanzado + intermedio + basico + min;
+    if (avanzado != 0) {
+        percentBD1 = avanzado / total2 *100;
+    }
+    if (intermedio != 0) {
+        percentBD2 =intermedio / total2 *100;
+    }
+    if (basico != 0) {
+        percentBD3 = basico / total2 *100;
+    }
+    if (min != 0) {
+        percentBD4 = min / total2 *100;
+    }
+    %> 
+    <div class="text2" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
+    </div>
+    <br>
+    <div class="text2" id="txt1bd">
+        <p class="bold">
+            PROGRAMACIÓN INTERMEDIA (PI):  
+        </p>
+        <label> Avanzado: </label><span><%= porcentajePOO1 %></span>%
+        <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
+        <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
+        <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
+    </div>
+    
+    <div class="text2" id="txt2bd">
+        <p class="bold">
+            BASES DE DATOS:
+        </p>
+        <p>
+            Avanzado: <span><%= percentBD1 %></span>%
+        </p>
+        <p>
+            Intermedio: <span><%= percentBD2 %></span>%
+        </p>
+        <p>
+            Básico: <span><%= percentBD3 %></span>%
+        </p>
+        <p>
+            Mínimo: <span><%= percentBD4 %></span>%
+        </p>
+    </div>
+    <%}%> 
     <div class="text1">
         <p>
             “La obtención de estos porcentajes se realizó mediante formularios con preguntas obtenidas de exámenes a título de suficiencia las dos materias previamente mencionadas.”
@@ -291,6 +495,28 @@ if (min != 0) {
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     }
 </script>
+<%
+//IMPORTANTE
+numEgresados=0;
+numEgresados2=0;
+total=0;
+masomenos = 0;
+regular = 0;
+malos = 0;
+buenas = 0;
+avanzado = 0;
+intermedio =0;
+basico = 0; 
+min = 0;
+total2=0;
+percentBD1=0;
+percentBD2=0;
+percentBD3=0;
+percentBD4=0;
+porcentajePOO1=0;
+porcentajePOO2=0;
+porcentajePOO3=0;
+porcentajePOO4=0;
+%>
 </body>
-
 </html>

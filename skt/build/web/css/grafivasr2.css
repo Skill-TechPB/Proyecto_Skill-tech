@@ -79,13 +79,6 @@ nav {
     color: #000000;
 }
 
-.nvl{
-    margin-top: -4vh;
-    margin-left: 3.5vw;
-    font-size:1.3vw;
-    color: #000000;
-    /*background: #004081;*/
-}
   
 .BotonCe {
     background: #004081;
@@ -220,22 +213,8 @@ word-wrap: break-word
 
 .ttl{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
-    padding-left: 4vw;
-    padding-right: 2vw;
-    /*background: #FF5733;*/
-
-}
-.ttl2{
-    color: #000000;
-    font: normal bold 3 vw/1 "Open Sans", sans-serif;
-    padding-left: 4vw;
-    padding-right: 2vw;
-    /*background: #004081;*/
-    margin-top: 15vh;
-    margin-left: -44vw;
-
-} 
+    font-size: 1.5vw;
+}   
 h3 {
 color: #FFFFFF;
 font: normal bold 16px/1 "Open Sans", sans-serif;
@@ -325,15 +304,15 @@ width: 60vw;
 }
 
 .alincentro{
-    padding-left: 10%;
-    height: 8vh;
-    width: 95vw;
-    margin-left:1vw;
-    margin-top: 9vh;
-    /*background:#ff0000;*/
-    font-size: 1.3vw;
-    color: #000000;
-    }
+padding-left: 10%;
+height: 12vh;
+width: 95vw;
+margin-left:1vw;
+margin-top: 2vh;
+/*background:#000000;*/
+font-size: 1.3vw;
+color: #000000;
+}
 .alincentro h4{
 margin-left: -7vw;
 }
@@ -381,7 +360,7 @@ h2{
     letter-spacing: 1px;
     text-transform: capitalize;
     transition: 0.3s ease-in-out;
-    margin-left: 72vw;
+    margin-left: 35vw;
   }
   .opcn2:hover {
     letter-spacing: 3px;
@@ -411,34 +390,10 @@ h2{
     transform: scale(0.95);
   }
 
-  .opn{
-    border-radius: 10px;
-    background-color: rgb(0, 43, 93);
-    color: #ffffff;
-    font-size: 1.5vw;
-    font-weight: 700;
-    padding: 1.5vh 2vw;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    transition: 0.3s ease-in-out;
-    margin-bottom: 2vh;
-    margin-left: 4vw;
-    margin-top: 4vh;    
-  }
-  .opn:hover {
-    letter-spacing: 3px;
-  }
-  
-  .opn:active {
-    transform: scale(0.95);
-  }
-
-  
-
 .layougr {
     width: 10vw;
     height: 55vh;
-    /*background-color: #b70000;*/
+    /*background-color: #ffffff;*/  
     margin-left: 26.8vw;
     text-align: justify;
     margin-top: -53vh;

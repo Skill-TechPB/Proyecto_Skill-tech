@@ -100,8 +100,8 @@ String[] res = new  String[2];
         }
 }         
     private void enviarCorreo(String destinatario, String asunto, String cuerpo) {
-        String remitente = "skilltechpg@gmail.com";
-        String clave = "hgchqkoequuisqkn";
+        final String remitente = "skilltechpg@gmail.com";
+        final String clave = "hgchqkoequuisqkn";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");

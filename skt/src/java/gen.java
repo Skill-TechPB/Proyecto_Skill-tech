@@ -20,27 +20,23 @@ import javax.servlet.http.HttpSession;
 public class gen extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true); 
-        String gene = request.getParameter("gene");
-        String gene1 = request.getParameter("gene1");
-        String gene2 = request.getParameter("gene2");
-        System.out.println(gene);
-        System.out.println(gene1);
-        System.out.println(gene2);
-        if(gene!=null && gene2==null && gene2==null){
-        session.setAttribute("generacion",gene);
-        response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("graficasgen.jsp");
-        } else if(gene1!=null && gene==null && gene2==null){
-        session.setAttribute("generacion",gene1);
-        response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("graficasgen.jsp");
-        }else if(gene2!=null && gene==null && gene1==null){
-        session.setAttribute("generacion",gene2);
-        response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("graficasgen.jsp");
+        HttpSession session = request.getSession(true);
+        String generaciones[]= new String[10];
+        
+        for(int i=0;i<generaciones.length;i++){
+        if(i==0){
+        generaciones[i] = request.getParameter("gene");
         }else{
-            System.out.println("ME ESTOY SALTANDO EL IF");
+        generaciones[i] = request.getParameter("gene"+i);
+        }
+        }
+        
+        for(int i=0;i<generaciones.length;i++){
+        if(generaciones[i]!= null){
+        session.setAttribute("generacion",generaciones[i]);
+        response.setContentType("text/html;charset=UTF-8");
+        response.sendRedirect("graficasgen.jsp");    
+        }
         }
     }
 
