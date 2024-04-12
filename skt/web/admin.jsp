@@ -83,7 +83,7 @@ String mensajeselec2="";
                         <article class="column">
                             <div class="divalform2">
                                 <label for="tipousu" class="small-text">Tipo de usuario a crear:</label>
-                                <select id="tipousu" name="tipou" class="inputf2" required onchange="">
+                                <select id="tipousu" name="tipou" class="inputf2" required onchange="mostrarCodigo()">
                                     <option  value="" selected disabled hidden>Selecciona una opción</option>
                                     <option  value="1">Profesor</option>
                                     <option value="2">Jefe de Academia</option>
