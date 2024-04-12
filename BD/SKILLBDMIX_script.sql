@@ -54,7 +54,7 @@ for_id integer not null auto_increment primary key,
 for_nombre varchar(120) CHARACTER SET utf8 COLLATE utf8_spanish_ci not null,
 for_url varchar(120)
 )engine=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-insert into formulario(for_nombre, for_url) values("FORMULARIO DE PROGRAMACIÓN ORIENTADA A OBJETOS","C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fpoo.txt"),("FORMULARIO DE BASES DE DATOS RELACIONALES","C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fbd.txt");
+insert into formulario(for_nombre, for_url) values("FORMULARIO DE PROGRAMACIÓN INTERMEDIA","C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fpoo.txt"),("FORMULARIO DE BASES DE DATOS RELACIONALES","C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fbd.txt");
 #
 
 create table elementoform(

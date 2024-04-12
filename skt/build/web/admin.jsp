@@ -39,67 +39,84 @@ String mensajeselec2="";
         <meta charset="utf-8">
         <title>Administrador</title>
         <link rel="stylesheet" href="css/admin2.css">
+        <link rel="stylesheet" href="css/estiloadmin.css">
         <link rel="stylesheet" href="css/popup.css">
         <link rel="shortcut icon" href="./assets/logo1.png" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/Admin1.js"></script>
-     <script src="js/1.js"></script>
     </head>
 
     <body>
 
         <header>
-            <img src="./assets/logo1.png" class="imglogo" alt="Logo">
-                <div class="Boton" id="alinearder"><form action="Cerrar" method="post"><input type="submit" value="Cerrar Sesión" class="BotonCe"></form></div>
-            <p class="h21">Skill-tech</p>
+        
+            <h1 class="imglogo"><img src="./assets/logo1.png" class="logo"/></h1>
+            <div class="barra">
+                <div class="fontdiv">
+                    <div class="flujo2">
+                        <a href="gradmin.html"><button type="button" class="opcn">Gráficas</button></a>
+                    </div>
+                    <div class="flujo31">
+                        <a href="admin.html"><button type="button" class="opcn">Administración</button></a>
+                    </div>
+                </div>
+        </div>
+        <form action="Cerrar" method="post">
+        <button class="btn btn-secondary" type="submit" value="Cerrar Sesión" id="salir">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2vw" height="5vh" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+              </svg>    
+        </button>
+    </form>
         </header>
 
         <nav>
             <div class="nav-container">
-                <a href="#">
-                    <div class="fontdiv"><h2 class="h24">Creación y deshabilitación de usuarios</h2></div>
-                </a>
+                <p class="ttl">Creación y deshabilitación de usuarios</p>
             </div>
         </nav>
 
             <div class="row">
                     <form class="form" action="regAdmin" method="POST">
-                        <div class="divins">
-                        <h2 class="txtins">A continuación llene los siguientes campos para el registro de un nuevo usuario: </h2>
-                        </div>                        <article class="column">
+                        <div class="alincentro"><p class="ins">A continuación llene los siguientes campos para registrar a un nuevo usuario:</p></div>                     
+                        <article class="column">
                             <div class="divalform2">
                                 <label for="tipousu" class="small-text">Tipo de usuario a crear:</label>
-                                <select id="tipousu" name="tipou" class="inputf2" required>
-                                    <option value="" selected disabled hidden>Selecciona una opción</option>
-                                    <option value="1">Profesor</option>
+                                <select id="tipousu" name="tipou" class="inputf2" required onchange="">
+                                    <option  value="" selected disabled hidden>Selecciona una opción</option>
+                                    <option  value="1">Profesor</option>
                                     <option value="2">Jefe de Academia</option>
                                 </select>
                             </div>
-                                                        <div class="divalform">
+                            <div class="divalform">
                                 <label for="Nombrepr" class="small-text">Nombre del profesor:</label>
                                 <input type="text" id="Nombrepr" name="nombrepr" placeholder="Apellido y nombre(s)" class="inputf" required><br>
                                 <label for="Email" id="alinearizq" class="small-text">Correo electrónico:</label>
                                 <input type="email" id="Email" name="email" placeholder="ejemplo@gmail.com" class="inputf" required><br>
                                 <label for="password" id="alinearizq" class="small-text">Contraseña:</label>
                                 <input type="password" id="Pasword" name="pasword" placeholder="Contraseña" class="inputf" required>
-                                <div id="codigo_oculto">
-                                    <p>
-                                        <label for="password" id="alinearizq" class="small-text">Unidades de aprendizaje:</label><br>
-                                        <input type="checkbox" id="product-1-1" name="check" value="0"> POO
-                                        <input type="checkbox" id="product-1-2" name="check" value="1"> BDR
-                                        <input type="checkbox" id="product-1-3" name="check" value="2"> Ambas
-                                    </p>
-                                </div>
+                                <p>
+                                    <label for="password" id="alinearizq" class="small-text">Unidades de aprendizaje:</label><br><br>
+                                    <label class="container">
+                                    <input type="checkbox" id="product-1-1" name="check" value="0"> POO <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                    <input type="checkbox" id="product-1-2" name="check" value="1"> BDR <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                    <input type="checkbox" id="product-1-3" name="check" value="2"> Ambas <span class="checkmark"></span>
+                                    </label>
+                                </p>
 
                                 <div class="footer">
-                                <button type="button" onclick="validarFormulario()" class="Botona">Registrar usuario</button>
-                                <button type="reset" class="Botond">Cancelar</button>
+                                <button type="button" onclick="validarFormulario()" class="opcn2">Registrar usuario</button>
+                                <button type="reset" class="opcn3">Cancelar</button>
                                 </div>
                             </div>
                         </article>
                     </form>
+                    
                     <div class="sndcolumn">
                          <div class="divalform3">
                         <h2>Seleccione al Profesor que desee deshabilitar: </h2>
@@ -138,7 +155,7 @@ String mensajeselec2="";
                             %>
                         </select>
                         <br>
-                        <button type="submit" class="Botonc">Deshabilitar cuenta</button>
+                        <button type="submit" class="opcn2" id="centrarbtn">Deshabilitar cuenta</button>
                         </form>
                         </div>
                         <div class="divalform4">
@@ -178,12 +195,12 @@ String mensajeselec2="";
                             %>
                         </select>
                         <br>
-                        <button type="submit" class="Botonc">Habilidar cuenta</button>
+                        <button type="submit" class="opcn2" id="centrarbtn">Habilidar cuenta</button>
                         </form>
                         </div>
                     </div>
             </div>
-                        <button class="chatbot-toggler">
+            <button class="chatbot-toggler">
                 <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
                 <span class="material-symbols-outlined">close</span>
               </button>
@@ -203,7 +220,6 @@ String mensajeselec2="";
                   <span id="send-btn" class="material-symbols-rounded">send</span>
                 </div>
               </div>
- 
 <script>
     function mostrarCodigo() {
         var selectElement = document.getElementById("tipousu");

@@ -14,7 +14,7 @@
         <%String tipou = (String) sesion.getAttribute("tipou");%>
         <%int idUsuario = (int) sesion.getAttribute("usu_id");%>
         <%
-        if (tipou == null || tipou.equals("0") || tipou.equals("3")) {
+        if (tipou == null || tipou.equals("0") || tipou.equals("3") || tipou.equals("2")) {
         response.sendRedirect("index.html");
         return;
         }
@@ -73,6 +73,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasRightLabel">Aquí podrá encontrar las gráficas de las generaciones disponibles dentro del sistema</h5>
@@ -95,9 +96,9 @@
               </div>
 
             <header>
-                
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
                 <div class="barra">
+                    
                     <div class="fontdiv">
                         <div class="flujo2">
                             <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas</button></a>
@@ -118,11 +119,11 @@
             </header>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="myInput">
                 ?
-                </button>
+            </button>
             <nav>
                <div class="nav-container">
                         <p class="ttl">Graficas Generales del profesor:</p>
-                        <p class="ttl"><%=nombre%></p>
+                        <p class="ttl2"><%=nombre%></p>
                         <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
                 </div>
             </nav>
@@ -150,7 +151,7 @@
                 <div class="layougr">
                     <div class="conti" id="cnt">
                         <img src="assets/recavanzado.jpg" class="alinearrec">
-                        <p class="nvl"> Avanzado </p>
+                        <p class="nvl1"> Avanzado </p>
                     </div>
                     <div class="conti2">
                         <img src="assets/recintermedio.jpg" class="alinearrec">
@@ -165,7 +166,7 @@
                         <p class="nvl">Minimo</p>
                     </div>
                 </div>
-                </div>
+            </div>
                 <%} else if(materia[0].equals("BD") && materia[1]== null){
                 ResultSet rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+"");
                 while (rs2.next()) {
@@ -238,7 +239,7 @@
                 <div class="layougr">
                     <div class="conti" id="cnt">
                         <img src="assets/recavanzado.jpg" class="alinearrec">
-                        <p class="nvl"> Avanzado </p>
+                        <p class="nvl1"> Avanzado </p>
                     </div>
                     <div class="conti2">
                         <img src="assets/recintermedio.jpg" class="alinearrec">

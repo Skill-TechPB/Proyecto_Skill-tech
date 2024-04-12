@@ -44,12 +44,7 @@ header .h21 {
     font: normal bold 2vw/1 "Open Sans", sans-serif;
 }
 
-.fontdiv {
-    /*background: #004081;*/
-    color: #000000;
-    font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
-}
+
 .fontdiv2 {
     background: #004081;
     color: #000000;
@@ -132,7 +127,7 @@ nav {
 
 
 .a {
-   margin-top: 10vh;
+   margin-top: 15vh;
    /*border: 2px solid #000000;*/   
     border-radius: 11px;
     width: 37vw;
@@ -293,11 +288,11 @@ width: 60vw;
 
 .alincentro{
 padding-left: 10%;
-height: 12vh;
+height: 8vh;
 width: 95vw;
 margin-left:1vw;
-margin-top: 2vh;
-/*background:#000000;*/
+margin-top: 9vh;
+/*background:#ff0000;*/
 font-size: 1.3vw;
 color: #000000;
 }
@@ -317,7 +312,35 @@ h2{
     font: normal bold 3vw/1 "Open Sans", sans-serif;
     padding-left: 4vw;
     padding-right: 2vw;
+    /*background: #FF5733;*/
 
+}
+.ttl2{
+    color: #000000;
+    font: normal bold 3 vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+    /*background: #004081;*/
+    margin-top: 15vh;
+    margin-left: -53vw;
+
+}
+.ttlo2{
+    color: #000000;
+    font: normal bold 3 vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+    /*background: #004081;*/
+    margin-top: 15vh;
+    margin-left: -33vw;
+
+}
+.nvl{
+    margin-top: -4vh;
+    margin-left: 3.5vw;
+    font-size:1.3vw;
+    color: #000000;
+    /*background: #004081;*/
 }
 .opcn {
     border-radius: 10px;
@@ -336,7 +359,25 @@ h2{
   
   .opcn:active {
     transform: scale(0.95);
-  } 
+  }
+  .opla{
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 3vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+  }
+  .opla:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opla:active {
+    transform: scale(0.95);
+  }  
 
   .opcn2 {
     border-radius: 10px;
@@ -348,13 +389,33 @@ h2{
     letter-spacing: 1px;
     text-transform: capitalize;
     transition: 0.3s ease-in-out;
-    margin-left: 35vw;
+    margin-left: 70vw;
   }
   .opcn2:hover {
     letter-spacing: 3px;
   }
   
   .opcn2:active {
+    transform: scale(0.95);
+  }
+
+  .opn2 {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.2vw;
+    font-weight: 700;
+    padding: .8vh 1vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    margin-left: 5  0vw;
+  }
+  .opn2:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opn2:active {
     transform: scale(0.95);
   }
 
@@ -393,7 +454,7 @@ h2{
 }
 
 .conti {
-   /* background-color: rgb(4, 0, 255);*/   
+   /*background-color: rgb(4, 0, 255);   */
     align-items: center;
     align-content: center;
     margin-top: 5vh;
@@ -447,4 +508,205 @@ background: #1589EE;
 .flujo31:hover .imgflujo4, .flujo31:hover .txtflujo4 {
     filter: brightness(4); /* Ajusta el valor para aumentar el brillo al pasar el ratón */
 }
+
+
+@media only screen and (max-width: 425px) and (orientation: portrait) {
+    body {
+      font-size: 1.2vw; /* Reducir el tamaño de la fuente para una mejor legibilidad */
+    }
+  
+    header {
+     background: #1F77C7;
+      height: 10vh; /* Permitir que la altura del encabezado se ajuste automáticamente */
+     width: 100%;
+    }
+  
+    .imglogo {
+      width: 20vw; /* Reducir el tamaño del logo */
+      margin-bottom: 10px;
+      height: 10vh;
+      margin-top: 1vh;
+    }
+  
+    .Boton {
+      /*background-color: chartreuse;*/
+      height: 6vh;
+      width: 23vw;
+      margin-right: 6vw;
+      margin-top: 1vh;
+    }
+  
+    .Botona {
+      width: 23vw; /* Hacer que el botón ocupe el ancho completo disponible */
+      height: 5.7vh; /* Permitir que la altura del botón se ajuste automáticamente */
+      font-size: 3vw; /* Aumentar el tamaño de la fuente del botón */
+      border-radius: 10px;
+      margin-top: -.06vh;
+    }
+  
+    nav {
+        display: flex;
+        flex-direction: row;
+        background-color: #0067c4;
+        height:8vh;
+    }
+
+    .nav-container {
+        width: 100%;
+        display: flex;
+        height: 8vh;
+    }
+
+    .ttl2{
+        display: none;
+    }
+    .opcn2 {
+        border-radius: 10px;
+       background-color: #ffffff;
+        color: #000000;
+        font-size: 1.2vw;
+        font-weight: 700;
+        padding: .8vh 1vw;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        transition: 0.3s ease-in-out;
+        margin-left: 50vw;
+      }
+      .opcn2:hover {
+        letter-spacing: 3px;
+      }
+      
+      .opcn2:active {
+        transform: scale(0.95);
+      }
+      .alincentro{
+        padding-left: 10%;
+        height: 2vh;
+        width: 95vw;
+        margin-left:1vw;
+        margin-top: .5vh;
+        background:#ff0000;
+        font-size: 1.3vw;
+        color: #000000;
+        }
+    
+    .bodyg {
+        display: flex;
+        flex-direction: column; /* Cambiar la dirección de flexión a column */
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        margin-top: 10vh;
+        margin-bottom: 15vh;
+        font: 1em/150% "Calibri", sans-serif;
+        background-color: brown;
+    }
+    
+    .a {
+        height: 60vh;
+        margin-top: 10vh; /* Reducir el margen superior */
+        border-radius: 11px;
+        width: 90vw; /* Ajustar el ancho al 80% del viewport width */
+        margin-right: auto; /* Centrar horizontalmente */
+        margin-left: auto; /* Centrar horizontalmente */
+        background: #5500ff;
+    }
+
+    .layougr{
+        width: 15vw;
+        height: 40vh;
+        background-color: #ffffff;
+        margin-left: 75vw;
+        text-align: justify;
+        margin-top: -35.5vh;
+        border-bottom-right-radius: 11px;
+        color: #000000;
+        display: grid; /* Utiliza display: grid en lugar de display: flex */
+        grid-template-rows: repeat(4, auto); /* Crea un grid de 4 filas automáticas */
+        gap: 0vh; /* Establece el espacio entre las filas */
+    }
+    
+    .alinearrec{
+        width: 2vw;
+        height: 2vh;
+        border-radius: 2px;
+        margin-left: 1vw;
+        margin-top: -.8vh;
+        }
+
+        .alinearrec1{
+            width: 2vw;
+            height: 2vh;
+            border-radius: 2px;
+            margin-left: -11vw;
+            margin-top: -.8vh;
+            }
+    
+    
+    .conti {
+  
+        align-items: center;
+        align-content: center;
+        margin-top: 4vh;
+        height: 5vh;
+        text-align: center;
+    
+    }
+    
+    .conti2{
+
+        align-items: center;
+        align-content: center;
+        margin-top: -4vh;
+        height: 5vh;
+    
+    }
+    .conti3{
+
+        align-items: center;
+        align-content: center;
+        margin-top: -4vh;
+        height: 5vh;
+    }
+    .conti4{
+    
+        align-items: center;
+        align-content: center;
+        margin-top: -4vh;
+        height: 5vh;    
+    }
+
+    .nvl{
+        margin-top: -5vh;
+        margin-left: 3.5vw;
+        font-size:1.3vh;
+        color: #000000;
+        /*background: #004081;*/
+    }
+
+    .nvl1{
+        margin-top: -5vh;
+        margin-left: 1vw;
+        font-size:1.3vh;
+        color: #000000;
+        /*background: #004081;*/
+    }
+
+    .grafica-container{
+        height: 100%;
+        border-radius: 11px;
+        margin-left: .4vw;
+         background: #8d2121;
+        margin-top: -1.5vh;
+        width: 70vw;
+    }
+    
+    canvas{
+        margin-top: -1vh;
+        width: 5vw;
+        height: 4vh;
+    }
+
+  }
+
 

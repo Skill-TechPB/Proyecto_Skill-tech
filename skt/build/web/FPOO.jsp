@@ -138,7 +138,7 @@
     <div id="popup-container" class="popup-container">
       <div class="popup">
         <form method="POST" action="resprop" class="form" id="formpro">
-        <h2 class="h">A continuacion seleccione el profesor que le haya dado la materia de Programacion Orientada a Objetos:</h2>
+        <h2 class="h">A continuacion seleccione el profesor que le haya dado la materia de Programacion Intermedia:</h2>
         <select id="select-option" name="profe" class="profes">
         <option value="" selected disabled hidden>Selecciona una opción</option>
         <%
@@ -156,7 +156,7 @@
     <%}%>
     <div class="row">
            <section>
-           <h1>FORMULARIO DE PROGRAMACIÓN ORIENTADA A OBJETOS</h1>
+           <h1>FORMULARIO DE PROGRAMACIÓN INTERMEDIA</h1>
            <p id='borde'>Instrucciones:<br> Responda las preguntas que se muestran a continuación, seleccionando la opción que crea más conveniente para cada pregunta.  Sus respuestas serán evaluadas tan pronto como de click al botón de enviar al final de este formulario.</p>
            </section>
 

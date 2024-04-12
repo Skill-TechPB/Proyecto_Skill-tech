@@ -59,7 +59,7 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX  6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
             <link rel="shortcut icon" href="./assets/logo1.png" />
         </head>
@@ -95,18 +95,17 @@
               </div>
 
             <header>
-                
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
                 <div class="barra">
                     <div class="fontdiv">
-                        <div class="flujo">
-                            <a href="Editform.jsp"> <img class="imgflujo" src="./assets/formulario-de-contacto.png"><P class="txtflujo">Edición de formularios</P></a>
+                        <div class="flujo21">
+                            <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
                         </div>
-                        <div class="flujo">
-                            <a href="graficas.jsp"><img class="imgflujo2" src="./assets/grafico-circular (1).png"><P class="txtflujo2">Gráficas</P></a>
-                        </div>
-                    <div class="flujo21">
-                            <a href="bita.jsp"><img class="imgflujo3" src="./assets/archivo.png"><P class="txtflujo3">Bitacora</P></a>
+                        <div class="flujo3">
+                            <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
+                        </div>  
+                        <div class="flujo4">
+                            <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
                         </div>
                     </div>
             </div>
@@ -117,18 +116,17 @@
                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
                   </svg>    
             </button>
-        </form>
+            </form>
             </header>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="myInput">
                 ?
-                </button>
+            </button>
             <nav>
-                <div class="nav-container">
-                    <p class="ttl">Graficas Generales</p>
-                    <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
-                </div>
+                <p class="ttlo">Graficas Generales</p>
+                    <p class="ttlo2">de los Profesores</p>
+                    <button class="opn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
             </nav>
-                <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
+            <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
             <section class="bodyg">
                 
             <%if(materia[0].equals("POO") && materia[1]== null){
@@ -153,7 +151,7 @@
                 <div class="layougr">
                     <div class="conti" id="cnt">
                         <img src="assets/recavanzado.jpg" class="alinearrec">
-                        <p class="nvl"> Avanzado </p>
+                        <p class="nvl1"> Avanzado </p>
                     </div>
                     <div class="conti2">
                         <img src="assets/recintermedio.jpg" class="alinearrec">
@@ -241,7 +239,7 @@
                 <div class="layougr">
                     <div class="conti" id="cnt">
                         <img src="assets/recavanzado.jpg" class="alinearrec">
-                        <p class="nvl"> Avanzado </p>
+                        <p class="nvl1"> Avanzado </p>
                     </div>
                     <div class="conti2">
                         <img src="assets/recintermedio.jpg" class="alinearrec">
