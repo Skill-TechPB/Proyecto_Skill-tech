@@ -90,7 +90,7 @@ CREATE TABLE `egr_pro` (
   KEY `pro_id` (`pro_id`),
   CONSTRAINT `egr_pro_ibfk_1` FOREIGN KEY (`egr_id`) REFERENCES `egresado` (`egr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `egr_pro_ibfk_2` FOREIGN KEY (`pro_id`) REFERENCES `profesor` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `egr_pro` (
 
 LOCK TABLES `egr_pro` WRITE;
 /*!40000 ALTER TABLE `egr_pro` DISABLE KEYS */;
-INSERT INTO `egr_pro` VALUES (1,1,2),(2,2,2),(3,3,2),(4,3,2);
+INSERT INTO `egr_pro` VALUES (1,1,1),(2,1,2),(3,2,1),(4,2,2),(5,3,3),(6,3,3);
 /*!40000 ALTER TABLE `egr_pro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +128,7 @@ CREATE TABLE `egresado` (
 
 LOCK TABLES `egresado` WRITE;
 /*!40000 ALTER TABLE `egresado` DISABLE KEYS */;
-INSERT INTO `egresado` VALUES (1,1,'2023',1,1),(2,6,'2023',1,1),(3,8,'2023',1,1);
+INSERT INTO `egresado` VALUES (1,4,'2024',1,1),(2,5,'2025',1,1),(3,6,'2026',1,1);
 /*!40000 ALTER TABLE `egresado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `formulario` (
 
 LOCK TABLES `formulario` WRITE;
 /*!40000 ALTER TABLE `formulario` DISABLE KEYS */;
-INSERT INTO `formulario` VALUES (1,'FORMULARIO DE PROGRAMACIÓN ORIENTADA A OBJETOS','C:/Users/Josue/Desktop/skt/web/formularios/fpoo.txt'),(2,'FORMULARIO DE BASES DE DATOS RELACIONALES','C:/Users/Josue/Desktop/skt/web/formularios/fbd.txt');
+INSERT INTO `formulario` VALUES (1,'FORMULARIO DE PROGRAMACIÓN INTERMEDIA','C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fpoo.txt'),(2,'FORMULARIO DE BASES DE DATOS RELACIONALES','C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fbd.txt');
 /*!40000 ALTER TABLE `formulario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +197,7 @@ CREATE TABLE `pro_asi` (
   KEY `asi_id` (`asi_id`),
   CONSTRAINT `pro_asi_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `profesor` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `pro_asi_ibfk_2` FOREIGN KEY (`asi_id`) REFERENCES `asignatura` (`asi_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +206,7 @@ CREATE TABLE `pro_asi` (
 
 LOCK TABLES `pro_asi` WRITE;
 /*!40000 ALTER TABLE `pro_asi` DISABLE KEYS */;
-INSERT INTO `pro_asi` VALUES (1,1,1),(2,2,0),(3,2,1),(4,3,0),(5,4,1),(6,5,0),(7,5,1);
+INSERT INTO `pro_asi` VALUES (1,1,0),(2,2,1),(3,3,0),(4,3,1),(5,4,0);
 /*!40000 ALTER TABLE `pro_asi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +224,7 @@ CREATE TABLE `profesor` (
   PRIMARY KEY (`pro_id`),
   KEY `usu_id` (`usu_id`),
   CONSTRAINT `profesor_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -233,34 +233,8 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (1,2,'Armando'),(2,3,'Veyra'),(3,4,'Jimmy'),(4,5,'Diego'),(5,7,'Sergio');
+INSERT INTO `profesor` VALUES (1,1,'Diego'),(2,2,'DiegoDos'),(3,3,'DiegoTres'),(4,7,'Garcia');
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `reporte`
---
-
-DROP TABLE IF EXISTS `reporte`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reporte` (
-  `rep_id` int NOT NULL AUTO_INCREMENT,
-  `usu_id` int DEFAULT NULL,
-  `rep_desc` varchar(120) DEFAULT NULL,
-  PRIMARY KEY (`rep_id`),
-  KEY `usu_id` (`usu_id`),
-  CONSTRAINT `reporte_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reporte`
---
-
-LOCK TABLES `reporte` WRITE;
-/*!40000 ALTER TABLE `reporte` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reporte` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -289,7 +263,7 @@ CREATE TABLE `resultadobd` (
 
 LOCK TABLES `resultadobd` WRITE;
 /*!40000 ALTER TABLE `resultadobd` DISABLE KEYS */;
-INSERT INTO `resultadobd` VALUES (1,1,'2024-02-29 09:42:58','0 0 0 1 0 0 0 0 0 0',1,'0'),(2,2,'2024-02-29 10:51:36','0 0 1 1 1 0 0 0 1 1',5,'1'),(3,3,'2024-02-29 10:51:36','1 0 1 0 0 0 0 0 0 0',2,'0');
+INSERT INTO `resultadobd` VALUES (1,1,'2024-04-11 00:20:11','1 0 1 0 0 0 0 0 1 0',3,'0'),(2,2,'2024-04-11 00:20:11','0 1 1 0 1 1 0 0 1 0',5,'1'),(3,3,'2024-04-11 00:20:11','0 0 0 0 0 1 0 0 0 0',1,'0');
 /*!40000 ALTER TABLE `resultadobd` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,8 +293,36 @@ CREATE TABLE `resultadopo` (
 
 LOCK TABLES `resultadopo` WRITE;
 /*!40000 ALTER TABLE `resultadopo` DISABLE KEYS */;
-INSERT INTO `resultadopo` VALUES (1,1,'2024-02-29 09:42:47','1 1 1 1 1 1 1 1 1 1',10,'3'),(2,2,'2024-02-29 10:51:23','1 0 0 1 0 1 0 0 0 0',3,'0'),(3,3,'2024-02-29 10:51:23','0 0 0 1 1 0 0 0 0 0',2,'0');
+INSERT INTO `resultadopo` VALUES (1,1,'2024-04-11 00:19:08','0 1 0 0 0 1 1 0 0 0',3,'0'),(2,2,'2024-04-11 00:19:08','0 0 1 0 1 0 0 0 0 0',2,'0'),(3,3,'2024-04-11 00:19:08','0 1 0 0 0 1 0 0 0 1',3,'0');
 /*!40000 ALTER TABLE `resultadopo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `soporte`
+--
+
+DROP TABLE IF EXISTS `soporte`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `soporte` (
+  `sop_id` int NOT NULL AUTO_INCREMENT,
+  `usu_id` int DEFAULT NULL,
+  `sop_nombre` varchar(40) DEFAULT NULL,
+  `sop_email` varchar(40) DEFAULT NULL,
+  `sop_desc` varchar(120) DEFAULT NULL,
+  PRIMARY KEY (`sop_id`),
+  KEY `usu_id` (`usu_id`),
+  CONSTRAINT `soporte_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `soporte`
+--
+
+LOCK TABLES `soporte` WRITE;
+/*!40000 ALTER TABLE `soporte` DISABLE KEYS */;
+/*!40000 ALTER TABLE `soporte` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -364,7 +366,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`usu_id`),
   KEY `tpu_id` (`tpu_id`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`tpu_id`) REFERENCES `tipousuario` (`tpu_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -373,7 +375,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,0,'HNjobZOOdfnwyHjd7w1g9g==','MKCJL','diaz.amaro.josue@gmail.com',1),(2,1,'HNjobZOOdfnwyHjd7w1g9g==',NULL,'armando235@gmail.com',1),(3,1,'HNjobZOOdfnwyHjd7w1g9g==',NULL,'veyra34@gmail.com',1),(4,1,'HNjobZOOdfnwyHjd7w1g9g==',NULL,'jimmyminor@gmail.com',1),(5,2,'HNjobZOOdfnwyHjd7w1g9g==',NULL,'aguilar.floress.diego@gmail.com',1),(6,0,'HNjobZOOdfnwyHjd7w1g9g==','WJMHO','lizeth26guadalupe@gmail.com',1),(7,2,'HNjobZOOdfnwyHjd7w1g9g==',NULL,'sergio@gmail.com',1),(8,0,'HNjobZOOdfnwyHjd7w1g9g==','ORIMA','diazamarojosueramses@gmail.com',1);
+INSERT INTO `usuario` VALUES (1,1,'HNjobZOOdfnwyHjd7w1g9g==','FWFTM','dieaguilar.2577@gmail.com',1),(2,1,'HNjobZOOdfnwyHjd7w1g9g==','JLHBE','aguilar.floress.diego@gmail.com',1),(3,1,'HNjobZOOdfnwyHjd7w1g9g==','VPAYN','daguilarf2100@alumno.ipn.mx',1),(4,0,'HNjobZOOdfnwyHjd7w1g9g==','EUSFG','diazamarojosueramses@gmail.com',1),(5,0,'HNjobZOOdfnwyHjd7w1g9g==','UUFDX','diaz.amaro.josue@gmail.com',1),(6,0,'HNjobZOOdfnwyHjd7w1g9g==','FCUQC','lizeth26guadalupe@gmail.com',1),(7,2,'HNjobZOOdfnwyHjd7w1g9g==','RNDXH','pedidoslol06@gmail.com',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -386,4 +388,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-29 11:28:52
+-- Dump completed on 2024-04-18 14:39:44

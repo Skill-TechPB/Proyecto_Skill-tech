@@ -7,23 +7,21 @@
 <% HttpSession sesion = request.getSession(true); %>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
 
-<% if(sesion.isNew() || sesion==null)
-    {
-    response.sendRedirect("index.html");
-    return;
-    }
+<% if(sesion.isNew() || sesion==null){
+response.sendRedirect("index.html");
+return;
+}
 %>
-<%
-  if (tipou == null || (tipou.equals("0") || tipou.equals("1") || tipou.equals("2"))) {
-    response.sendRedirect("index.html");
-    return ;
+<%if (tipou == null || (tipou.equals("0") || tipou.equals("1") || tipou.equals("2"))) {
+  response.sendRedirect("index.html");
+  return ;
 }
 %>
 <!DOCTYPE html>
 <%!
-Conexion pal, pal2;
-Connection con, con2;
-Statement stmt, stmt2;
+Conexion pal;
+Connection con;
+Statement stmt;
 ResultSet rs, rs2,rs3,rs4;
 int cont=0;
 int reg=0;
@@ -42,8 +40,11 @@ String mensajeselec2="";
         <link rel="stylesheet" href="css/estiloadmin.css">
         <link rel="stylesheet" href="css/popup.css">
         <link rel="shortcut icon" href="./assets/logo1.png" />
-           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
     <script src="js/Admin1.js"></script>
+    <script srce="js/chatbot.js"></script>
     </head>
 
     <body>
@@ -96,18 +97,7 @@ String mensajeselec2="";
                                 <input type="email" id="Email" name="email" placeholder="ejemplo@gmail.com" class="inputf" required><br>
                                 <label for="password" id="alinearizq" class="small-text">Contraseña:</label>
                                 <input type="password" id="Pasword" name="pasword" placeholder="Contraseña" class="inputf" required>
-                                <p>
-                                    <label for="password" id="alinearizq" class="small-text">Unidades de aprendizaje:</label><br><br>
-                                    <label class="container">
-                                    <input type="checkbox" id="product-1-1" name="check" value="0"> POO <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                    <input type="checkbox" id="product-1-2" name="check" value="1"> BDR <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">
-                                    <input type="checkbox" id="product-1-3" name="check" value="2"> Ambas <span class="checkmark"></span>
-                                    </label>
-                                </p>
+                                
 
                                 <div class="footer">
                                 <button type="button" onclick="validarFormulario()" class="opcn2">Registrar usuario</button>
@@ -164,17 +154,14 @@ String mensajeselec2="";
                         <select name="vivir" class="inputf2">
                             <option value="" selected disabled hidden>Selecciona una opción</option>
                             <%
-                            pal2 = new Conexion();
-                            con2 = pal2.getConnection();
-                            stmt2 = con2.createStatement();
-                            rs4 = stmt2.executeQuery("select count(*) as Registro from profesor inner join usuario on usuario.usu_id=profesor.usu_id where usu_hab=0");
+                            rs4 = stmt.executeQuery("select count(*) as Registro from profesor inner join usuario on usuario.usu_id=profesor.usu_id where usu_hab=0");
                             if(rs4.next()){
                             reg2=rs4.getInt("Registro");
                             }
                             
                             String[] pol= new String[reg2];
                             int[] polid= new int[reg2];
-                            rs3=stmt2.executeQuery("select profesor.pro_nombre, profesor.pro_id from  profesor inner join usuario on usuario.usu_hab=0 and usuario.usu_id=profesor.usu_id");
+                            rs3=stmt.executeQuery("select profesor.pro_nombre, profesor.pro_id from  profesor inner join usuario on usuario.usu_hab=0 and usuario.usu_id=profesor.usu_id");
                             cont2=0;
                             while(rs3.next()){
                             pol[cont2]=rs3.getString("pro_nombre");
@@ -201,25 +188,25 @@ String mensajeselec2="";
                     </div>
             </div>
             <button class="chatbot-toggler">
-                <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
-                <span class="material-symbols-outlined">close</span>
-              </button>
-              <div class="chatbot">
-                <header>
-                  <h5>Chatbot</h5>
-                  <span class="close-btn material-symbols-outlined">close</span>
-                </header>
-                <ul class="chatbox">
-                  <li class="chat incoming">
-                    <span class="material-symbols-outlined">person</span>
-                    <p>Hola! 👋<br>¿Cómo puedo ayudarte?</p>
-                  </li>
-                </ul>
-                <div class="chat-input">
-                  <textarea placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
-                  <span id="send-btn" class="material-symbols-rounded">send</span>
-                </div>
+              <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
+              <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="chatbot">
+              <header>
+                <h5>Chatbot</h5>
+                <span class="close-btn material-symbols-outlined">close</span>
+              </header>
+              <ul class="chatbox">
+                <li class="chat incoming">
+                  <span class="material-symbols-outlined">person</span>
+                  <p>Hola! 👋<br>¿Cómo puedo ayudarte?<br>-opcion 1<br>-opcion 2<br>-opcion 3<br>-opcion 4</p>
+                </li>
+              </ul>
+              <div class="chat-input">
+                <textarea placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+                <span id="send-btn" class="material-symbols-rounded">send</span>
               </div>
+            </div>
 <script>
     function mostrarCodigo() {
         var selectElement = document.getElementById("tipousu");
@@ -232,8 +219,15 @@ String mensajeselec2="";
         }
     }
 </script>
-    </body>
-<script>
+    <%
+    con.close();
+    stmt.close();
+    rs.close();
+    rs2.close();
+    rs3.close();
+    rs4.close();
+    %>
+    <script>
   const checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', function() {
@@ -247,4 +241,5 @@ String mensajeselec2="";
     });
   });
 </script>
+    </body>
     </html>

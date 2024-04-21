@@ -140,6 +140,9 @@ ResultSet rs;
                     insertStatement2.setString(4, niv);
                     insertStatement2.setInt(5, idegr);
                     insertStatement2.executeUpdate();
+                    con.close();
+                    stmt.close();
+                    rs.close();
                     } catch (ClassNotFoundException | SQLException ex) {
                         error = "Error al registrar/actualizar los datos: " + ex.getMessage();
                         response.setContentType("text/html;charset=UTF-8");

@@ -49,7 +49,9 @@ public class resprop extends HttpServlet {
         insertStatement.setInt(1, idegr);
         insertStatement.setInt(2, idpro);
         insertStatement.executeUpdate();
-        
+        con.close();
+        stmt.close();
+        rs.close();
         } catch (ClassNotFoundException | SQLException ex) {
         error = "Error al registrar/actualizar los datos: " + ex.getMessage();
         response.setContentType("text/html;charset=UTF-8");

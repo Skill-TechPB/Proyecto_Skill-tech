@@ -23,8 +23,8 @@
 <%!
 Conexion pal;
 Connection con;
-Statement stmt1;
-ResultSet rs, rs2, rs3;
+Statement stmt;
+ResultSet ip, rs, rs2, rs3;
 String nivel = "";
 String nivelBD="";
 int numEgresados=0;
@@ -57,16 +57,16 @@ int profeID=0;
 <%
 pal = new Conexion();
 con = pal.getConnection();
-stmt1 = con.createStatement();
-
-ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+"");
-            z=0;
-            while(ip.next()){
-                profeID = ip.getInt("pro_id");
-                nombre = ip.getString("pro_nombre");
-                materia[z]=ip.getString("asi_nombre");
-                z=z+1;
-            }z=0;
+stmt = con.createStatement();
+ip = stmt.executeQuery("select profesor.pro_id, profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+"");
+z=0;
+while(ip.next()){
+    profeID = ip.getInt("pro_id");
+    nombre = ip.getString("pro_nombre");
+    materia[z]=ip.getString("asi_nombre");
+    z=z+1;
+}z=0;
+ip.close();
 %>
 
 <html lang="en">
@@ -160,7 +160,7 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
     <%
     if(tipou.equals("1")){
     if(materia[0].equals("POO") && materia[1]== null){
-        rs = stmt1.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" group by rpo_id");
+        rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" group by rpo_id");
         x=0;
         while (rs.next()) {
         nivel = rs.getString("rpo_niv");
@@ -177,7 +177,7 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
         if (nivel.equals("0")) {
             malos++;   
         } 
-        }
+        }x=0;
         numEgresados=x;
         total = masomenos + buenas + regular + malos;
         if (buenas != 0) {
@@ -192,6 +192,9 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
         if (malos != 0) {
             porcentajePOO4 =  malos / total *100;
         }
+        con.close();
+        stmt.close();
+        rs.close();
     %>
     <div class="text2" id="txtbd">
     <label>De una muestra de <span><%= numEgresados%></span> egresado(s) del CECyT de Programacion Intermedia se obtuvieron los siguientes resultados:</label>
@@ -207,9 +210,8 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
         <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
     </div>
     <%
-    x=0;
     } else if(materia[0].equals("BD") && materia[1]== null){
-        rs3 = stmt1.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" group by rbd_id");
+        rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" group by rbd_id");
         x=0;
         while (rs3.next()) {
         x=x+1;
@@ -226,7 +228,7 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
         if (nivelBD.equals("0")) {
             min++;
         }
-        }
+        }x=0;
         numEgresados=x;
         total2 = avanzado + intermedio + basico + min;
         if (avanzado != 0) {
@@ -241,6 +243,9 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
         if (min != 0) {
             percentBD4 = min / total2 *100;
         }
+    con.close();
+    stmt.close();
+    rs3.close();
     %>
     <div class="text2" id="txtbd">
     <label>De una muestra de <span><%= numEgresados%></span> egresado(s) del CECyT de Base de Datos se obtuvieron los siguientes resultados:</label>
@@ -265,9 +270,9 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
     </div>
     <%
     x=0;
-    }else{
+    }else if(materia[0].equals("POO") && materia[1].equals("BD")){
     //aqui son los dos
-    rs = stmt1.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" group by rpo_id");
+    rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" group by rpo_id");
         while (rs.next()) {
         x=x+1;
         nivel = rs.getString("rpo_niv");
@@ -313,7 +318,7 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
         <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
     </div>
     <%
-    rs3 = stmt1.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" group by rbd_id");
+    rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" group by rbd_id");
         while (rs3.next()) {
         z=z+1;
         nivelBD = rs3.getString("rbd_niv");
@@ -369,10 +374,14 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
     <%
     x=0;
     z=0;
+    con.close();
+    stmt.close();
+    rs.close();
+    rs3.close();
     }
     //aqui va del otro usuario
     }else if(tipou.equals("2")){
-    rs = stmt1.executeQuery("select rpo_niv FROM resultadopo");
+    rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
     while (rs.next()) {
         nivel = rs.getString("rpo_niv");
 
@@ -389,7 +398,7 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
             malos++;   
         } 
     }
-    rs3 = stmt1.executeQuery("select rbd_niv FROM resultadobd");
+    rs3 = stmt.executeQuery("select rbd_niv FROM resultadobd");
     while (rs3.next()) {
         nivelBD = rs3.getString("rbd_niv");
 
@@ -406,7 +415,7 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
             min++;
         }
     }
-    rs2 = stmt1.executeQuery("select count(*) as 'egresados' from egresado");
+    rs2 = stmt.executeQuery("select count(*) as 'egresados' from egresado");
     if (rs2.next()) {
     numEgresados = rs2.getInt("egresados");
     } else {
@@ -439,6 +448,11 @@ ResultSet ip = stmt1.executeQuery("select profesor.pro_id, profesor.pro_nombre, 
     if (min != 0) {
         percentBD4 = min / total2 *100;
     }
+    con.close();
+    stmt.close();
+    rs.close();
+    rs2.close();
+    rs3.close();
     %> 
     <div class="text2" id="txtbd">
         <label>De una muestra de <span><%= numEgresados %></span> egresado(s) del CECyT se obtuvieron los siguientes resultados:</label>

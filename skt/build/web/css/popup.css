@@ -76,7 +76,7 @@ header h5 {
 }
 .chatbot .chatbox {
   overflow-y: auto;
-  height: 510px;
+  height: 69.10vh;
   padding: 30px 20px 100px;
 }
 .chatbot :where(.chatbox, textarea)::-webkit-scrollbar {
@@ -202,3 +202,4 @@ header h5 {
     display: block;
   }
 }
+

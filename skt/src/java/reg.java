@@ -86,10 +86,12 @@ String[] res = new  String[2];
                     x = generarCadenaAleatoria();
                     session.setAttribute("TK", x);
                     enviarCorreo(res[0], "Token de Skilltech", "Hola "+res[0]+" su token: "+x);
-                response.setContentType("text/html;charset=UTF-8");
-            response.sendRedirect("teken.jsp");
-            return ;
+                    response.setContentType("text/html;charset=UTF-8");
+                    response.sendRedirect("teken.jsp");
+                    return ;
                     }
+                    con.close();
+                    rs.close();
                     } catch (ClassNotFoundException | SQLException ex) {
                         error = "Error al registrar/actualizar los datos: " + ex.getMessage();
                         response.setContentType("text/html;charset=UTF-8");

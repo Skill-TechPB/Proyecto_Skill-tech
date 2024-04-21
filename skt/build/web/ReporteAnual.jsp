@@ -11,25 +11,23 @@
 <%@page import="Conexion.*" %>
 <%@page import="javax.servlet.http.HttpSession"%>
 <% HttpSession sesion = request.getSession(true); %>
-<%
-    if(sesion.isNew() || sesion == null) {
-        response.sendRedirect("index.html");
-        return;
-    }
+<%if(sesion.isNew() || sesion == null) {
+    response.sendRedirect("index.html");
+    return;
+}
 %>
 <%String aniorep = (String) sesion.getAttribute("reporte");%>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
-<%
-   if(tipou == null|| tipou.equals("0") || tipou.equals("3")|| tipou.equals("1")){
-   response.sendRedirect("index.html");
-   return;
-    }
+<%if(tipou == null|| tipou.equals("0") || tipou.equals("3")|| tipou.equals("1")){
+response.sendRedirect("index.html");
+return;
+ }
 %>
 
 <%!
 Conexion pal;
 Connection con;
-Statement stmt1;
+Statement stmt;
 ResultSet rs, rs2, rs3;
 String nivel = "";
 String nivelBD="";
@@ -44,15 +42,15 @@ double intermedio =0;
 double basico = 0; 
 double min = 0;
 double total2;
- double percentBD1;
- double percentBD2;
- double percentBD3 ;
- double percentBD4 ;
- 
- double porcentajePOO1 ;
- double porcentajePOO2 ;
- double porcentajePOO3 ;
- double porcentajePOO4 ;
+double percentBD1;
+double percentBD2;
+double percentBD3 ;
+double percentBD4 ;
+
+double porcentajePOO1 ;
+double porcentajePOO2 ;
+double porcentajePOO3 ;
+double porcentajePOO4 ;
  
 String numEgresados;
 
@@ -60,9 +58,9 @@ String numEgresados;
 <%
 pal = new Conexion();
 con = pal.getConnection();
-stmt1 = con.createStatement();
+stmt = con.createStatement();
 
-rs = stmt1.executeQuery("select rpo_niv FROM resultadopo inner join egresado on egresado.egr_id = resultadopo.egr_id where egr_fch = '"+aniorep+"'");
+rs = stmt.executeQuery("select rpo_niv FROM resultadopo inner join egresado on egresado.egr_id = resultadopo.egr_id where egr_fch = '"+aniorep+"'");
 
 
 while (rs.next()) {
@@ -82,7 +80,7 @@ while (rs.next()) {
     }
 }
 
-rs3 = stmt1.executeQuery("select rbd_niv FROM resultadobd inner join egresado on egresado.egr_id = resultadobd.egr_id where egr_fch = '"+aniorep+"'");
+rs3 = stmt.executeQuery("select rbd_niv FROM resultadobd inner join egresado on egresado.egr_id = resultadobd.egr_id where egr_fch = '"+aniorep+"'");
 
 
 while (rs3.next()) {
@@ -101,7 +99,7 @@ while (rs3.next()) {
         min++;
     }
 }
-rs2 = stmt1.executeQuery("select count(*) as 'egresados' from egresado where egr_fch = '"+aniorep+"'");
+rs2 = stmt.executeQuery("select count(*) as 'egresados' from egresado where egr_fch = '"+aniorep+"'");
 if (rs2.next()) {
     numEgresados = rs2.getString("egresados");
 } else {
@@ -224,27 +222,29 @@ if (min != 0) {
 </div>
 </body>
 <%
-     total = 0;
- masomenos = 0;
- regular = 0;
- malos = 0;
- buenas = 0;
-
- avanzado = 0;
- intermedio =0;
- basico = 0; 
- min = 0;
- total2 = 0;
-  percentBD1 = 0;
-  percentBD2 = 0;
-  percentBD3 = 0 ;
-  percentBD4 = 0 ;
- 
-  porcentajePOO1 = 0 ;
-  porcentajePOO2 = 0;
-  porcentajePOO3 = 0;
-  porcentajePOO4 = 0;
- 
-    %>
+total = 0;
+masomenos = 0;
+regular = 0;
+malos = 0;
+buenas = 0;
+avanzado = 0;
+intermedio =0;
+basico = 0; 
+min = 0;
+total2 = 0;
+percentBD1 = 0;
+percentBD2 = 0;
+percentBD3 = 0 ;
+percentBD4 = 0 ;
+porcentajePOO1 = 0 ;
+porcentajePOO2 = 0;
+porcentajePOO3 = 0;
+porcentajePOO4 = 0;
+con.close();
+stmt.close();
+rs.close();
+rs2.close();
+rs3.close();
+%>
 <script src="JS/GeneradorPDF.js"></script>
 </html>

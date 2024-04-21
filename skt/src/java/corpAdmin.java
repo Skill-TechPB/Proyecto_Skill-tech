@@ -53,6 +53,9 @@ public class corpAdmin extends HttpServlet {
                         }
                         response.setContentType("text/html;charset=UTF-8");
                         response.sendRedirect("admin.jsp");
+                        con.close();
+                        stmt.close();
+                        rs.close();
                         } catch (ClassNotFoundException | SQLException ex) {
                             error = "Error al registrar/actualizar los datos: " + ex.getMessage();
                             response.setContentType("text/html;charset=UTF-8");

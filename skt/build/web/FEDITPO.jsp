@@ -622,6 +622,10 @@
     </footer>
         
     </form> 
-
+    <%
+    con.close();
+    stmt.close();
+    rs.close();
+    %>                 
     </body>
     </html>

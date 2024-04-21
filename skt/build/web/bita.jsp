@@ -8,16 +8,14 @@
     <% HttpSession sesion = request.getSession(true); %>
     <%String tipou = (String) sesion.getAttribute("tipou");%>
 
-    <% if(sesion.isNew() || sesion==null)
-        {
-        response.sendRedirect("index.html");
-        return;
-        }
+    <% if(sesion.isNew() || sesion==null){
+    response.sendRedirect("index.html");
+    return;
+    }
     %>
-    <%
-          if (tipou == null || tipou.equals("0") || tipou.equals("4") || tipou.equals("1")) {
-        response.sendRedirect("index.html");
-        return;
+    <%if (tipou == null || tipou.equals("0") || tipou.equals("4") || tipou.equals("1")) {
+    response.sendRedirect("index.html");
+    return;
     }
     %>
     <!DOCTYPE html>
@@ -146,5 +144,11 @@
             <%}%>
             <%}%>
             </table>
+    <%
+    con.close();
+    stmt.close();
+    rs.close();
+    rs2.close();
+    %>
         </body>
     </html>

@@ -195,6 +195,10 @@ public class editbd extends HttpServlet {
                         escribir.write(genew[i]);
                     }
                     escribir.close();
+                    con.close();
+                    stmt.close();
+                    rs.close();
+                    rs2.close();
                     //fin 
                     } catch (ClassNotFoundException | SQLException ex) {
                         error = "Error al registrar/actualizar los datos: " + ex.getMessage();

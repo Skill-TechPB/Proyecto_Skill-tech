@@ -5,48 +5,52 @@
         <%@page import="Conexion.*" %>
         <%@page import="javax.servlet.http.HttpSession"%>
         <% HttpSession sesion = request.getSession(true); %>
-        <%
-            if(sesion.isNew() || sesion == null) {
-                response.sendRedirect("index.html");
-                return;
-            }
+        <%if(sesion.isNew() || sesion == null) {
+        response.sendRedirect("index.html");
+        return;
+        }
         %>
         <%String tipou = (String) sesion.getAttribute("tipou");%>
         <%int idUsuario = (int) sesion.getAttribute("usu_id");%>
-
         <% if(sesion.isNew() || sesion==null)
-            {
-            response.sendRedirect("index.html");
-            return;
-            }
-        %>
-        <%
-            //Nota: hay un if que tiene que ver con el profe, pero como esta pagina ya no admite a este usuario, es inservible
-            if (tipou == null || tipou.equals("0") || tipou.equals("1")) {
-            response.sendRedirect("index.html");
-            return;
+        {
+        response.sendRedirect("index.html");
+        return;
         }
-
         %>
-
+        <%if (tipou == null || tipou.equals("0") || tipou.equals("1")) {
+        response.sendRedirect("index.html");
+        return;
+        }
+        %>
+        <%!
+        Conexion pal;
+        Connection con;
+        Statement stmt;
+        ResultSet ip, rs, rs2, rs3, rs4;
+        String nivel="", nivel2="",nombre="", respo="", resbd="";
+        int pooavz = 0, pooint = 0, poomed = 0, poomin = 0;
+        int bdavz = 0, bdint = 0, bdmed = 0, bdmin = 0;
+        int z=0;
+        String materia[] = new String[2];
+        int arraypo[] = new int[10];
+        int arraybd[] = new int[10];
+        int arraypoi[] = new int[10];
+        int arraybdi[] = new int[10];
+        %>
         <!DOCTYPE html>
         <%
-            Conexion pal = new Conexion();
-            Connection con = pal.getConnection();
-            Statement stmt = con.createStatement();
-            ResultSet ip = stmt.executeQuery("select profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+""); 
-            String nivel="", nivel2="",nombre="";
-            int pooavz = 0, pooint = 0, poomed = 0, poomin = 0;
-            int bdavz = 0, bdint = 0, bdmed = 0, bdmin = 0;
-            int z=0;
-            String materia[] = new String[2];
-            z=0;
-            while(ip.next()){
-                nombre = ip.getString("pro_nombre");
-                materia[z]=ip.getString("asi_nombre");
-                z=z+1;
-            }z=0;
-            
+        pal = new Conexion();
+        con = pal.getConnection();
+        stmt = con.createStatement();
+        //Nota: si jefe de area ya no tiene materia, quita el campo asignatura.asi_nombre y el arreglo
+        ip = stmt.executeQuery("select profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+""); 
+        z=0;
+        while(ip.next()){
+            nombre = ip.getString("pro_nombre");
+            materia[z]=ip.getString("asi_nombre");
+            z=z+1;
+        }z=0;  
         %>
         <html lang="en">
         <head>
@@ -87,9 +91,16 @@
                 </div>
                 <div class="offcanvas-body">
                     <form method="POST" action="gen">
-                        <a><input class="opcn3" type="submit" value="2020" name="gene"></a>      
-                        <a><input class="opcn3" type="submit" value="2021" name="gene1"></a>
-                        <a><input class="opcn3" type="submit" value="2022" name="gene2"></a>
+                        <a><input class="opcn3" type="submit" value="2024" name="gene"></a>      
+                        <a><input class="opcn3" type="submit" value="2025" name="gene1"></a>
+                        <a><input class="opcn3" type="submit" value="2026" name="gene2"></a>
+                        <a><input class="opcn3" type="submit" value="2027" name="gene3" style="display:none;"></a>      
+                        <a><input class="opcn3" type="submit" value="2028" name="gene4" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2029" name="gene5" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2030" name="gene6" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2031" name="gene7" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2032" name="gene8" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2033" name="gene9" style="display:none;"></a>
                     </form>
                 </div>
               </div>
@@ -128,118 +139,69 @@
             </nav>
             <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
             <section class="bodyg">
-                
-            <%if(materia[0].equals("POO") && materia[1]== null){
-                ResultSet rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
-                while (rs.next()) {
-                    nivel = rs.getString("rpo_niv");
-                    if(nivel.equals("3")) {
-                        pooavz++;
-                    } else if(nivel.equals("2")) {
-                        pooint++;
-                    } else if(nivel.equals("1")) {
-                        poomed++;
-                    } else if(nivel.equals("0")) {
-                        poomin++;
+            <%
+            rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
+            while (rs.next()) {
+                nivel = rs.getString("rpo_niv");
+                if(nivel.equals("3")) {
+                    pooavz++;
+                } else if(nivel.equals("2")) {
+                    pooint++;
+                } else if(nivel.equals("1")) {
+                    poomed++;
+                } else if(nivel.equals("0")) {
+                    poomin++;
+                }
+            }       
+            rs2 = stmt.executeQuery("select rbd_niv FROM resultadobd");
+            while (rs2.next()) {
+                nivel2 = rs2.getString("rbd_niv");
+                if(nivel2.equals("3")) {
+                    bdavz++;
+                } else if(nivel2.equals("2")) {
+                    bdint++;
+                } else if(nivel2.equals("1")) {
+                    bdmed++;
+                } else if(nivel2.equals("0")) {
+                    bdmin++;
+                }
+                }
+            //para graficas de barras
+            rs3 = stmt.executeQuery("select rpo_resp from resultadopo;");
+            while (rs3.next()) {
+            respo = rs3.getString("rpo_resp");
+            String[] valores = respo.split(" ");
+            for (int i = 0; i<valores.length; i++) {
+                if(valores[i].equals("1")){
+                arraypo[i]++;
+                }else if(valores[i].equals("0")){
+                arraypoi[i]++;
+                }
+                }  
+            }
+            rs4 = stmt.executeQuery("select rbd_resp FROM resultadobd;");
+                while (rs4.next()) {
+                resbd = rs4.getString("rbd_resp");
+                String[] valores = resbd.split(" ");
+                for (int i = 0; i<valores.length; i++) {
+                    if(valores[i].equals("1")){
+                    arraybd[i]++;
                     }
-                }%>
+                    if(valores[i].equals("0")){
+                    arraybdi[i]++;
+                    }
+                    }  
+            }
+            %>
                 <div class="a">
                 <div class="titulo">Programación Intermedia</div>
                     <div id="graficaPOO" class="grafica-container">
-                    <canvas class="grafica"></canvas>
-                </div>
-                <div class="layougr">
-                    <div class="conti" id="cnt">
-                        <img src="assets/recavanzado.jpg" class="alinearrec">
-                        <p class="nvl1"> Avanzado </p>
-                    </div>
-                    <div class="conti2">
-                        <img src="assets/recintermedio.jpg" class="alinearrec">
-                        <p class="nvl">Intermedio </p>
-                    </div>
-                    <div class="conti3">
-                        <img src="assets/recbasico.jpg" class="alinearrec">
-                        <p class="nvl">Basico</p>
-                    </div>
-                    <div class="conti4">
-                        <img src="assets/recminimo.jpg" class="alinearrec">
-                        <p class="nvl">Minimo</p>
-                    </div>
-                </div>
-                </div>
-                <%} else if(materia[0].equals("BD") && materia[1]== null){
-                ResultSet rs2 = stmt.executeQuery("select rbd_niv FROM resultadobd");
-                while (rs2.next()) {
-                    nivel2 = rs2.getString("rbd_niv");
-                    if(nivel2.equals("3")) {
-                        bdavz++;
-                    } else if(nivel2.equals("2")) {
-                        bdint++;
-                    } else if(nivel2.equals("1")) {
-                        bdmed++;
-                    } else if(nivel2.equals("0")) {
-                        bdmin++;
-                    }
-                }%>
-                <div class="a">
-                <div class="titulo">Bases de Datos</div>
-                    <div id="graficaBD" class="grafica-container">
                     <canvas class="grafica"></canvas>
                 </div>
                 <div class="layougr">
                     <div class="conti" id="cnt">
                         <img src="assets/recavanzado.jpg" class="alinearrec">
                         <p class="nvl"> Avanzado </p>
-                    </div>
-                    <div class="conti2">
-                        <img src="assets/recintermedio.jpg" class="alinearrec">
-                        <p class="nvl">Intermedio </p>
-                    </div>
-                    <div class="conti3">
-                        <img src="assets/recbasico.jpg" class="alinearrec">
-                        <p class="nvl">Basico</p>
-                    </div>
-                    <div class="conti4">
-                        <img src="assets/recminimo.jpg" class="alinearrec">
-                        <p class="nvl">Minimo</p>
-                    </div>
-                </div>
-                </div>
-                <%} else {
-                ResultSet rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
-                while (rs.next()) {
-                    nivel = rs.getString("rpo_niv");
-                    if(nivel.equals("3")) {
-                        pooavz++;
-                    } else if(nivel.equals("2")) {
-                        pooint++;
-                    } else if(nivel.equals("1")) {
-                        poomed++;
-                    } else if(nivel.equals("0")) {
-                        poomin++;
-                    }
-                }       
-                ResultSet rs2 = stmt.executeQuery("select rbd_niv FROM resultadobd");
-                while (rs2.next()) {
-                    nivel2 = rs2.getString("rbd_niv");
-                    if(nivel2.equals("3")) {
-                        bdavz++;
-                    } else if(nivel2.equals("2")) {
-                        bdint++;
-                    } else if(nivel2.equals("1")) {
-                        bdmed++;
-                    } else if(nivel2.equals("0")) {
-                        bdmin++;
-                    }}%>
-                <div class="a">
-                <div class="titulo">Programación Intermedia</div>
-                    <div id="graficaPOO" class="grafica-container">
-                    <canvas class="grafica"></canvas>
-                </div>
-                <div class="layougr">
-                    <div class="conti" id="cnt">
-                        <img src="assets/recavanzado.jpg" class="alinearrec">
-                        <p class="nvl1"> Avanzado </p>
                     </div>
                     <div class="conti2">
                         <img src="assets/recintermedio.jpg" class="alinearrec">
@@ -280,7 +242,19 @@
                     </div>
                 </div>
                 </div>
-                <%}%>
+            </section>
+            <br>
+            <br>
+            <section class="bodyg2" id="2">
+                <div class="a1" id="a">
+                    <div class="titulo">Preguntas PI</div>
+                    <canvas id="grafica" class="bar"></canvas>
+                </div>
+
+                <div class="a1" id="a">
+                    <div class="titulo">Preguntas BD</div>
+                <canvas id="grafica" class="bar2"></canvas>
+                </div>
             </section>
             <script>
                 var NivAvanz = "<%=pooavz%>";
@@ -337,13 +311,153 @@
                 new Chart(graphBD, configBD);
             </script>
             <script>
-                const myModal = document.getElementById('staticBackdrop')
-        const myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-        })
+            const myModal = document.getElementById('staticBackdrop')
+            const myInput = document.getElementById('myInput')
+            myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+            })
             </script>
+            <script>
+            //correctas
+            var ppo1 = "<%=arraypo[0] %>";
+            var ppo2 = "<%=arraypo[1] %>";
+            var ppo3 = "<%=arraypo[2] %>";
+            var ppo4 = "<%=arraypo[3] %>";
+            var ppo5 = "<%=arraypo[4] %>";
+            var ppo6 = "<%=arraypo[5] %>";
+            var ppo7 = "<%=arraypo[6] %>";
+            var ppo8 = "<%=arraypo[7] %>";
+            var ppo9 = "<%=arraypo[8] %>";
+            var ppo10 = "<%=arraypo[9] %>";
+            //incorrectas
+            var ppoi1 = "<%=arraypoi[0] %>";
+            var ppoi2 = "<%=arraypoi[1] %>";
+            var ppoi3 = "<%=arraypoi[2] %>";
+            var ppoi4 = "<%=arraypoi[3] %>";
+            var ppoi5 = "<%=arraypoi[4] %>";
+            var ppoi6 = "<%=arraypoi[5] %>";
+            var ppoi7 = "<%=arraypoi[6] %>";
+            var ppoi8 = "<%=arraypoi[7] %>";
+            var ppoi9 = "<%=arraypoi[8] %>";
+            var ppoi10 = "<%=arraypoi[9] %>";
+
+            // Obtener una referencia al elemento canvas del DOM
+            const $grafica = document.querySelector(".bar");
+            const etiquetas = ["1","2","3","4","5","6","7","8","9","10"];
+            const datosVentas2020 = {
+                label: "Aciertos",
+                data: [ppo1,ppo2,ppo3,ppo4,ppo5,ppo6,ppo7,ppo8,ppo9,ppo10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+                backgroundColor: "#3D29F5", // Color de fondo
+                borderColor: "#3D29F5", // Color del borde
+                borderWidth: 1// Ancho del borde
+            };
+            const datosVentas2021 = {
+                label: "Errores",
+                data: [ppoi1,ppoi2,ppoi3,ppoi4,ppoi5,ppoi6,ppoi7,ppoi8,ppoi9,ppoi10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+                backgroundColor:  "#91043D",// Color de fondo
+                borderColor: "#91043D",// Color del borde
+                borderWidth: 1// Ancho del borde
+            };
+
+            new Chart($grafica, {
+                type: 'bar',// Tipo de grÃ¡fica
+                data: {
+                    labels: etiquetas,
+                    datasets: [
+                        datosVentas2020,
+                        datosVentas2021
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                    },
+                    plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14, // Tamaño de la fuente
+                            family: 'Arial', // Familia de fuente
+                            weight: 'bold', // Peso de la fuente (puede ser 'normal', 'bold', 'lighter', 'bolder', etc.)
+                            style: 'italic', // Estilo de la fuente (puede ser 'normal', 'italic', 'oblique')
+                        }
+                    }
+                }
+            }
+
+                }
+            });
+        </script>
+        <script>
+        //correctas
+        var pbd1 = "<%=arraybd[0] %>";
+        var pbd2 = "<%=arraybd[1] %>";
+        var pbd3 = "<%=arraybd[2] %>";
+        var pbd4 = "<%=arraybd[3] %>";
+        var pbd5 = "<%=arraybd[4] %>";
+        var pbd6 = "<%=arraybd[5] %>";
+        var pbd7 = "<%=arraybd[6] %>";
+        var pbd8 = "<%=arraybd[7] %>";
+        var pbd9 = "<%=arraybd[8] %>";
+        var pbd10 = "<%=arraybd[9] %>";
+        //incorrectas
+        var pbdi1 = "<%=arraybdi[0] %>";
+        var pbdi2 = "<%=arraybdi[1] %>";
+        var pbdi3 = "<%=arraybdi[2] %>";
+        var pbdi4 = "<%=arraybdi[3] %>";
+        var pbdi5 = "<%=arraybdi[4] %>";
+        var pbdi6 = "<%=arraybdi[5] %>";
+        var pbdi7 = "<%=arraybdi[6] %>";
+        var pbdi8 = "<%=arraybdi[7] %>";
+        var pbdi9 = "<%=arraybdi[8] %>";
+        var pbdi10 = "<%=arraybdi[9] %>";
+        
+        // Obtener una referencia al elemento canvas del DOM
+        const $grafica2 = document.querySelector(".bar2");
+        // Las etiquetas son las que van en el eje X. 
+        const etiquetas2 = ["1","2","3","4","5","6","7","8","9","10"];
+        // Podemos tener varios conjuntos de datos
+        const datosVentas20201 = {
+            label: "Aciertos",
+            data: [pbd1,pbd2,pbd3,pbd4,pbd5,pbd6,pbd7,pbd8,pbd9,pbd10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor: "#3D29F5", // Color de fondo
+            borderColor: "#3D29F5", // Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+        const datosVentas20211 = {
+            label: "Errores",
+            data: [pbdi1,pbdi2,pbdi3,pbdi4,pbdi5,pbdi6,pbdi7,pbdi8,pbdi9,pbdi10], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor:  "#91043D",// Color de fondo
+            borderColor: "#91043D",// Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+
+        new Chart($grafica2, {
+            type: 'bar',// Tipo de grÃ¡fica
+            data: {
+                labels: etiquetas2,
+                datasets: [
+                    datosVentas20201,
+                    datosVentas20211
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                },
+                
+            }
+        });
+        </script>
+
         <%
         //IMPORTANTE
         pooavz = 0;
@@ -354,6 +468,18 @@
         bdint = 0;
         bdmed = 0;
         bdmin = 0;
+        for(int i=0;i<arraypo.length;i++){
+        arraypo[i]=0;
+        arraypoi[i]=0;
+        arraybd[i]=0;
+        arraybdi[i]=0;
+        }
+        con.close();
+        stmt.close();
+        rs.close();
+        rs2.close();
+        rs3.close();
+        rs4.close();
         %>
         </body>
         </html>

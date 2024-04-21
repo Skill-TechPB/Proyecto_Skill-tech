@@ -51,6 +51,9 @@ public class dropAdmin extends HttpServlet {
                         insertStatement.setInt(1, idusu);
                         insertStatement.executeUpdate();
                         }
+                        con.close();
+                        stmt.close();
+                        rs.close();
                         response.setContentType("text/html;charset=UTF-8");
                         response.sendRedirect("admin.jsp");
                         } catch (ClassNotFoundException | SQLException ex) {

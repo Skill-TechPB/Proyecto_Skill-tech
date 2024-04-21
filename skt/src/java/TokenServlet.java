@@ -55,7 +55,7 @@ String error, token;
         }else if(tipou.equals("0")){
             String egresadoConsulta = "select egr_bandPOO, egr_banBD from egresado where usu_id= ? ";
                 PreparedStatement POOPst = con.prepareStatement(egresadoConsulta);
-                 POOPst.setInt(1, idUsuario); 
+                POOPst.setInt(1, idUsuario); 
                 ResultSet POORs = POOPst.executeQuery();
                 if(POORs.next()){
                       banPO = POORs.getInt("egr_bandPOO");
@@ -69,7 +69,8 @@ String error, token;
                         response.sendRedirect("agradecimiento.jsp");
                     }else if(banPO == 0 && banBD == 1){
                         response.sendRedirect("FPOO.jsp");
-                    }  
+                    }
+        POORs.close();        
         }
         }
         }
@@ -134,6 +135,9 @@ String error, token;
             error = "Los token no coinciden jajaja";
             return;
         }
+        con.close();
+        tkst.close();
+        rs.close();
     }
 
     public static boolean validarToken(String token) {

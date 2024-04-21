@@ -5,39 +5,41 @@
 <%@page import="Conexion.*" %>
 <%@page import="javax.servlet.http.HttpSession"%>
 <% HttpSession sesion = request.getSession(true); %>
-<%
-    if(sesion.isNew() || sesion == null) {
-        response.sendRedirect("index.html");
-        return;
-    }
-%>
-<%String x = (String) sesion.getAttribute("generacion");%>
-<%String tipou = (String) sesion.getAttribute("tipou");%>
-
-
-<%
-    if (tipou == null || tipou.equals("0") || tipou.equals("3")) {
+<%if(sesion.isNew() || sesion == null) {
     response.sendRedirect("index.html");
     return;
 }
 %>
+<%String x = (String) sesion.getAttribute("generacion");%>
+<%String tipou = (String) sesion.getAttribute("tipou");%>
+<%int idUsuario = (int) sesion.getAttribute("usu_id");%>
 
+
+<%if (tipou == null || tipou.equals("0") || tipou.equals("3")|| tipou.equals("1")) {
+response.sendRedirect("index.html");
+return;
+}
+%>
+<%!
+Conexion pal;
+Connection con;
+Statement stmt;
+ResultSet rs, rs2, rs3, rs4;
+String nivel="", nivel2="", respo="", resbd="";
+int pooavz = 0, pooint = 0, poomed = 0, poomin = 0;
+int bdavz = 0, bdint = 0, bdmed = 0, bdmin = 0;
+int arraypo[] = new int[10];
+int arraybd[] = new int[10];
+int arraypoi[] = new int[10];
+int arraybdi[] = new int[10];   
+%>
 <!DOCTYPE html>
 <%
-    Conexion pal = new Conexion();
-    Connection con = pal.getConnection();
-    Statement stmt = con.createStatement();
-    ResultSet rs, rs2, rs3, rs4;
+    pal = new Conexion();
+    con = pal.getConnection();
+    stmt = con.createStatement();
     
-    String nivel, nivel2, respo, resbd;
-    int pooavz = 0, pooint = 0, poomed = 0, poomin = 0;
-    int bdavz = 0, bdint = 0, bdmed = 0, bdmin = 0;
-    int arraypo[] = new int[10];
-    int arraybd[] = new int[10];
-    int arraypoi[] = new int[10];
-    int arraybdi[] = new int[10];
-    
-    
+    //las de pastel
     rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id = resultadopo.egr_id where egr_fch = '"+x+"'");
     while (rs.next()) {
         nivel = rs.getString("rpo_niv");
@@ -64,6 +66,8 @@
             bdmin++;
         }
     }
+    
+    //para graficas de barras
     rs3 = stmt.executeQuery("select rpo_resp from resultadopo inner join egresado on egresado.egr_id = resultadopo.egr_id where egr_fch = '"+x+"'");
     while (rs3.next()) {
     respo = rs3.getString("rpo_resp");
@@ -96,7 +100,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grafica de GEN</title>
+    <title>Grafica generacion <%=x%></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/Chart.min.css">
     <link rel="stylesheet" href="css/graf.css">
     <link rel="stylesheet" href="css/grafivasr2.css">
@@ -115,9 +119,16 @@
         </div>
         <div class="offcanvas-body">
             <form method="POST" action="gen">
-                <a><input class="opcn3" type="submit" value="2020" name="gene"></a>      
-                <a><input class="opcn3" type="submit" value="2021" name="gene1"></a>
-                <a><input class="opcn3" type="submit" value="2022" name="gene2"></a>
+                <a><input class="opcn3" type="submit" value="2024" name="gene"></a>      
+                        <a><input class="opcn3" type="submit" value="2025" name="gene1"></a>
+                        <a><input class="opcn3" type="submit" value="2026" name="gene2"></a>
+                        <a><input class="opcn3" type="submit" value="2027" name="gene3" style="display:none;"></a>      
+                        <a><input class="opcn3" type="submit" value="2028" name="gene4" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2029" name="gene5" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2030" name="gene6" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2031" name="gene7" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2032" name="gene8" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2033" name="gene9" style="display:none;"></a>
             </form>
         </div>
       </div>
@@ -127,14 +138,6 @@
         <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
         <div class="barra">
             <div class="fontdiv">
-                <%if(tipou.equals("1") ){%>
-                <div class="flujo2">
-                    <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
-                </div>
-                <div class="flujo31">
-                    <a href="repor.jsp"><button type="button" class="opcn">Reportes</button></a>
-                </div>
-                <%}else if(tipou.equals("2")){%>
                 <div class="flujo21">
                     <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
                 </div>
@@ -144,8 +147,6 @@
                 <div class="flujo4">
                     <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
                 </div>
-                
-                <%}%>
             </div>
     </div>
     <form action="Cerrar" method="post">
@@ -157,19 +158,45 @@
     </button>
 </form>
     </header>
- 
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="myInput">
+                ?
+    </button>
     <nav>
         <div class="nav-container">
             <p class="ttl">Gráficas de la Generación:</p>
-            <p class="ttl2">2021</p>
+            <p class="ttl2"><%=x%></p>
             <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
         </div>
     </nav>
         <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
-
-    <section class="bodyg" id="1">
+    
+    <section class="bodyg">
         <div class="a">
-            <div class="titulo">POO</div>
+        <div class="titulo">Programación Intermedia</div>
+            <div id="graficaPOO" class="grafica-container">
+            <canvas class="grafica"></canvas>
+        </div>
+        <div class="layougr">
+            <div class="conti" id="cnt">
+                <img src="assets/recavanzado.jpg" class="alinearrec">
+                <p class="nvl"> Avanzado </p>
+            </div>
+            <div class="conti2">
+                <img src="assets/recintermedio.jpg" class="alinearrec">
+                <p class="nvl">Intermedio </p>
+            </div>
+            <div class="conti3">
+                <img src="assets/recbasico.jpg" class="alinearrec">
+                <p class="nvl">Basico</p>
+            </div>
+            <div class="conti4">
+                <img src="assets/recminimo.jpg" class="alinearrec">
+                <p class="nvl">Minimo</p>
+            </div>
+        </div>
+        </div>
+        <div class="a">
+        <div class="titulo">Bases de Datos</div>
             <div id="graficaBD" class="grafica-container">
             <canvas class="grafica"></canvas>
         </div>
@@ -192,37 +219,14 @@
             </div>
         </div>
         </div>
-        <div class="a">
-            <div class="titulo">BD</div>
-             <div id="graficaPOO" class="grafica-container">
-            <canvas class="grafica"></canvas>
-        </div>
-        <div class="layougr">
-            <div class="conti" id="cnt">
-                <img src="assets/recavanzado.jpg" class="alinearrec">
-                <p class="nvl"> Avanzado </p>
-            </div>
-            <div class="conti2">
-                <img src="assets/recintermedio.jpg" class="alinearrec">
-                <p class="nvl">Intermedio </p>
-            </div>
-            <div class="conti3">
-                <img src="assets/recbasico.jpg" class="alinearrec">
-                <p class="nvl">Basico</p>
-            </div>
-            <div class="conti4">
-                <img src="assets/recminimo.jpg" class="alinearrec">
-                <p class="nvl">Minimo</p>
-            </div>
-        </div>
-
-        </div>
     </section>
+    
     <br>
     <br>
+    
     <section class="bodyg2" id="2">
         <div class="a1" id="a">
-            <div class="titulo">Preguntas POO</div>
+            <div class="titulo">Preguntas PI</div>
             <canvas id="grafica" class="bar"></canvas>
         </div>
 
@@ -233,12 +237,9 @@
     </section>
     <br>
     <br>
-	<footer id="alinderecha">
-
+    <footer id="alinderecha">
         <a href="graficas.jsp"><button type="button" class="opn">Regresar</button></a>
     </footer>
-
- 
 <script>
         var NivAvanz = "<%=pooavz%>";
         var Nivint = "<%=pooint%>";
@@ -263,8 +264,8 @@
         const labels = ['Avanzado', 'Intermedio', 'Básico', 'Mínimo'];
         const colors = ['#3D29F5', '#05ACFF', '#DA82AF', '#91043D'];
 
-        const graphPOO = document.querySelector("#graficaBD .grafica");
-        const graphBD = document.querySelector("#graficaPOO .grafica");
+        const graphPOO = document.querySelector("#graficaPOO .grafica");
+        const graphBD = document.querySelector("#graficaBD .grafica");
 
         const dataPOO = {
             datasets: [{
@@ -293,8 +294,16 @@
         new Chart(graphPOO, configPOO);
         new Chart(graphBD, configBD);
     </script>
-    
     <script>
+    const myModal = document.getElementById('staticBackdrop')
+    const myInput = document.getElementById('myInput')
+    
+    myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+    })
+    </script>
+    <script>
+        //correctas
         var ppo1 = "<%=arraypo[0] %>";
         var ppo2 = "<%=arraypo[1] %>";
         var ppo3 = "<%=arraypo[2] %>";
@@ -305,7 +314,7 @@
         var ppo8 = "<%=arraypo[7] %>";
         var ppo9 = "<%=arraypo[8] %>";
         var ppo10 = "<%=arraypo[9] %>";
-        
+        //incorrectas
         var ppoi1 = "<%=arraypoi[0] %>";
         var ppoi2 = "<%=arraypoi[1] %>";
         var ppoi3 = "<%=arraypoi[2] %>";
@@ -370,6 +379,7 @@
     </script>
 
 <script>
+        //correctas
         var pbd1 = "<%=arraybd[0] %>";
         var pbd2 = "<%=arraybd[1] %>";
         var pbd3 = "<%=arraybd[2] %>";
@@ -380,7 +390,7 @@
         var pbd8 = "<%=arraybd[7] %>";
         var pbd9 = "<%=arraybd[8] %>";
         var pbd10 = "<%=arraybd[9] %>";
-        
+        //incorrectas
         var pbdi1 = "<%=arraybdi[0] %>";
         var pbdi2 = "<%=arraybdi[1] %>";
         var pbdi3 = "<%=arraybdi[2] %>";
@@ -433,5 +443,28 @@
             }
         });
     </script>
+    <%
+    //IMPORTANTE
+    pooavz = 0;
+    pooint = 0;
+    poomed = 0;
+    poomin = 0;
+    bdavz = 0;
+    bdint = 0;
+    bdmed = 0;
+    bdmin = 0;
+    for(int i=0;i<arraypo.length;i++){
+    arraypo[i]=0;
+    arraypoi[i]=0;
+    arraybd[i]=0;
+    arraybdi[i]=0;
+    }
+    con.close();
+    stmt.close();
+    rs.close();
+    rs2.close();
+    rs3.close();
+    rs4.close();
+    %>
     </body>
 </html>

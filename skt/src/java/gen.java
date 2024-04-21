@@ -20,7 +20,8 @@ import javax.servlet.http.HttpSession;
 public class gen extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
+        HttpSession sesion = request.getSession(true);
+        String tipou = (String) sesion.getAttribute("tipou");
         String generaciones[]= new String[10];
         
         for(int i=0;i<generaciones.length;i++){
@@ -33,9 +34,14 @@ public class gen extends HttpServlet {
         
         for(int i=0;i<generaciones.length;i++){
         if(generaciones[i]!= null){
-        session.setAttribute("generacion",generaciones[i]);
+        sesion.setAttribute("generacion",generaciones[i]);
         response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("graficasgen.jsp");    
+        if(tipou.equals("1")){
+            response.sendRedirect("graficasgenProf.jsp");
+        }else if(tipou.equals("2")){ 
+            response.sendRedirect("graficasgen.jsp");
+        }
+            
         }
         }
     }

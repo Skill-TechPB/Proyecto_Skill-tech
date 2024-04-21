@@ -8,7 +8,6 @@
     <% HttpSession sesion = request.getSession(true); %>
     <%String tipou = (String) sesion.getAttribute("tipou");%>
     <%int idUsuario = (int) sesion.getAttribute("usu_id");%>
-    
     <% if(sesion.isNew() || sesion==null){
     response.sendRedirect("index.html");
     return;}
@@ -17,7 +16,6 @@
     if (tipou == null || tipou.equals("1") || tipou.equals("4") || tipou.equals("2")) {
     response.sendRedirect("index.html");
     return;}%>
-   
     <!DOCTYPE html>
     <%!
     Conexion pal;
@@ -411,6 +409,15 @@
          <li></li>
        </ul>
      </div>
-
+    <%
+    con.close();
+    stmt.close();
+    rs.close();
+    rs2.close();
+    rs3.close();
+    rs4.close();
+    rs5.close();
+    rs6.close();
+    %>
     </body>
     </html>

@@ -6,18 +6,15 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 
 <% HttpSession sesion = request.getSession(true); %>
-<% if(sesion.isNew() || sesion==null)
-    {
-    response.sendRedirect("index.html");
-    return;
-    }
-     
+<% if(sesion.isNew() || sesion==null){
+response.sendRedirect("index.html");
+return;
+}     
 %>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
-<%
-    if (tipou == null || tipou.equals("2") || tipou.equals("4") || tipou.equals("1")) {
-    response.sendRedirect("index.html");
-    return;
+<%if (tipou == null || tipou.equals("2") || tipou.equals("4") || tipou.equals("1")) {
+response.sendRedirect("index.html");
+return;
 }
 %>
 <%!
@@ -25,13 +22,14 @@ Conexion pal;
 Connection con;
 Statement stmt;
 ResultSet rs,rs2;
-String respo,resBD;
+String respo="",resBD="";
+
 %>
 <%
     int userID = (int) sesion.getAttribute("usu_id");
-     pal = new Conexion();
-     con = pal.getConnection();
-     stmt = con.createStatement();
+    pal = new Conexion();
+    con = pal.getConnection();
+    stmt = con.createStatement();
     rs = stmt.executeQuery("select rpo_calif from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id where usu_id=  "+ userID+"");
     if(rs.next()){
     respo = rs.getString("rpo_calif");
@@ -40,9 +38,7 @@ String respo,resBD;
     rs2 = stmt.executeQuery("select rbd_calif from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id where usu_id= "+userID+""); 
     if(rs2.next()){
     resBD= rs2.getString("rbd_calif");
-    }
-    
-    
+    } 
 %>
 
 
@@ -80,6 +76,12 @@ String respo,resBD;
             </div>
         </section>
       </div>
+    <%
+    con.close();
+    stmt.close();
+    rs.close();
+    rs2.close();
+    %>
   </body>
   <div class="animateme">
     <ul class="bg-bubbles">

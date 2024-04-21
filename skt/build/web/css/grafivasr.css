@@ -138,6 +138,18 @@ nav {
 
 }
 
+.a1 {
+    margin-top: 20vh;
+    /*border: 2px solid #000000;*/   
+     border-radius: 11px;
+     width: 37vw;
+     height: 50vh;
+     margin-right: 5vw;
+     margin-left: 5vw;
+    /* background: #e1ff00;*/
+ 
+ }
+
 .grafica-container{
     height: 53vh;
     border-radius: 11px;
@@ -322,7 +334,7 @@ h2{
     padding-right: 2vw;
     /*background: #004081;*/
     margin-top: 15vh;
-    margin-left: -53vw;
+    margin-left: -44vw;
 
 }
 .ttlo2{

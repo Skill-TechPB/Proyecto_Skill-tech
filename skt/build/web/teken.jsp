@@ -3,18 +3,15 @@
 <%int idUsuario = (int) sesion.getAttribute("usu_id");%>
 <%String anio= (String) sesion.getAttribute("anioegreso");%>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
-
-<% if(sesion.isNew() || sesion==null)
-    {
-    response.sendRedirect("index.html");
-    return;
-    }
+<% if(sesion.isNew() || sesion==null){
+response.sendRedirect("index.html");
+return;
+}
 %>
-<%
-   if(tipou.equals("3")){
-   response.sendRedirect("index.html");
-   return;
-    }
+<%if(tipou.equals("3")){
+response.sendRedirect("index.html");
+return;
+ }
 %>
 <!DOCTYPE html>
 <html>

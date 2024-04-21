@@ -42,7 +42,7 @@ String x;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-  String error = "";
+        String error = "";
         ResultSet rs;
         String CorreoElec = request.getParameter("lemail");
         String Contra = request.getParameter("lpassword");
@@ -199,6 +199,7 @@ String x;
             }
             rs.close();
             pst.close();
+            con.close();
         } catch (Exception e) {
             PrintWriter out = response.getWriter();
             

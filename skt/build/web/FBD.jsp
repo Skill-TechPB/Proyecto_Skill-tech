@@ -410,6 +410,15 @@
          <li></li>
        </ul>
      </div>
-     
+    <%
+    con.close();
+    stmt.close();
+    rs.close();
+    rs2.close();
+    rs3.close();
+    rs4.close();
+    rs5.close();
+    rs6.close();
+    %>
     </body>
     </html>
