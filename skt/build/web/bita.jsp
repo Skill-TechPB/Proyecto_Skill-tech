@@ -7,7 +7,6 @@
     <%@page import="javax.servlet.http.HttpSession"%>
     <% HttpSession sesion = request.getSession(true); %>
     <%String tipou = (String) sesion.getAttribute("tipou");%>
-
     <% if(sesion.isNew() || sesion==null){
     response.sendRedirect("index.html");
     return;
@@ -69,18 +68,44 @@
             <title>Bitacora</title>
         </head>
         <body>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Filtros de la Bitácora</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <input class="inicio" type="date" name="" id="">
+                            <input class="final" type="date" name="" id="">
+                            <div class="fil">
+                                <select class="formulario" id="" name="formulario"></select>
+                                <select class="pregunta" id="" name="pregunta"></select>
+                                <input type="checkbox" class="pyr" id="">
+                                <p class="polito">Preguntas y respuestas</p> 
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <header>   
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
                 <div class="barra">
                     <div class="fontdiv">
                         <div class="flujo21">
-                            <a href="graficas.jsp"><button type="button" class="opcn">Graficas</button></a>
+                            <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
                         </div>
                         <div class="flujo3">
                             <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
                         </div>  
                         <div class="flujo4">
-                            <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
+                            <a href="bita.jsp"><button class="opcn" type="button">Bitácora</button></a>
                         </div>
                     </div>
             </div>
@@ -95,10 +120,29 @@
             </header>
             <nav>
                 <div class="nav-container">
-                    <p class="ttl">Bitacora</p>
+                    <p class="ttl">Bitácora</p>
                 </div>
             </nav>
-            <div class="alincentro"><p class="ins">A continuación se presentan los cambios realizados en los formularios</p></div>
+            <div class="alincentro">
+                <p class="ins">A continuación se presentan los cambios realizados en los formularios</p>
+            </div>
+            <div class="filtros">
+                <form class="fil" action="">
+                    <input class="inicio" type="date" name="" id="">
+                    <input class="final" type="date" name="" id="">
+                    <select class="formulario" id="" name="formulario">
+                        <option value="" selected>Seleccionar formulario</option>
+                    </select>
+                    <select class="pregunta" id="" name="pregunta">
+                        <option value="" selected>Seleccionar pregunta</option>
+                    </select>
+                    <label class="lbl">
+                        <input type="radio" class="pyr" id="">
+                        <p class="polito">Preguntas y respuestas</p>
+                    </label>
+                    <button class="opcn2">Aplicar</button>
+                </form>
+            </div>
             <table class="bitacora">
             <tr>
                 <th>Fecha de modificación</th>
@@ -144,11 +188,11 @@
             <%}%>
             <%}%>
             </table>
-    <%
-    con.close();
-    stmt.close();
-    rs.close();
-    rs2.close();
-    %>
+            <%
+            con.close();
+            stmt.close();
+            rs.close();
+            rs2.close();
+            %>
         </body>
     </html>
