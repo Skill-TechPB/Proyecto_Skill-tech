@@ -180,17 +180,17 @@
                 }  
             }
             rs4 = stmt.executeQuery("select rbd_resp FROM resultadobd;");
-                while (rs4.next()) {
-                resbd = rs4.getString("rbd_resp");
-                String[] valores = resbd.split(" ");
-                for (int i = 0; i<valores.length; i++) {
-                    if(valores[i].equals("1")){
-                    arraybd[i]++;
-                    }
-                    if(valores[i].equals("0")){
-                    arraybdi[i]++;
-                    }
-                    }  
+            while (rs4.next()) {
+            resbd = rs4.getString("rbd_resp");
+            String[] valores = resbd.split(" ");
+            for (int i = 0; i<valores.length; i++) {
+                if(valores[i].equals("1")){
+                arraybd[i]++;
+                }
+                if(valores[i].equals("0")){
+                arraybdi[i]++;
+                }
+                }  
             }
             %>
                 <div class="a">

@@ -135,7 +135,7 @@
             </nav>
             <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
                 <%if(materia[0].equals("POO") && materia[1]== null){
-                rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" group by rpo_id");
+                rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2!=0");
                 while (rs.next()) {
                     nivel = rs.getString("rpo_niv");
                     if(nivel.equals("3")) {
@@ -148,7 +148,7 @@
                         poomin++;
                     }
                   }  
-                rs3 = stmt.executeQuery("select rpo_resp from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" group by rpo_id");
+                rs3 = stmt.executeQuery("select rpo_resp from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2!=0");
                 while (rs3.next()) {
                 respo = rs3.getString("rpo_resp");
                 String[] valores = respo.split(" ");
@@ -161,8 +161,6 @@
                     }  
                 
                 }
-                con.close();
-                stmt.close();
                 rs.close();
                 rs3.close();
                 %>
@@ -201,7 +199,7 @@
                     </div>
                 </section>
                 <%} else if(materia[0].equals("BD") && materia[1]== null){
-                rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" group by rbd_id");
+                rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
                 while (rs2.next()) {
                     nivel2 = rs2.getString("rbd_niv");
                     if(nivel2.equals("3")) {
@@ -214,7 +212,7 @@
                         bdmin++;
                     }
                 }
-                rs4 = stmt.executeQuery("select rbd_resp from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" group by rbd_id");
+                rs4 = stmt.executeQuery("select rbd_resp from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
                 while (rs4.next()) {
                 resbd = rs4.getString("rbd_resp");
                 String[] valores = resbd.split(" ");
@@ -227,8 +225,6 @@
                     }
                     }
                 }
-                con.close();
-                stmt.close();
                 rs2.close();
                 rs4.close();
                 %>
@@ -267,7 +263,7 @@
                     </div>
                 </section>
                 <%} else if(materia[0].equals("POO") && materia[1].equals("BD")){
-                rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" group by rpo_id");                
+                rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2!=0");                
                 while (rs.next()) {
                     nivel = rs.getString("rpo_niv");
                     if(nivel.equals("3")) {
@@ -280,7 +276,7 @@
                         poomin++;
                     }
                 }       
-                rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" group by rbd_id");
+                rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
                 while (rs2.next()) {
                     nivel2 = rs2.getString("rbd_niv");
                     if(nivel2.equals("3")) {
@@ -293,7 +289,7 @@
                         bdmin++;
                     }
                 }
-                rs3 = stmt.executeQuery("select rpo_resp from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" group by rpo_id");
+                rs3 = stmt.executeQuery("select rpo_resp from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2!=0");
                 while (rs3.next()) {
                 respo = rs3.getString("rpo_resp");
                 String[] valores = respo.split(" ");
@@ -305,7 +301,7 @@
                     }
                     }  
                 }
-                rs4 = stmt.executeQuery("select rbd_resp from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" group by rbd_id");
+                rs4 = stmt.executeQuery("select rbd_resp from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
                 while (rs4.next()) {
                 resbd = rs4.getString("rbd_resp");
                 String[] valores = resbd.split(" ");
@@ -318,8 +314,6 @@
                     }
                     }
                 }
-                con.close();
-                stmt.close();
                 rs.close();
                 rs2.close();
                 rs3.close();

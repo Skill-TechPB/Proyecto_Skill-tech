@@ -88,7 +88,7 @@ String x;
                 
                   // Validar si el usuario tiene registro en la tabla profesor
                 if(tipou.equals("1")){
-                    String profesorConsulta = "SELECT usu_id FROM profesor WHERE usu_id = ?";
+                String profesorConsulta = "SELECT usu_id FROM profesor WHERE usu_id = ?";
                 PreparedStatement profesorPst = con.prepareStatement(profesorConsulta);
                 profesorPst.setInt(1, userId);
                 ResultSet profesorRs = profesorPst.executeQuery();
@@ -123,7 +123,6 @@ String x;
                     }
                     // El usuario tiene registro en la tabla profesor
                     
-                
                 }else if(tipou.equals("2")){
                     boolean create = true;
                     HttpSession session = request.getSession(create);
@@ -197,9 +196,6 @@ String x;
                response.sendRedirect("iniciosesion.html?msg=1");
                     error = "Usuario deshabilitado";
             }
-            rs.close();
-            pst.close();
-            con.close();
         } catch (Exception e) {
             PrintWriter out = response.getWriter();
             

@@ -86,7 +86,6 @@ public class regAdmin extends HttpServlet {
                         insertStatement3.setString(2, nameprof);
                         insertStatement3.executeUpdate();
                         
-                        //quitar este if si jefe va a tener materias
                         if(tpu==1){
                         rs2 = stmt.executeQuery("select pro_id from profesor where usu_id="+idusu+"");
                         if(rs2.next()){
@@ -109,13 +108,12 @@ public class regAdmin extends HttpServlet {
                         insertStatement2.setInt(3, idpro);
                         insertStatement2.setInt(4, 1);
                         insertStatement2.executeUpdate();
-                        
-                        }  
+                        }
+                        rs2.close();
                         }
                         con.close();
                         stmt.close();
                         rs.close();
-                        rs2.close();
                         enviarCorreo(email, "Ingreso a Skilltech", "Hola "+nameprof+" se te ha registrado en Skill-tech con el siguiente correo "+email+" y con la contraseña "+passw);
                         response.sendRedirect("admin.jsp");
                         } catch (ClassNotFoundException | SQLException ex) {

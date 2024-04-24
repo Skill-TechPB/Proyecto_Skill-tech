@@ -125,9 +125,9 @@ ResultSet rs,rs2;
                     
                    
                     stmt = con.createStatement();
-                    rs = stmt.executeQuery("select egr_id from egresado where usu_id="+idUsuario+"");
-                    if(rs.next()){
-                    idegr=rs.getInt("egr_id");
+                    rs2 = stmt.executeQuery("select egr_id from egresado where usu_id="+idUsuario+"");
+                    if(rs2.next()){
+                    idegr=rs2.getInt("egr_id");
                         }
                     PreparedStatement insertStatement2 = con.prepareStatement("INSERT INTO resultadopo(rpo_fchrec, rpo_resp, rpo_calif, rpo_niv, egr_id) values(?,?,?,?,?)");
                     insertStatement2.setString(1, timeStamp);

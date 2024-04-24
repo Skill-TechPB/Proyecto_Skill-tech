@@ -70,7 +70,7 @@ String error, token;
                     }else if(banPO == 0 && banBD == 1){
                         response.sendRedirect("FPOO.jsp");
                     }
-        POORs.close();        
+        POORs.close();
         }
         }
         }
@@ -78,10 +78,6 @@ String error, token;
         if(tipou.equals("0")){
            String anio = (String) session.getAttribute("anioegreso"); 
         }
-        
-        
-        
-
         if (validarToken(token)) {
             response.sendRedirect("teken.jsp");
             return;
@@ -96,8 +92,7 @@ String error, token;
                     updateStatement.setString(1, token);
                     updateStatement.setInt(2, idUsuario);
                     updateStatement.executeUpdate();
-                
-                
+                    
                     PreparedStatement insertStatement = con.prepareStatement("INSERT INTO egresado(usu_id,egr_fch) values(?,?)");
                     insertStatement.setInt(1, idUsuario);
                     insertStatement.setString(2, anio);
@@ -119,12 +114,6 @@ String error, token;
                     response.sendRedirect("graficas.jsp");
                     return;
                 }
-                
-                
-                
-                
-                
-                
             } catch (ClassNotFoundException | SQLException ex) {
                 error = "Error al registrar/actualizar los datos: " + ex.getMessage();
                 response.sendRedirect("teken.jsp");

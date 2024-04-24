@@ -41,7 +41,7 @@ int idegr;
 boolean continar;
 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
 Statement stmt;
-ResultSet rs;
+ResultSet rs, rs2;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
@@ -129,9 +129,9 @@ ResultSet rs;
                     
                     session.setAttribute("banderaBD",1);
                     stmt = con.createStatement();
-                    rs = stmt.executeQuery("select egr_id from egresado where usu_id="+idUsuario+"");
-                    if(rs.next()){
-                    idegr=rs.getInt("egr_id");
+                    rs2 = stmt.executeQuery("select egr_id from egresado where usu_id="+idUsuario+"");
+                    if(rs2.next()){
+                    idegr=rs2.getInt("egr_id");
                         }
                     PreparedStatement insertStatement2 = con.prepareStatement("INSERT INTO resultadobd(rbd_fchrec, rbd_resp, rbd_calif, rbd_niv, egr_id) values(?,?,?,?,?)");
                     insertStatement2.setString(1, timeStamp);
@@ -143,6 +143,7 @@ ResultSet rs;
                     con.close();
                     stmt.close();
                     rs.close();
+                    rs2.close();
                     } catch (ClassNotFoundException | SQLException ex) {
                         error = "Error al registrar/actualizar los datos: " + ex.getMessage();
                         response.setContentType("text/html;charset=UTF-8");

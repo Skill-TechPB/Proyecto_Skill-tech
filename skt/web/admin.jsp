@@ -97,8 +97,20 @@ String mensajeselec2="";
                                 <input type="email" id="Email" name="email" placeholder="ejemplo@gmail.com" class="inputf" required><br>
                                 <label for="password" id="alinearizq" class="small-text">Contraseña:</label>
                                 <input type="password" id="Pasword" name="pasword" placeholder="Contraseña" class="inputf" required>
-                                
-
+                                <div id="codigo_oculto">
+                                <p>
+                                    <label for="password" id="alinearizq" class="small-text">Unidades de aprendizaje:</label><br><br>
+                                    <label class="container">
+                                    <input type="checkbox" id="product-1-1" name="check" value="0"> POO <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                    <input type="checkbox" id="product-1-2" name="check" value="1"> BDR <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container">
+                                    <input type="checkbox" id="product-1-3" name="check" value="2"> Ambas <span class="checkmark"></span>
+                                    </label>
+                                </p>
+                                 </div>
                                 <div class="footer">
                                 <button type="button" onclick="validarFormulario()" class="opcn2">Registrar usuario</button>
                                 <button type="reset" class="opcn3">Cancelar</button>

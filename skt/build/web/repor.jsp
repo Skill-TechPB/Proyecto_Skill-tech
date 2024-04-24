@@ -160,7 +160,7 @@ ip.close();
     <%
     if(tipou.equals("1")){
     if(materia[0].equals("POO") && materia[1]== null){
-        rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" group by rpo_id");
+        rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2!=0");
         x=0;
         while (rs.next()) {
         nivel = rs.getString("rpo_niv");
@@ -192,8 +192,6 @@ ip.close();
         if (malos != 0) {
             porcentajePOO4 =  malos / total *100;
         }
-        con.close();
-        stmt.close();
         rs.close();
     %>
     <div class="text2" id="txtbd">
@@ -211,7 +209,7 @@ ip.close();
     </div>
     <%
     } else if(materia[0].equals("BD") && materia[1]== null){
-        rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" group by rbd_id");
+        rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2=0");
         x=0;
         while (rs3.next()) {
         x=x+1;
@@ -243,8 +241,6 @@ ip.close();
         if (min != 0) {
             percentBD4 = min / total2 *100;
         }
-    con.close();
-    stmt.close();
     rs3.close();
     %>
     <div class="text2" id="txtbd">
@@ -272,7 +268,7 @@ ip.close();
     x=0;
     }else if(materia[0].equals("POO") && materia[1].equals("BD")){
     //aqui son los dos
-    rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" group by rpo_id");
+    rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2!=0");
         while (rs.next()) {
         x=x+1;
         nivel = rs.getString("rpo_niv");
@@ -318,7 +314,7 @@ ip.close();
         <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
     </div>
     <%
-    rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" group by rbd_id");
+    rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2=0");
         while (rs3.next()) {
         z=z+1;
         nivelBD = rs3.getString("rbd_niv");
@@ -374,8 +370,6 @@ ip.close();
     <%
     x=0;
     z=0;
-    con.close();
-    stmt.close();
     rs.close();
     rs3.close();
     }
@@ -448,8 +442,6 @@ ip.close();
     if (min != 0) {
         percentBD4 = min / total2 *100;
     }
-    con.close();
-    stmt.close();
     rs.close();
     rs2.close();
     rs3.close();
@@ -531,6 +523,8 @@ porcentajePOO1=0;
 porcentajePOO2=0;
 porcentajePOO3=0;
 porcentajePOO4=0;
+con.close();
+stmt.close();
 %>
 </body>
 </html>
