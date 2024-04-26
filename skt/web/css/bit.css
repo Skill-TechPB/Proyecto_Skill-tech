@@ -159,26 +159,31 @@
         font-size: 2.5vw;
     }
     .fontdiv {
-        /*background: #004081;*/
         color: #000000;
         font: normal bold 2vw/1;
         font-family: 'Open Sans', sans-serif;
+        /*background-color: #ff0000;*/
+        height: 8vh;
+        display: flex;
+        flex-direction: row; /* Orientación horizontal */
+        align-items: center;
+        margin-left: 2vw;
+        margin-top: -1vh;
     }
 
     .flujo21 {
-        /*background: #ff33d6;*/
-        margin-left: 3vw;
-        height: 7vh;
+        /*background: #FF5733;*/
+        height: 6.3vh;
         width: 12vw;
-        margin-top: -.5vh;
+     
     }
     .flujo3 {
-        /*background: rgb(255, 145, 0);*/
-        margin-left: 15vw;
-        height: 7vh;
-        width: 20vw;
-        margin-top: -7vh;
-    }
+        /* background: rgb(255, 145, 0);*/
+         margin-left: 1vw;
+         height: 6.3vh;
+         width: 20vw;
+    
+     }
     
     .opla{
         border-radius: 10px;
@@ -199,13 +204,20 @@
         transform: scale(0.95);
     } 
     .flujo4{
-        /*background: brown;*/
-        margin-left: 35.2vw;
-        height: 7vh;
+        /* background: brown;*/
+         margin-left: 1vw;
+         height: 6.3vh;
+         width: 12vw;
+     
+     }
+     
+     .flujo5{
+        /*background-color: #cbcf58d5;*/
+        margin-left: 1vw;
+        height: 6.3vh;
         width: 12vw;
-        margin-top: -7vh;
-    }
     
+    }
     .alincentro{
         padding-left: 10%;
         height: 8vh;

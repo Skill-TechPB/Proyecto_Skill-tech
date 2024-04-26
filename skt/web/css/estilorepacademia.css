@@ -1,0 +1,328 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.ipn {
+    height: 20vh;
+    width: 14vw;
+    float: left;
+    margin-left: 4vw;
+}
+header {
+    padding: 1vh;
+    background-color: rgb(0, 43, 93);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw;
+    height: 12vh;
+}
+
+.fontdiv {
+    color: #000000;
+    font: normal bold 2vw/1;
+    font-family: 'Open Sans', sans-serif;
+    /*background-color: #ff0000;*/
+    height: 8vh;
+    display: flex;
+    flex-direction: row; /* Orientación horizontal */
+    align-items: center;
+    margin-left: 2vw;
+    margin-top: -1vh;
+}
+#salir{
+    background: #ffffff;
+}
+.nav-container {
+    width: 100%;
+    display: flex;
+    height: 10vh;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ttl{
+    color: #000000;
+    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    padding-left: 4vw;
+    padding-right: 2vw;
+
+}
+.opcn2 {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.2vw;
+    font-weight: 700;
+    padding: .8vh 1vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    margin-left: 35vw;
+  }
+  .opcn2:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn2:active {
+    transform: scale(0.95);
+  }
+
+nav {
+    display: flex;
+    flex-direction: row;
+    /*background-color: #0067c4;*/
+    height: 8vh;
+}
+.cecyt9 {
+    height: 20vh;
+    width: 14vw;
+    float: right;
+    margin-right: 4vw;
+}
+
+#centrar{
+    text-align: center;
+  }
+
+.msdev {
+    height: 25vh;
+    width: 15em;
+    float: right;
+    margin-right: 4%;
+}
+
+.text1{
+    padding-left:10em ;
+    padding-right: 10em ;
+    text-align: justify;    
+}
+.text2{
+    padding-left:10em ;
+    padding-right: 10em ;   
+}
+.text2{
+    padding-left:10em ;
+    padding-right: 10em ;   
+}
+.text2{
+    padding-left:10em ;
+    padding-right: 10em ;   
+}
+
+.bold{
+    font-weight: bold;
+}
+.opcn {
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 2vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+  }
+  .opcn:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn:active {
+    transform: scale(0.95);
+  }
+  .opla{
+    border-radius: 10px;
+   background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 3vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+  }
+  .opla:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opla:active {
+    transform: scale(0.95);
+  }  
+
+.Botonpdf {
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    padding: 10px 30px;
+    border-radius: 11px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    display: inline-flex;
+    height: 5vh;
+    width: 10vw;
+    margin-bottom: 5vh;
+    background-color: #347499;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.barra{
+    width: 100%; 
+    height: 8vh;
+    /*background: rgb(0, 255, 68); */
+    /*box-shadow: 0px -3px 0px #1589EE inset;*/
+    justify-content: flex-start; 
+    align-items: center; 
+    display: inline-flex;
+}
+
+.flujo {
+    height: 5vh;
+    width: 20vw;
+    margin-top: 1vh;
+}
+
+.flujo2 {
+    /* background: #FF5733;*/
+     margin-left: 3vw;
+     height: 6.3vh;
+     width: 12vw;
+     margin-top: -1vh;
+ }
+ .flujo21 {
+    /*background: #FF5733;*/
+    height: 6.3vh;
+    width: 12vw;
+ 
+}
+.flujo3 {
+   /* background: rgb(255, 145, 0);*/
+    margin-left: 1vw;
+    height: 6.3vh;
+    width: 20vw;
+
+}
+.flujo31 {
+    /*background: #1589EE;*/
+    margin-left: 15vw;
+    height: 6.3vh;
+    width: 12vw;
+    margin-top: -6vh;
+}
+.flujo4{
+    /* background: brown;*/
+     margin-left: 1vw;
+     height: 6.3vh;
+     width: 12vw;
+ 
+ }
+
+ .flujo5{
+     /*background-color: #cbcf58d5;*/
+     margin-left: 1vw;
+     height: 6.3vh;
+     width: 12vw;
+ 
+ }
+.imgflujo {
+    margin-left: 1vw;
+    width: 3vw;
+    height: 6vh;
+}
+
+.txtflujo {
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 5vw;
+    font-size: 1.3vw;
+}
+
+.imgflujo2 {
+    width: 3vw;
+    height: 6vh;
+}
+.txtflujo2 {
+    margin-top: -5vh;
+    color: #ffffff;
+    margin-left: 4vw;
+    font-size:1.3vw;
+}
+.imgflujo3 {
+    width: 3vw;
+    height: 6vh;
+}
+.txtflujo3 {
+    margin-top: -6vh;
+    color: #000000;
+    margin-left: 4vw;
+    font-size:1.3vw;
+}
+.imgflujo4 {
+    width: 3vw;
+    height: 6vh;
+}
+.txtflujo4{
+    margin-top: -5vh;
+    color: #ffffff;
+    margin-left: 4vw;
+    font-size:1.3vw;
+}
+
+
+.flujo2 .imgflujo2, .flujo2 .txtflujo2,
+.flujo31 .imgflujo4, .flujo31 .txtflujo4 {
+filter: brightness(3); /* Ajusta el valor para aumentar el brillo según tu preferencia */
+/* También puedes agregar otras propiedades como sombra o animaciones para un efecto más llamativo si lo deseas */
+}
+
+/* Si quieres que el efecto sea más evidente al pasar el ratón sobre ellos, puedes añadir reglas de hover */
+.flujo2:hover .imgflujo2, .flujo2:hover .txtflujo2,
+.flujo31:hover .imgflujo4, .flujo31:hover .txtflujo4 {
+filter: brightness(4); /* Ajusta el valor para aumentar el brillo al pasar el ratón */
+}
+
+.flujo2 a {
+text-decoration: none;
+}
+
+.flujo31 a {
+text-decoration: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: fixed;
+    top: 8vh;
+    right: 0;
+    background-color: #004081;
+    border: 1px solid #000000;
+    padding: 10px;
+    z-index: 1;
+}
+
+.offcanvas-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Alinea los elementos al final del contenedor */
+    align-items: center;
+    padding: 10px;
+}
+
+.offcanvas-header div {
+    margin-bottom: 10px;
+}
+
+.vertical-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.offcanvas.offcanvas-end {
+    width: 50%; /* Cambia el valor según tus necesidades */
+}

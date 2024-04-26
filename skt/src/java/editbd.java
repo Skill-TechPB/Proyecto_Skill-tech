@@ -35,12 +35,14 @@ public class editbd extends HttpServlet {
     //Nuevas
     String[] prege = new String[10];
     String[] respe = new String[40];
+    String[] temae = new String[3];
     //id
     String[] valore= new String[10];
     
     //Originales
     String[] preg = new String[10];
     String[] resp = new String[40];
+    String[] tema = new String[3];
     //id
     String[] vals = new String[10];
     
@@ -49,12 +51,13 @@ public class editbd extends HttpServlet {
     Statement stmt;
     ResultSet rs,rs2;
     //Este arreglo se encargara de guardar todas laas actualizaciones recibidas
-    String[] genew = new String[90];
+    String[] genew = new String[93];
     String ruta = "";
     String content = "";
     int a = 0;
     int b = 0;
     int c = 0;
+    int d =0;
     int idpro=0;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -117,6 +120,12 @@ public class editbd extends HttpServlet {
                     }
                     b=b+1;
                     }b=0;c=0;
+                    //tematica
+                    d=preg.length+resp.length+vals.length+30;
+                    for(int i=0; i<tema.length;i++ ){
+                    tema[i]=gene[d];
+                    d=d+1;
+                    }d=0;
                     lector.close();
                     //id de lo si
                     }catch(IOException ex){
@@ -190,6 +199,27 @@ public class editbd extends HttpServlet {
                     }
                     }b=0;
                     //fin de valores
+                    //tematica
+                    d=preg.length+resp.length+vals.length+30;
+                    for(int i=0; i<temae.length;i++){
+                    temae[i]=request.getParameter("tema"+String.valueOf(i+1));
+                    if(temae[i].equals(tema[i])==true || temae[i]==""){
+                    genew[d] = tema[i]+"/ ";
+                    }else{
+                    genew[d] = temae[i]+"/ ";
+                    //bitacora
+                    insertStatement = con.prepareStatement("insert into bitacora(pro_id, bit_fchmod, for_id, elf_id, bit_indice, bit_origen, bit_cambio) values(?,?,?,?,?,?,?)");
+                    insertStatement.setInt(1, idpro);
+                    insertStatement.setString(2, timeStamp);
+                    insertStatement.setInt(3, 2);
+                    insertStatement.setInt(4, 4);
+                    insertStatement.setInt(5, i+1);
+                    insertStatement.setString(6, tema[i]);
+                    insertStatement.setString(7, temae[i]);
+                    insertStatement.executeUpdate();
+                    }
+                    d=d+1;
+                    }d=0;
                     FileWriter escribir = new FileWriter(form);
                     for(int i=0;i<genew.length;i++){
                         escribir.write(genew[i]);

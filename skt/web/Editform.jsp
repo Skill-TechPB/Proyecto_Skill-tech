@@ -33,13 +33,16 @@
         <div class="barra">
             <div class="fontdiv">
                 <div class="flujo21">
-                    <a href="graficas.jsp"><button type="button" class="opcn">Graficas</button></a>
+                    <a href="graficas.jsp"><button type="button" class="opcn">Gr&aacute;ficas</button></a>
                 </div>
                 <div class="flujo3">
                     <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
                 </div>  
                 <div class="flujo4">
-                    <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
+                    <a href="bita.jsp"><button class="opcn" type="button">Bit&aacute;cora</button></a>
+                </div>
+                <div class="flujo5">
+                    <a href="reporteacademia.jsp"><button class="opcn" type="button">Reporte</button></a>
                 </div>
             </div>
     </div>
@@ -54,7 +57,7 @@
     </header>
 <nav>
     <div class="nav-container">
-        <p class="ttl">Edicion de Formularios</p>
+        <p class="ttl">Edici&oacute;n de Formularios</p>
     </div>
 </nav>
 <div class="alincentro"><p class="ins">Seleccione el formulario que desee editar:</p></div>
@@ -63,7 +66,7 @@
     
     <div class="op1">
         <a href="FEDITPO.jsp" class="link">
-        <p class="poo">Programacion Intermedia</p>
+        <p class="poo">Programaci&oacute;n Intermedia</p>
         <img class="capt1" src="assets/codi.png">   
     </a>
     </div>

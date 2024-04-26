@@ -62,7 +62,7 @@ CREATE TABLE `bitacora` (
   CONSTRAINT `bitacora_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `profesor` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `bitacora_ibfk_2` FOREIGN KEY (`elf_id`) REFERENCES `elementoform` (`elf_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `bitacora_ibfk_3` FOREIGN KEY (`for_id`) REFERENCES `formulario` (`for_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +71,7 @@ CREATE TABLE `bitacora` (
 
 LOCK TABLES `bitacora` WRITE;
 /*!40000 ALTER TABLE `bitacora` DISABLE KEYS */;
+INSERT INTO `bitacora` VALUES (1,4,'2024-04-20 23:59:31',1,1,1,'¿Cuál es la descripción que crees que define mejor el concepto \'clase\' en la programación orientada a objetos?','Cual es el mejor halo?'),(2,4,'2024-04-20 23:59:31',1,2,1,'Es un concepto similar al de \'array','halo 2'),(3,4,'2024-04-20 23:59:31',1,2,1,'Es un tipo particular de variable','halo 3'),(4,4,'2024-04-20 23:59:31',1,2,1,'Es un modelo o plantilla a partir de la cual creamos objetos','halo 4'),(5,4,'2024-04-20 23:59:31',1,2,1,'Es una categoria de datos ordenada secuencialmente','halo CE'),(6,4,'2024-04-24 03:47:10',2,4,2,'tema2','lol'),(7,4,'2024-04-24 03:48:22',1,4,1,'tema1','xd'),(8,4,'2024-04-24 19:04:51',2,4,1,'tema1','dx');
 /*!40000 ALTER TABLE `bitacora` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +91,7 @@ CREATE TABLE `egr_pro` (
   KEY `pro_id` (`pro_id`),
   CONSTRAINT `egr_pro_ibfk_1` FOREIGN KEY (`egr_id`) REFERENCES `egresado` (`egr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `egr_pro_ibfk_2` FOREIGN KEY (`pro_id`) REFERENCES `profesor` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +120,7 @@ CREATE TABLE `egresado` (
   PRIMARY KEY (`egr_id`),
   KEY `usu_id` (`usu_id`),
   CONSTRAINT `egresado_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +144,7 @@ CREATE TABLE `elementoform` (
   `elf_id` int NOT NULL AUTO_INCREMENT,
   `elf_elemento` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`elf_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +153,7 @@ CREATE TABLE `elementoform` (
 
 LOCK TABLES `elementoform` WRITE;
 /*!40000 ALTER TABLE `elementoform` DISABLE KEYS */;
-INSERT INTO `elementoform` VALUES (1,'Pregunta'),(2,'Respuesta'),(3,'Respuesta_valor');
+INSERT INTO `elementoform` VALUES (1,'Pregunta'),(2,'Respuesta'),(3,'Respuesta_valor'),(4,'Tematica');
 /*!40000 ALTER TABLE `elementoform` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +178,7 @@ CREATE TABLE `formulario` (
 
 LOCK TABLES `formulario` WRITE;
 /*!40000 ALTER TABLE `formulario` DISABLE KEYS */;
-INSERT INTO `formulario` VALUES (1,'FORMULARIO DE PROGRAMACIÓN INTERMEDIA','C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fpoo.txt'),(2,'FORMULARIO DE BASES DE DATOS RELACIONALES','C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fbd.txt');
+INSERT INTO `formulario` VALUES (1,'FORMULARIO DE PROGRAMACIÓN INTERMEDIA','C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fpi.txt'),(2,'FORMULARIO DE BASES DE DATOS RELACIONALES','C:/Users/Josue/Desktop/Proyecto_skt/skt/web/formularios/fbd.txt');
 /*!40000 ALTER TABLE `formulario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +198,7 @@ CREATE TABLE `pro_asi` (
   KEY `asi_id` (`asi_id`),
   CONSTRAINT `pro_asi_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `profesor` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `pro_asi_ibfk_2` FOREIGN KEY (`asi_id`) REFERENCES `asignatura` (`asi_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +225,7 @@ CREATE TABLE `profesor` (
   PRIMARY KEY (`pro_id`),
   KEY `usu_id` (`usu_id`),
   CONSTRAINT `profesor_ibfk_1` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +255,7 @@ CREATE TABLE `resultadobd` (
   PRIMARY KEY (`rbd_id`),
   KEY `egr_id` (`egr_id`),
   CONSTRAINT `resultadobd_ibfk_1` FOREIGN KEY (`egr_id`) REFERENCES `egresado` (`egr_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +285,7 @@ CREATE TABLE `resultadopo` (
   PRIMARY KEY (`rpo_id`),
   KEY `egr_id` (`egr_id`),
   CONSTRAINT `resultadopo_ibfk_1` FOREIGN KEY (`egr_id`) REFERENCES `egresado` (`egr_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -388,4 +389,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-18 14:39:44
+-- Dump completed on 2024-04-24 19:23:34

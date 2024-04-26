@@ -147,6 +147,9 @@ int arraybdi[] = new int[10];
                 <div class="flujo4">
                     <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
                 </div>
+                <div class="flujo5">
+                    <a href="reporteacademia.jsp"><button class="opcn" type="button">Reporte</button></a>
+                </div>
             </div>
     </div>
     <form action="Cerrar" method="post">
@@ -220,10 +223,8 @@ int arraybdi[] = new int[10];
         </div>
         </div>
     </section>
-    
     <br>
     <br>
-    
     <section class="bodyg2" id="2">
         <div class="a1" id="a">
             <div class="titulo">Preguntas PI</div>
@@ -233,6 +234,18 @@ int arraybdi[] = new int[10];
         <div class="a1" id="a">
             <div class="titulo">Preguntas BD</div>
         <canvas id="grafica" class="bar2"></canvas>
+        </div>
+    </section>
+    <br>
+    <section class="bodyg3" id="3">
+        <div class="a1" id="a">
+            <div class="titulo">TEMATICAS PI</div>
+            <canvas id="grafica" class="bar3"></canvas>
+        </div>
+
+        <div class="a1" id="a">
+            <div class="titulo">TEMATICAS BD</div>
+        <canvas id="grafica" class="bar4"></canvas>
         </div>
     </section>
     <br>
@@ -377,8 +390,7 @@ int arraybdi[] = new int[10];
             }
         });
     </script>
-
-<script>
+    <script>
         //correctas
         var pbd1 = "<%=arraybd[0] %>";
         var pbd2 = "<%=arraybd[1] %>";
@@ -442,6 +454,107 @@ int arraybdi[] = new int[10];
                 
             }
         });
+    </script>
+    <script>//tematica
+        //CORRECTAS
+        var tematica1 = parseInt(ppo1) + parseInt(ppo2) + parseInt(ppo3) + parseInt(ppo4);
+        var tematica2 = parseInt(ppo5) + parseInt(ppo6) + parseInt(ppo7);
+        var tematica3 = parseInt(ppo8) + parseInt(ppo9) + parseInt(ppo10);
+        //INCORRECTAS
+
+        var Itematica1 = parseInt(ppoi1)+ parseInt(ppoi2)+ parseInt(ppoi3)+ parseInt(ppoi4);
+        var Itematica2 = parseInt(ppoi5)+ parseInt(ppoi6)+ parseInt(ppoi7)
+        var Itematica3 = parseInt(ppoi8)+ parseInt(ppoi9)+ parseInt(ppoi10);
+         // Obtener una referencia al elemento canvas del DOM
+        const $grafica3 = document.querySelector(".bar3");
+        // Las etiquetas son las que van en el eje X. 
+        const etiquetas3 = ["1","2","3"];
+        // Podemos tener varios conjuntos de datos
+        const ACIERTOSXD = {
+            label: "Aciertos",
+            data: [tematica1,tematica2,tematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor: "#3D29F5", // Color de fondo
+            borderColor: "#3D29F5", // Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+        const ERRORESXD = {
+            label: "Errores",
+            data: [Itematica1,Itematica2,Itematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor:  "#91043D",// Color de fondo
+            borderColor: "#91043D",// Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+
+        new Chart($grafica3, {
+            type: 'bar',// Tipo de grÃ¡fica
+            data: {
+                labels: etiquetas3,
+                datasets: [
+                    ACIERTOSXD,
+                    ERRORESXD
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                },
+
+            }
+        });
+    </script>
+    <script>
+    //CORRECTAS
+    var BDtematica1 = parseInt(pbd1)+ parseInt(pbd2)+ parseInt(pbd3) + parseInt(pbd4);
+    var BDtematica2 = parseInt(pbd5)+ parseInt(pbd6)+ parseInt(pbd7);
+    var BDtematica3 = parseInt(pbd8) + parseInt(pbd9) + parseInt(pbd10);
+
+    //INCORRECTAS
+    var BDItematica1 = parseInt(pbdi1)+ parseInt(pbdi2)+ parseInt(pbdi3) + parseInt(pbdi4);
+    var BDItematica2 = parseInt(pbdi5)+ parseInt(pbdi6)+ parseInt(pbdi7);
+    var BDItematica3 = parseInt(pbdi8)+ parseInt(pbdi9)+ parseInt(pbdi10);
+    const $grafica4 = document.querySelector(".bar4");
+    // Las etiquetas son las que van en el eje X. 
+    const etiquetas4 = ["1","2","3"];
+    // Podemos tener varios conjuntos de datos
+    const ACIERTOSJAJA = {
+        label: "Aciertos",
+        data: [BDtematica1,BDtematica2,BDtematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor: "#3D29F5", // Color de fondo
+        borderColor: "#3D29F5", // Color del borde
+        borderWidth: 1// Ancho del borde
+    };
+    const ERRORESJAJA = {
+        label: "Errores",
+        data: [BDItematica1,BDItematica2,BDItematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor:  "#91043D",// Color de fondo
+        borderColor: "#91043D",// Color del borde
+        borderWidth: 1// Ancho del borde
+    };
+
+    new Chart($grafica4, {
+        type: 'bar',// Tipo de grÃ¡fica
+        data: {
+            labels: etiquetas4,
+            datasets: [
+                ACIERTOSJAJA,
+                ERRORESJAJA
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+            },
+
+        }
+    });
     </script>
     <%
     //IMPORTANTE

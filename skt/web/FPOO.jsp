@@ -25,8 +25,9 @@
     String[] preg = new String[10];
     String[] resp = new String[40];
     String[] vals = new String[40];
+    String[] tema = new String[3];
     String ruta = "",content = "";
-    int a = 0, b = 0, c=0;
+    int a = 0, b = 0, c=0, d=0;
     int banderitaPoo=0, banderitaBD=0, reg=0, regpro=0, idegr=0;
     %>
     <% 
@@ -88,6 +89,12 @@
     vals[i]=gene[b];
     b=b+1;
     }b=0;
+    //tematica
+    d=preg.length+resp.length+vals.length;
+    for(int i=0; i<tema.length;i++ ){
+    tema[i]=gene[d];
+    d=d+1;
+    }d=0;
     lector.close();
     }catch(IOException ex){
     ex.printStackTrace(System.out);
@@ -154,13 +161,17 @@
     <%}%>
     <div class="row">
            <section>
-           <h1>FORMULARIO DE PROGRAMACIÓN INTERMEDIA</h1>
-           <p id='borde'>Instrucciones:<br> Responda las preguntas que se muestran a continuación, seleccionando la opción que crea más conveniente para cada pregunta.  Sus respuestas serán evaluadas tan pronto como de click al botón de enviar al final de este formulario.</p>
+           <p class="tituform">Formulario de Programación Intermedia</p>
+           <p class="borde">Instrucciones:<br> Responda las preguntas que se muestran a continuación, seleccionando la opción que crea más conveniente para cada pregunta.  Sus respuestas serán evaluadas tan pronto como de click al botón de enviar al final de este formulario.</p>
            </section>
 
     </div>
-    <hr>          
-    <form method="POST" action="resp" class="form"> 
+    <hr>         
+    <form method="POST" action="resp" class="form">
+       <div class="tm">
+              <p class="sis">Temática 1:</p>
+              <p class="tema"><%=tema[0]%></p>
+       </div>
            <h2>1- <%=preg[0]%></h2>
            <br> 
            <label><input type="radio" class="cir"
@@ -181,7 +192,6 @@
            <br> 
 
            <br>
-           <hr class="line">
            <br>
 
            <h2>  2- <%=preg[1]%></h2>
@@ -204,7 +214,6 @@
            <br> 
 
            <br>
-           <hr class="line">
            <br>
 
            <h2>3- <%=preg[2]%></h2>
@@ -227,7 +236,6 @@
            <br> 
 
            <br>
-           <hr class="line">
            <br>
 
            <h2>4- <%=preg[3]%></h2>
@@ -252,7 +260,10 @@
            <br>
            <hr class="line">
            <br>
-
+       <div class="tm">
+              <p class="sis">Temática 2:</p>
+              <p class="tema"><%=tema[1]%></p>
+       </div>
            <h2>5- <%=preg[4]%></h2>
            <br> 
                   <label><input type="radio" class="cir"
@@ -271,9 +282,9 @@
                   name="p5" 
                   value="<%=vals[19]%>"><%=resp[19]%></label>
            <br> 
-           <hr class="line">
+      
            <br>
-                  <h2>6- <%=preg[5]%></h2>
+           <h2>6- <%=preg[5]%></h2>
            <br> 
                   <label><input type="radio" class="cir"
                   name="p6" 
@@ -293,11 +304,10 @@
            <br> 
 
            <br>
-           <hr class="line">
            <br>
-
            <h2>7- <%=preg[6]%></h2>
            <br> 
+           
                   <label><input type="radio" class="cir"
                   name="p7" 
                   value="<%=vals[24]%>"><%=resp[24]%></label> 
@@ -316,9 +326,13 @@
            <br> 
 
            <br>
-           <hr class="line">
-           <br>
 
+           <br>
+           <hr class="line">
+           <div class="tm">
+              <p class="sis">Temática 3:</p>
+              <p class="tema"><%=tema[2]%></p>
+       </div>
            <h2>8- <%=preg[7]%></h2>
            <br> 
                   <label><input type="radio" class="cir"
@@ -339,7 +353,7 @@
            <br> 
 
            <br>
-           <hr class="line">
+
            <br>
 
            <h2>9- <%=preg[8]%></h2>
@@ -362,7 +376,6 @@
            <br> 
 
            <br>
-           <hr class="line">
            <br>
 
            <h2>10- <%=preg[9]%></h2>

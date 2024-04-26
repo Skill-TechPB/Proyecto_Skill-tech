@@ -183,6 +183,13 @@ return;
                         <canvas id="grafica" class="bar"></canvas>
                     </div>
                 </section>
+                <br>
+                <section class="bodyg3" id="3">
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS PI</div>
+                        <canvas id="grafica" class="bar3"></canvas>
+                    </div>
+                </section>
                 <%} else if(materia[0].equals("BD") && materia[1]== null){
                 rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egresado.egr_fch='"+x+"' and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
                 while (rs2.next()) {
@@ -245,6 +252,13 @@ return;
                     <div class="a1" id="a">
                         <div class="titulo">Preguntas BD</div>
                     <canvas id="grafica" class="bar2"></canvas>
+                    </div>
+                </section>
+                <br>
+                <section class="bodyg3" id="3">
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS BD</div>
+                    <canvas id="grafica" class="bar4"></canvas>
                     </div>
                 </section>
                 <%} else if(materia[0].equals("POO") && materia[1].equals("BD")){
@@ -369,6 +383,18 @@ return;
                     <canvas id="grafica" class="bar2"></canvas>
                     </div>
                 </section>
+                <br>
+                <section class="bodyg3" id="3">
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS PI</div>
+                        <canvas id="grafica" class="bar3"></canvas>
+                    </div>
+
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS BD</div>
+                    <canvas id="grafica" class="bar4"></canvas>
+                    </div>
+                </section>
                 <%}%>
     <br>
     <br>
@@ -376,67 +402,67 @@ return;
         <a href="graficasProf.jsp"><button type="button" class="opn">Regresar</button></a>
     </footer>
     <script>
-                var NivAvanz = "<%=pooavz%>";
-                var Nivint = "<%=pooint%>";
-                var Nivmed = "<%=poomed%>";
-                var Nivbas = "<%=poomin%>";
+        var NivAvanz = "<%=pooavz%>";
+        var Nivint = "<%=pooint%>";
+        var Nivmed = "<%=poomed%>";
+        var Nivbas = "<%=poomin%>";
 
-                var NivAvanz2 = "<%=bdavz%>";
-                var Nivint2 = "<%=bdint%>";
-                var Nivmed2 = "<%=bdmed%>";
-                var Nivbas2 = "<%=bdmin%>";
+        var NivAvanz2 = "<%=bdavz%>";
+        var Nivint2 = "<%=bdint%>";
+        var Nivmed2 = "<%=bdmed%>";
+        var Nivbas2 = "<%=bdmin%>";
 
-                const xd1 = parseInt(NivAvanz);
-                const xd2 = parseInt(Nivint);
-                const xd3 = parseInt(Nivmed);
-                const xd4 = parseInt(Nivbas);
+        const xd1 = parseInt(NivAvanz);
+        const xd2 = parseInt(Nivint);
+        const xd3 = parseInt(Nivmed);
+        const xd4 = parseInt(Nivbas);
 
-                const xd5 = parseInt(NivAvanz2);
-                const xd6 = parseInt(Nivint2);
-                const xd7 = parseInt(Nivmed2);
-                const xd8 = parseInt(Nivbas2);
+        const xd5 = parseInt(NivAvanz2);
+        const xd6 = parseInt(Nivint2);
+        const xd7 = parseInt(Nivmed2);
+        const xd8 = parseInt(Nivbas2);
 
-                const labels = ['Avanzado', 'Intermedio', 'Básico', 'Mínimo'];
-                const colors = ['#3D29F5', '#05ACFF', '#DA82AF', '#91043D'];
+        const labels = ['Avanzado', 'Intermedio', 'Básico', 'Mínimo'];
+        const colors = ['#3D29F5', '#05ACFF', '#DA82AF', '#91043D'];
 
-                const graphPOO = document.querySelector("#graficaPOO .grafica");
-                const graphBD = document.querySelector("#graficaBD .grafica");
+        const graphPOO = document.querySelector("#graficaPOO .grafica");
+        const graphBD = document.querySelector("#graficaBD .grafica");
 
-                const dataPOO = {
-                    datasets: [{
-                        data: [xd1, xd2, xd3, xd4],
-                        backgroundColor: colors
-                    }]
-                };
+        const dataPOO = {
+            datasets: [{
+                data: [xd1, xd2, xd3, xd4],
+                backgroundColor: colors
+            }]
+        };
 
-                const dataBD = {
-                    datasets: [{
-                        data: [xd5, xd6, xd7, xd8],
-                        backgroundColor: colors
-                    }]
-                };
+        const dataBD = {
+            datasets: [{
+                data: [xd5, xd6, xd7, xd8],
+                backgroundColor: colors
+            }]
+        };
 
-                const configPOO = {
-                    type: 'pie',
-                    data: dataPOO
-                };
+        const configPOO = {
+            type: 'pie',
+            data: dataPOO
+        };
 
-                const configBD = {
-                    type: 'pie',
-                    data: dataBD
-                };
+        const configBD = {
+            type: 'pie',
+            data: dataBD
+        };
 
-                new Chart(graphPOO, configPOO);
-                new Chart(graphBD, configBD);
-            </script>
-            <script>
-            const myModal = document.getElementById('staticBackdrop')
-            const myInput = document.getElementById('myInput')
+        new Chart(graphPOO, configPOO);
+        new Chart(graphBD, configBD);
+    </script>
+    <script>
+        const myModal = document.getElementById('staticBackdrop')
+        const myInput = document.getElementById('myInput')
 
-            myModal.addEventListener('shown.bs.modal', () => {
-            myInput.focus()
-            })
-            </script>
+        myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+        })
+    </script>
     <script>
         //correctas
         var ppo1 = "<%=arraypo[0] %>";
@@ -512,8 +538,7 @@ return;
             }
         });
     </script>
-
-<script>
+    <script>
         //correctas
         var pbd1 = "<%=arraybd[0] %>";
         var pbd2 = "<%=arraybd[1] %>";
@@ -536,7 +561,7 @@ return;
         var pbdi8 = "<%=arraybdi[7] %>";
         var pbdi9 = "<%=arraybdi[8] %>";
         var pbdi10 = "<%=arraybdi[9] %>";
-        
+
         // Obtener una referencia al elemento canvas del DOM
         const $grafica2 = document.querySelector(".bar2");
         // Las etiquetas son las que van en el eje X. 
@@ -574,10 +599,112 @@ return;
                         }
                     }],
                 },
-                
+
             }
         });
     </script>
+    <script>//tematica
+        //CORRECTAS
+        var tematica1 = parseInt(ppo1) + parseInt(ppo2) + parseInt(ppo3) + parseInt(ppo4);
+        var tematica2 = parseInt(ppo5) + parseInt(ppo6) + parseInt(ppo7);
+        var tematica3 = parseInt(ppo8) + parseInt(ppo9) + parseInt(ppo10);
+        //INCORRECTAS
+
+        var Itematica1 = parseInt(ppoi1)+ parseInt(ppoi2)+ parseInt(ppoi3)+ parseInt(ppoi4);
+        var Itematica2 = parseInt(ppoi5)+ parseInt(ppoi6)+ parseInt(ppoi7)
+        var Itematica3 = parseInt(ppoi8)+ parseInt(ppoi9)+ parseInt(ppoi10);
+         // Obtener una referencia al elemento canvas del DOM
+        const $grafica3 = document.querySelector(".bar3");
+        // Las etiquetas son las que van en el eje X. 
+        const etiquetas3 = ["1","2","3"];
+        // Podemos tener varios conjuntos de datos
+        const ACIERTOSXD = {
+            label: "Aciertos",
+            data: [tematica1,tematica2,tematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor: "#3D29F5", // Color de fondo
+            borderColor: "#3D29F5", // Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+        const ERRORESXD = {
+            label: "Errores",
+            data: [Itematica1,Itematica2,Itematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor:  "#91043D",// Color de fondo
+            borderColor: "#91043D",// Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+
+        new Chart($grafica3, {
+            type: 'bar',// Tipo de grÃ¡fica
+            data: {
+                labels: etiquetas3,
+                datasets: [
+                    ACIERTOSXD,
+                    ERRORESXD
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                },
+
+            }
+        });
+    </script>
+    <script>
+    //CORRECTAS
+    var BDtematica1 = parseInt(pbd1)+ parseInt(pbd2)+ parseInt(pbd3) + parseInt(pbd4);
+    var BDtematica2 = parseInt(pbd5)+ parseInt(pbd6)+ parseInt(pbd7);
+    var BDtematica3 = parseInt(pbd8) + parseInt(pbd9) + parseInt(pbd10);
+
+    //INCORRECTAS
+    var BDItematica1 = parseInt(pbdi1)+ parseInt(pbdi2)+ parseInt(pbdi3) + parseInt(pbdi4);
+    var BDItematica2 = parseInt(pbdi5)+ parseInt(pbdi6)+ parseInt(pbdi7);
+    var BDItematica3 = parseInt(pbdi8)+ parseInt(pbdi9)+ parseInt(pbdi10);
+    const $grafica4 = document.querySelector(".bar4");
+    // Las etiquetas son las que van en el eje X. 
+    const etiquetas4 = ["1","2","3"];
+    // Podemos tener varios conjuntos de datos
+    const ACIERTOSJAJA = {
+        label: "Aciertos",
+        data: [BDtematica1,BDtematica2,BDtematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor: "#3D29F5", // Color de fondo
+        borderColor: "#3D29F5", // Color del borde
+        borderWidth: 1// Ancho del borde
+    };
+    const ERRORESJAJA = {
+        label: "Errores",
+        data: [BDItematica1,BDItematica2,BDItematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor:  "#91043D",// Color de fondo
+        borderColor: "#91043D",// Color del borde
+        borderWidth: 1// Ancho del borde
+    };
+
+    new Chart($grafica4, {
+        type: 'bar',// Tipo de grÃ¡fica
+        data: {
+            labels: etiquetas4,
+            datasets: [
+                ACIERTOSJAJA,
+                ERRORESJAJA
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+            },
+
+        }
+    });
+    </script>
+    
     <%
     //IMPORTANTE
     pooavz = 0;

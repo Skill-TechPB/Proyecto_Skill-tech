@@ -10,6 +10,7 @@ select*from formulario;
 select*from pro_asi;
 select*from asignatura;
 select*from egr_pro;
+select*from elementoform;
 -- Cosas random
 select*from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id;
 select*from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id;
@@ -58,3 +59,5 @@ select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultado
 -- graficas ac/cn/err por profesor y por generacion
 select rpo_resp from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egresado.egr_fch='2024' and egr_pro.pro_id=3 and egr_pro.egp_id%2!=0;
 select rbd_resp from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egresado.egr_fch='2026' and egr_pro.pro_id=3 and egr_pro.egp_id%2=0;
+
+select bitacora.bit_fchmod, profesor.pro_nombre, formulario.for_nombre, bitacora.elf_id,bitacora.bit_indice, bitacora.bit_origen, bitacora.bit_cambio from bitacora inner join profesor on profesor.pro_id=bitacora.pro_id inner join formulario on formulario.for_id=bitacora.for_id order by bit_fchmod;

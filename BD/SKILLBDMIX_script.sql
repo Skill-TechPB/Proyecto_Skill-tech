@@ -61,7 +61,7 @@ create table elementoform(
 elf_id integer not null auto_increment primary key,
 elf_elemento varchar(20)
 )engine=InnoDB default charset=LATIN1;
-insert into elementoform(elf_elemento) values('Pregunta'),('Respuesta'),('Respuesta_valor');
+insert into elementoform(elf_elemento) values('Pregunta'),('Respuesta'),('Respuesta_valor'),('Tematica');
 
 create table bitacora(
 bit_id integer not null auto_increment primary key,

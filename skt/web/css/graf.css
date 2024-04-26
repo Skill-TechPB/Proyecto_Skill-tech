@@ -23,6 +23,18 @@
             margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
             margin-right: 69vw;
         }
+        
+        nav {
+            display: flex;
+            flex-direction: row;
+            /*background-color: #3787ff;*/
+            height:15vh;
+            margin-top: 2vh;
+            align-content: center;
+
+        }
+    
+    
         .nav-container {
             width: 100%;
             display: flex;
@@ -37,14 +49,23 @@
             padding-right: 2vw;
             /*background: #FF5733;*/
         }
+
+        .textotit{
+            /*background-color: #ff0000;*/
+            margin-left: 2vw;
+        }
         .ttlo{
             color: #000000;
             font: normal bold 3vw/1 "Open Sans", sans-serif;
-            padding-left: 4vw;
-            padding-right: 2vw;
             /*background: #FF5733;*/
 
         }
+        .ttlo2{
+            color: #000000;
+            font: normal bold 3vw/1 "Open Sans", sans-serif;
+            /*background: #004081;*/
+        }
+    
         
         .opn2 {
             border-radius: 10px;
@@ -74,16 +95,7 @@
             margin-top: 10vh;
 
         }
-        .ttlo2{
-            color: #000000;
-            font: normal bold 3vw/1 "Open Sans", sans-serif;
-            padding-left: 4vw;
-            padding-right: 2vw;
-            /*background: #004081;*/
-            margin-top: 15vh;
-            margin-left: -33vw;
-        
-        }
+       
         .ins{
             font-size: 1.6vw;
             /*background-color: #004081;*/
@@ -99,6 +111,13 @@
             color: #000000;
             font: normal bold 2vw/1;
             font-family: 'Open Sans', sans-serif;
+            /*background-color: #ff0000;*/
+            height: 8vh;
+            display: flex;
+            flex-direction: row; /* Orientación horizontal */
+            align-items: center;
+            margin-left: 2vw;
+            margin-top: -1vh;
         }
         .fontdiv2 {
             color: #000000;
@@ -115,13 +134,6 @@
             justify-content: flex-start;
             align-items: center;
             display: inline-flex;
-        }
-
-        nav {
-            display: flex;
-            flex-direction: row;
-            /*background-color: #0067c4;*/
-            height: 8vh;
         }
         
         .BotonCe {
@@ -248,26 +260,22 @@
 
             .flujo2 {
                /* background: #FF5733;*/
-                margin-left: 3vw;
                 height: 6.3vh;
                 width: 12vw;
-                margin-top: -1vh;
-
             }
            
             .flujo21 {
                 /*background: #FF5733;*/
-                margin-left: 3vw;
                 height: 6.3vh;
                 width: 12vw;
-                margin-top: -1vh;
+             
             }
             .flujo3 {
-                /*background: rgb(255, 145, 0);*/
-                margin-left: 15vw;
-                height: 5vh;
+               /* background: rgb(255, 145, 0);*/
+                margin-left: 1vw;
+                height: 6.3vh;
                 width: 20vw;
-                margin-top: -6.3vh;
+           
             }
             .opla{
                 border-radius: 10px;
@@ -289,17 +297,25 @@
               } 
             .flujo31 {
                 /*background: #1589EE;*/
-                margin-left: 15vw;
+                margin-left: 1vw;
                 height: 6.3vh;
                 width: 12vw;
-                margin-top: -6vh;
+            
             }
             .flujo4{
-                /*background: brown;*/
-                margin-left: 35.2vw;
+               /* background: brown;*/
+                margin-left: 1vw;
                 height: 6.3vh;
                 width: 12vw;
-                margin-top: -5vh;
+            
+            }
+
+            .flujo5{
+                /*background-color: #cbcf58d5;*/
+                margin-left: 1vw;
+                height: 6.3vh;
+                width: 12vw;
+            
             }
 
             .imgflujo {
@@ -417,19 +433,6 @@
           margin-top: -.06vh;
         }
       
-        nav {
-            display: flex;
-            flex-direction: row;
-            background-color: #0067c4;
-            height:8vh;
-        }
-    
-        .nav-container {
-            width: 100%;
-            display: flex;
-            height: 8vh;
-        }
-    
         .ttl2{
             display: none;
         }
@@ -444,6 +447,7 @@
             text-transform: capitalize;
             transition: 0.3s ease-in-out;
             margin-left: 50vw;
+            
           }
           .opcn2:hover {
             letter-spacing: 3px;
@@ -457,7 +461,7 @@
             height: 2vh;
             width: 95vw;
             margin-left:1vw;
-            margin-top: .5vh;
+            margin-top: -2vh;
             background:#ff0000;
             font-size: 1.3vw;
             color: #000000;

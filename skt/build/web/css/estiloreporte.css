@@ -5,7 +5,7 @@ body {
 
 .ipn {
     height: 20vh;
-    width: 14vw;
+    width: 16vw;
     float: left;
     margin-left: 4vw;
 }
@@ -55,6 +55,28 @@ header {
     transform: scale(0.95);
   }
 
+  #hr1{
+    text-align: center;
+    width: 83%;
+    top: 5px;
+    border: none;
+    height: 1px;
+    background-color: #000000;
+    margin-left: 1%;
+  }
+
+  #h3t{
+    font-size: 1.6vw;
+  }
+
+  #h4t{
+    font-size: 1.2vw;
+  }
+
+  #centrar{
+    text-align: center;
+  }
+
 nav {
     display: flex;
     flex-direction: row;
@@ -62,7 +84,7 @@ nav {
     height: 8vh;
 }
 .cecyt9 {
-    height: 20vh;
+    height: 22.5vh;
     width: 14vw;
     float: right;
     margin-right: 4vw;
@@ -82,20 +104,33 @@ nav {
 }
 .text2{
     padding-left:10em ;
-    padding-right: 10em ;   
+    padding-right: 10em ;
+    padding-top: 3em;  
+    padding-bottom: 3em; 
+}
+.text2{
+    padding-left:10em ;
+    padding-right: 10em ; 
+    display: inline-block;  
 }
 .text2{
     padding-left:10em ;
     padding-right: 10em ;   
 }
-.text2{
+.text4{
     padding-left:10em ;
     padding-right: 10em ;   
 }
 
+.bolder{
+    font-weight: bolder;
+    font-size: 1.4vw;
+}
 .bold{
     font-weight: bold;
+    margin-top: -1.5vh;
 }
+
 .opcn {
     border-radius: 10px;
    background-color: #ffffff;

@@ -7,14 +7,12 @@
 <% HttpSession sesion = request.getSession(true); %>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
 <%int idUsuario = (int) sesion.getAttribute("usu_id");%>
-<%if(sesion.isNew() || sesion==null)
-    {
+<%if(sesion.isNew() || sesion==null){
     response.sendRedirect("index.html");
     return;
     }
 %>
-<%
-   if(tipou == null|| tipou.equals("0") || tipou.equals("3")){
+<%if(tipou == null|| tipou.equals("0") || tipou.equals("2") || tipou.equals("3")){
    response.sendRedirect("index.html");
    return;
     }
@@ -74,7 +72,7 @@ ip.close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de reportes</title>
+    <title>Reporte general</title>
     <link rel="stylesheet" href="css/rep.css">
     <link rel="stylesheet" href="css/estiloreporte.css">
     <link rel="shortcut icon" href="./assets/logo1.png" />
@@ -128,8 +126,8 @@ ip.close();
 </form>
     </header>
     <nav>
-        <div class="nav-container">
-            <p class="ttl">Reporte General del profesor: <%=nombre%> </p>
+    <div class="nav-container">
+            <p class="ttl">Reporte General del profesor: <%=nombre%></p>
             <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onclick="toggleMenu()" id="gnrcn">Generaciones</button>
     </div>
     </nav>
@@ -140,10 +138,11 @@ ip.close();
     <img class="cecyt9" src="assets/cecyt-logo.png">
 
     <center>
-        <h3>REPORTE GENERAL DE LOS ALUMNOS DE 4TO SEMESTRE </h3>
-        <h3>CENTRO DE ESTUDIOS CIENTIFICOS Y TECNOLÓGICOS</h3>
-        <h3>"JUAN DE DIOS BATIZ"</h3>
-        <h4>CARRERA: PROGAMACIÓN</h4>
+        <h3 id="h3t">REPORTE GENERAL DE LOS ALUMNOS DE 4TO SEMESTRE </h3>
+        <h3 id="h3t">CENTRO DE ESTUDIOS CIENTIFICOS Y TECNOLÓGICOS</h3>
+        <h3 id="h3t">"JUAN DE DIOS BATIZ"</h3>
+        <h4 id="h4t">CARRERA: PROGAMACIÓN</h4><br>
+        <div id="hr1"><hr></div>
     </center>
     <br>
     <br>
@@ -158,7 +157,6 @@ ip.close();
     </div>
     <br>
     <%
-    if(tipou.equals("1")){
     if(materia[0].equals("POO") && materia[1]== null){
         rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2!=0");
         x=0;
@@ -194,18 +192,19 @@ ip.close();
         }
         rs.close();
     %>
-    <div class="text2" id="txtbd">
-    <label>De una muestra de <span><%= numEgresados%></span> egresado(s) del CECyT de Programacion Intermedia se obtuvieron los siguientes resultados:</label>
+    <div class="text4" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
     </div>
-    <br>
-    <div class="text2" id="txt1bd">
-        <p class="bold">
-            PROGRAMACIÓN INTERMEDIA (PI):  
-        </p>
-        <label> Avanzado: </label><span><%= porcentajePOO1 %></span>%
-        <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
-        <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
-        <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
+    <div id="centrar">
+        <div class="text2" id="txt1bd">
+            <p class="bold">
+                PROGRAMACIÓN INTERMEDIA (PI):
+            </p>
+            <p><label> Avanzado: </label><span><%= porcentajePOO1 %></span>%</p>
+            <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
+            <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
+            <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
+        </div>
     </div>
     <%
     } else if(materia[0].equals("BD") && materia[1]== null){
@@ -243,26 +242,19 @@ ip.close();
         }
     rs3.close();
     %>
-    <div class="text2" id="txtbd">
-    <label>De una muestra de <span><%= numEgresados%></span> egresado(s) del CECyT de Base de Datos se obtuvieron los siguientes resultados:</label>
+    <div class="text4" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
     </div>
-    <br>
-    <div class="text2" id="txt2bd">
-        <p class="bold">
-            BASES DE DATOS:
-        </p>
-        <p>
-            Avanzado: <span><%= percentBD1 %></span>%
-        </p>
-        <p>
-            Intermedio: <span><%= percentBD2 %></span>%
-        </p>
-        <p>
-            Básico: <span><%= percentBD3 %></span>%
-        </p>
-        <p>
-            Mínimo: <span><%= percentBD4 %></span>%
-        </p>
+    <div id="centrar">
+        <div class="text2" id="txt2bd">
+            <p class="bold">
+                BASES DE DATOS:
+            </p>
+            <p>Avanzado: <span><%= percentBD1 %></span>%</p>
+            <p>Intermedio: <span><%= percentBD2 %></span>%</p>
+            <p>Básico: <span><%= percentBD3 %></span>%</p>
+            <p>Mínimo: <span><%= percentBD4 %></span>%</p>
+        </div>
     </div>
     <%
     x=0;
@@ -300,19 +292,19 @@ ip.close();
             porcentajePOO4 =  malos / total *100;
         }
     %>
-    <div class="text2" id="txtbd">
-    <label>De una muestra de <span><%= numEgresados%></span> egresado(s) del CECyT de la materia de Programacion Intermedia se obtuvieron los siguientes resultados:</label>
+    <div class="text4" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
     </div>
-    <br>
-    <div class="text2" id="txt1bd">
-        <p class="bold">
-            PROGRAMACIÓN INTERMEDIA (PI):  
-        </p>
-        <label> Avanzado: </label><span><%= porcentajePOO1 %></span>%
-        <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
-        <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
-        <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
-    </div>
+    <div id="centrar">
+        <div class="text2" id="txt1bd">
+            <p class="bold">
+                PROGRAMACIÓN INTERMEDIA (PI):
+            </p>
+            <p><label> Avanzado: </label><span><%= porcentajePOO1 %></span>%</p>
+            <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
+            <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
+            <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
+        </div>
     <%
     rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2=0");
         while (rs3.next()) {
@@ -346,146 +338,34 @@ ip.close();
             percentBD4 = min / total2 *100;
         }
     %>
-    <div class="text2" id="txtbd">
-    <label>De una muestra de <span><%= numEgresados2%></span> egresado(s) del CECyT de la materia de Base de datos se obtuvieron los siguientes resultados:</label>
+    <div class="text4" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
     </div>
-    <br>
-    <div class="text2" id="txt2bd">
-        <p class="bold">
-            BASES DE DATOS:
-        </p>
-        <p>
-            Avanzado: <span><%= percentBD1 %></span>%
-        </p>
-        <p>
-            Intermedio: <span><%= percentBD2 %></span>%
-        </p>
-        <p>
-            Básico: <span><%= percentBD3 %></span>%
-        </p>
-        <p>
-            Mínimo: <span><%= percentBD4 %></span>%
-        </p>
+        <div class="text2" id="txt2bd">
+            <p class="bold">
+                BASES DE DATOS:
+            </p>
+            <p>Avanzado: <span><%= percentBD1 %></span>%</p>
+            <p>Intermedio: <span><%= percentBD2 %></span>%</p>
+            <p>Básico: <span><%= percentBD3 %></span>%</p>
+            <p>Mínimo: <span><%= percentBD4 %></span>%</p>
+        </div>
     </div>
     <%
     x=0;
     z=0;
     rs.close();
     rs3.close();
-    }
-    //aqui va del otro usuario
-    }else if(tipou.equals("2")){
-    rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
-    while (rs.next()) {
-        nivel = rs.getString("rpo_niv");
-
-        if (nivel.equals("2")) {
-            masomenos++;
-        }
-        if (nivel.equals("3")) {
-            buenas++;
-        }
-        if (nivel.equals("1")) {
-            regular++;
-        }
-        if (nivel.equals("0")) {
-            malos++;   
-        } 
-    }
-    rs3 = stmt.executeQuery("select rbd_niv FROM resultadobd");
-    while (rs3.next()) {
-        nivelBD = rs3.getString("rbd_niv");
-
-        if (nivelBD.equals("2")) {
-            intermedio++;
-        }
-        if (nivelBD.equals("3")) {
-            avanzado++;
-        }
-        if (nivelBD.equals("1")) {
-            basico++;
-        }
-        if (nivelBD.equals("0")) {
-            min++;
-        }
-    }
-    rs2 = stmt.executeQuery("select count(*) as 'egresados' from egresado");
-    if (rs2.next()) {
-    numEgresados = rs2.getInt("egresados");
-    } else {
-        //System.out.println("XD");
-    }
-    total = masomenos + buenas + regular + malos;
-    if (buenas != 0) {
-        porcentajePOO1 = buenas / total *100;
-    }
-    if (masomenos != 0) {
-        porcentajePOO2 = masomenos / total *100;
-    }
-    if (regular != 0) {
-        porcentajePOO3 =  regular / total *100;
-    }
-    if (malos != 0) {
-        porcentajePOO4 =  malos / total *100;
-    }
-
-    total2 = avanzado + intermedio + basico + min;
-    if (avanzado != 0) {
-        percentBD1 = avanzado / total2 *100;
-    }
-    if (intermedio != 0) {
-        percentBD2 =intermedio / total2 *100;
-    }
-    if (basico != 0) {
-        percentBD3 = basico / total2 *100;
-    }
-    if (min != 0) {
-        percentBD4 = min / total2 *100;
-    }
-    rs.close();
-    rs2.close();
-    rs3.close();
-    %> 
-    <div class="text2" id="txtbd">
-        <label>De una muestra de <span><%= numEgresados %></span> egresado(s) del CECyT se obtuvieron los siguientes resultados:</label>
-    </div>
-    <br>
-    <div class="text2" id="txt1bd">
-        <p class="bold">
-            PROGRAMACIÓN INTERMEDIA (PI):  
-        </p>
-        <label> Avanzado: </label><span><%= porcentajePOO1 %></span>%
-        <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
-        <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
-        <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
-    </div>
-    
-    <div class="text2" id="txt2bd">
-        <p class="bold">
-            BASES DE DATOS:
-        </p>
-        <p>
-            Avanzado: <span><%= percentBD1 %></span>%
-        </p>
-        <p>
-            Intermedio: <span><%= percentBD2 %></span>%
-        </p>
-        <p>
-            Básico: <span><%= percentBD3 %></span>%
-        </p>
-        <p>
-            Mínimo: <span><%= percentBD4 %></span>%
-        </p>
-    </div>
-    <%}%> 
+    }%>
     <div class="text1">
         <p>
             “La obtención de estos porcentajes se realizó mediante formularios con preguntas obtenidas de exámenes a título de suficiencia las dos materias previamente mencionadas.”
         </p>
     </div>
+    <br>
 
     <div class="text1">
-        <p class="bold">
+        <p class="bolder">
             ATENTAMENTE:
         </p>
         <p class="bold">
@@ -501,30 +381,6 @@ ip.close();
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     }
 </script>
-<%
-//IMPORTANTE
-numEgresados=0;
-numEgresados2=0;
-total=0;
-masomenos = 0;
-regular = 0;
-malos = 0;
-buenas = 0;
-avanzado = 0;
-intermedio =0;
-basico = 0; 
-min = 0;
-total2=0;
-percentBD1=0;
-percentBD2=0;
-percentBD3=0;
-percentBD4=0;
-porcentajePOO1=0;
-porcentajePOO2=0;
-porcentajePOO3=0;
-porcentajePOO4=0;
-con.close();
-stmt.close();
-%>
 </body>
+
 </html>

@@ -53,8 +53,8 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Graficas</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/Chart.min.css">
-            <link rel="stylesheet" href="css/graf.css">
-            <link rel="stylesheet" href="css/grafivasr.css">
+            <link rel="stylesheet" href="css/grafprof.css">
+            <link rel="stylesheet" href="css/grafivasrprof.css">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -103,8 +103,7 @@
 
             <header>
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
-                <div class="barra">
-                    
+                <div class="barra">   
                     <div class="fontdiv">
                         <div class="flujo2">
                             <a href="graficasProf.jsp"><button type="button" class="opcn">Gráficas</button></a>
@@ -127,11 +126,11 @@
                 ?
             </button>
             <nav>
-               <div class="nav-container">
-                        <p class="ttl">Graficas Generales del profesor:</p>
-                        <p class="ttl2"><%=nombre%></p>
-                        <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
+               <div class="textotit">
+                        <p class="ttlo">Graficas Generales del profesor:</p>
+                        <p class="ttlo2"><%=nombre%></p>
                 </div>
+                <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
             </nav>
             <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
                 <%if(materia[0].equals("POO") && materia[1]== null){
@@ -198,6 +197,13 @@
                         <canvas id="grafica" class="bar"></canvas>
                     </div>
                 </section>
+                <br>
+                <section class="bodyg3" id="3">
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS PI</div>
+                        <canvas id="grafica" class="bar3"></canvas>
+                    </div>
+                </section>
                 <%} else if(materia[0].equals("BD") && materia[1]== null){
                 rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
                 while (rs2.next()) {
@@ -260,6 +266,13 @@
                     <div class="a1" id="a">
                         <div class="titulo">Preguntas BD</div>
                     <canvas id="grafica" class="bar2"></canvas>
+                    </div>
+                </section>
+                <br>
+                <section class="bodyg3" id="3">
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS BD</div>
+                    <canvas id="grafica" class="bar4"></canvas>
                     </div>
                 </section>
                 <%} else if(materia[0].equals("POO") && materia[1].equals("BD")){
@@ -381,6 +394,18 @@
                     <div class="a1" id="a">
                         <div class="titulo">Preguntas BD</div>
                     <canvas id="grafica" class="bar2"></canvas>
+                    </div>
+                </section>
+                <br>
+                <section class="bodyg3" id="3">
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS PI</div>
+                        <canvas id="grafica" class="bar3"></canvas>
+                    </div>
+
+                    <div class="a1" id="a">
+                        <div class="titulo">TEMATICAS BD</div>
+                    <canvas id="grafica" class="bar4"></canvas>
                     </div>
                 </section>
                 <%}%>
@@ -583,6 +608,107 @@
                     }],
                 },
                 
+            }
+        });
+        </script>
+        <script>//tematica
+        //CORRECTAS
+        var tematica1 = parseInt(ppo1) + parseInt(ppo2) + parseInt(ppo3) + parseInt(ppo4);
+        var tematica2 = parseInt(ppo5) + parseInt(ppo6) + parseInt(ppo7);
+        var tematica3 = parseInt(ppo8) + parseInt(ppo9) + parseInt(ppo10);
+        //INCORRECTAS
+
+        var Itematica1 = parseInt(ppoi1)+ parseInt(ppoi2)+ parseInt(ppoi3)+ parseInt(ppoi4);
+        var Itematica2 = parseInt(ppoi5)+ parseInt(ppoi6)+ parseInt(ppoi7)
+        var Itematica3 = parseInt(ppoi8)+ parseInt(ppoi9)+ parseInt(ppoi10);
+         // Obtener una referencia al elemento canvas del DOM
+        const $grafica3 = document.querySelector(".bar3");
+        // Las etiquetas son las que van en el eje X. 
+        const etiquetas3 = ["1","2","3"];
+        // Podemos tener varios conjuntos de datos
+        const ACIERTOSXD = {
+            label: "Aciertos",
+            data: [tematica1,tematica2,tematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor: "#3D29F5", // Color de fondo
+            borderColor: "#3D29F5", // Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+        const ERRORESXD = {
+            label: "Errores",
+            data: [Itematica1,Itematica2,Itematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor:  "#91043D",// Color de fondo
+            borderColor: "#91043D",// Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+
+        new Chart($grafica3, {
+            type: 'bar',// Tipo de grÃ¡fica
+            data: {
+                labels: etiquetas3,
+                datasets: [
+                    ACIERTOSXD,
+                    ERRORESXD
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                },
+
+            }
+        });
+        </script>
+        <script>
+        //CORRECTAS
+        var BDtematica1 = parseInt(pbd1)+ parseInt(pbd2)+ parseInt(pbd3) + parseInt(pbd4);
+        var BDtematica2 = parseInt(pbd5)+ parseInt(pbd6)+ parseInt(pbd7);
+        var BDtematica3 = parseInt(pbd8) + parseInt(pbd9) + parseInt(pbd10);
+
+        //INCORRECTAS
+        var BDItematica1 = parseInt(pbdi1)+ parseInt(pbdi2)+ parseInt(pbdi3) + parseInt(pbdi4);
+        var BDItematica2 = parseInt(pbdi5)+ parseInt(pbdi6)+ parseInt(pbdi7);
+        var BDItematica3 = parseInt(pbdi8)+ parseInt(pbdi9)+ parseInt(pbdi10);
+        const $grafica4 = document.querySelector(".bar4");
+        // Las etiquetas son las que van en el eje X. 
+        const etiquetas4 = ["1","2","3"];
+        // Podemos tener varios conjuntos de datos
+        const ACIERTOSJAJA = {
+            label: "Aciertos",
+            data: [BDtematica1,BDtematica2,BDtematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor: "#3D29F5", // Color de fondo
+            borderColor: "#3D29F5", // Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+        const ERRORESJAJA = {
+            label: "Errores",
+            data: [BDItematica1,BDItematica2,BDItematica3], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor:  "#91043D",// Color de fondo
+            borderColor: "#91043D",// Color del borde
+            borderWidth: 1// Ancho del borde
+        };
+
+        new Chart($grafica4, {
+            type: 'bar',// Tipo de grÃ¡fica
+            data: {
+                labels: etiquetas4,
+                datasets: [
+                    ACIERTOSJAJA,
+                    ERRORESJAJA
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                },
+
             }
         });
         </script>

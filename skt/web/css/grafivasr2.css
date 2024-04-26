@@ -45,10 +45,16 @@ header .h21 {
 }
 
 .fontdiv {
-    /*background: #004081;*/
     color: #000000;
     font: normal bold 2vw/1;
     font-family: 'Open Sans', sans-serif;
+    /*background-color: #ff0000;*/
+    height: 8vh;
+    display: flex;
+    flex-direction: row; /* Orientación horizontal */
+    align-items: center;
+    margin-left: 2vw;
+    margin-top: -1vh;
 }
 .fontdiv2 {
     background: #004081;

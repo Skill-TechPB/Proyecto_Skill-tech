@@ -15,7 +15,7 @@
         }
     %>
     <%
-        if (tipou == null || (tipou.equals("0") || tipou.equals("4") || tipou.equals("1"))) {
+        if (tipou == null || (tipou.equals("0") || tipou.equals("3") || tipou.equals("1"))) {
         response.sendRedirect("index.html");
         return ;
     }
@@ -28,10 +28,11 @@
     ResultSet rs;
     String[] preg = new String[10];
     String[] resp = new String[40];
+    String[] tema = new String[3];
     String forname="";
     String ruta = "";
     String content = "";
-    int a = 0;
+    int a = 0, b=0;
     %>
     <% 
     pal = new Conexion();
@@ -77,7 +78,12 @@
     a=a+1;
     }
     a=0;
-
+    //tematica
+    b=preg.length+resp.length+40;
+    for(int i=0; i<tema.length;i++ ){
+    tema[i]=gene[b];
+    b=b+1;
+    }b=0;
     lector.close();
     }catch(IOException ex){
     ex.printStackTrace(System.out);
@@ -123,7 +129,13 @@
                <div class="alincentro"><p class="ins">Instrucciones:<br>En el apartado siguiente podrá realizar cambios a las preguntas y respuestas de este formulario y cuando haya finalizado, dar click al boton "guardar" para guardar sus cambios.</p></div>
  
 
-    <form method="POST" action="editpo"> 
+    <form method="POST" action="editpo">
+        
+        <div class="tematica">
+        <p class="tema">Ingrese la primer temática</p>
+        <input type="text" class="edi2" name="tema1" placeholder="<%=tema[0]%>">    
+        </div>
+        
         <div class="pregunta">
               <div id="header">
                      <p class="num">1.</p>
@@ -317,6 +329,12 @@
        </div>
        </div>
         <br>
+        
+        <div class="tematica">
+              <p class="tema">Ingrese la segunda temática</p>
+              <input type="text" class="edi2" name="tema2" placeholder="<%=tema[1]%>">    
+        </div>
+        
         <div class="pregunta">
         <div id="header">
               <p class="num">5.</p>
@@ -467,6 +485,12 @@
        </div>
        </div>
         <br>
+        
+        <div class="tematica">
+              <p class="tema">Ingrese la tercer temática</p>
+        <input type="text" class="edi2" name="tema3" placeholder="<%=tema[2]%>">    
+        </div>
+        
         <div class="pregunta">
         <div id="header">
               <p class="num">8.</p>
