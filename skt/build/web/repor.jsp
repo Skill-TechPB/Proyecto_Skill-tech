@@ -12,7 +12,7 @@
     return;
     }
 %>
-<%if(tipou == null|| tipou.equals("0") || tipou.equals("2") || tipou.equals("3")){
+<%if(tipou == null|| tipou.equals("0") || tipou.equals("2")){
    response.sendRedirect("index.html");
    return;
     }
@@ -22,7 +22,7 @@
 Conexion pal;
 Connection con;
 Statement stmt;
-ResultSet ip, rs, rs2, rs3;
+ResultSet ip, rs, rs2;
 String nivel = "";
 String nivelBD="";
 int numEgresados=0;
@@ -58,6 +58,8 @@ con = pal.getConnection();
 stmt = con.createStatement();
 ip = stmt.executeQuery("select profesor.pro_id, profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+"");
 z=0;
+materia[0]="x";
+materia[1]="x";
 while(ip.next()){
     profeID = ip.getInt("pro_id");
     nombre = ip.getString("pro_nombre");
@@ -96,11 +98,18 @@ ip.close();
           
         </div>
         <div class="offcanvas-body">
-                <form method="post" action="reporte" class="vertical-form">
-                    <input type="submit" value="2020" name="rp2020" class="Boton">
-                    <input type="submit" value="2021" name="rp2021" class="Boton">
-                    <input type="submit" value="2022" name="rp2022" class="Boton">
-                </form>
+            <form method="post" action="reporte" class="vertical-form">
+                <a><input class="opcn3" type="submit" value="2021" name="rp2021"></a>      
+                <a><input class="opcn3" type="submit" value="2022" name="rp2022"></a>
+                <a><input class="opcn3" type="submit" value="2023" name="rp2023"></a>
+                <a><input class="opcn3" type="submit" value="2024" name="rp2024" style="display:none;"></a>      
+                <a><input class="opcn3" type="submit" value="2025" name="rp2025" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2026" name="rp2026" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2027" name="rp2027" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2028" name="rp2028" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2029" name="rp2029" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2030" name="rp2030" style="display:none;"></a>
+            </form>
         </div>
       </div>
       <header>
@@ -157,8 +166,8 @@ ip.close();
     </div>
     <br>
     <%
-    if(materia[0].equals("POO") && materia[1]== null){
-        rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2!=0");
+    if(materia[0].equals("POO") && materia[1].equals("x")){
+    rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2!=0");
         x=0;
         while (rs.next()) {
         nivel = rs.getString("rpo_niv");
@@ -175,7 +184,7 @@ ip.close();
         if (nivel.equals("0")) {
             malos++;   
         } 
-        }x=0;
+        }
         numEgresados=x;
         total = masomenos + buenas + regular + malos;
         if (buenas != 0) {
@@ -190,12 +199,11 @@ ip.close();
         if (malos != 0) {
             porcentajePOO4 =  malos / total *100;
         }
-        rs.close();
     %>
-    <div class="text4" id="txtbd">
-        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
-    </div>
     <div id="centrar">
+        <div class="text4" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
+        </div>
         <div class="text2" id="txt1bd">
             <p class="bold">
                 PROGRAMACIÓN INTERMEDIA (PI):
@@ -207,12 +215,14 @@ ip.close();
         </div>
     </div>
     <%
-    } else if(materia[0].equals("BD") && materia[1]== null){
-        rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2=0");
+    x=0;
+    rs.close();
+    } else if(materia[0].equals("BD") && materia[1].equals("x")){
+    rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id=="+profeID+" and egr_pro.egp_id%2=0");
         x=0;
-        while (rs3.next()) {
+        while (rs2.next()) {
         x=x+1;
-        nivelBD = rs3.getString("rbd_niv");
+        nivelBD = rs2.getString("rbd_niv");
         if (nivelBD.equals("2")) {
             intermedio++;
         }
@@ -225,7 +235,7 @@ ip.close();
         if (nivelBD.equals("0")) {
             min++;
         }
-        }x=0;
+        }
         numEgresados=x;
         total2 = avanzado + intermedio + basico + min;
         if (avanzado != 0) {
@@ -240,12 +250,11 @@ ip.close();
         if (min != 0) {
             percentBD4 = min / total2 *100;
         }
-    rs3.close();
     %>
-    <div class="text4" id="txtbd">
-        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
-    </div>
     <div id="centrar">
+        <div class="text4" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
+        </div>
         <div class="text2" id="txt2bd">
             <p class="bold">
                 BASES DE DATOS:
@@ -258,9 +267,10 @@ ip.close();
     </div>
     <%
     x=0;
+    rs2.close();
     }else if(materia[0].equals("POO") && materia[1].equals("BD")){
-    //aqui son los dos
-    rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2!=0");
+    rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2!=0");
+        x=0;
         while (rs.next()) {
         x=x+1;
         nivel = rs.getString("rpo_niv");
@@ -291,25 +301,11 @@ ip.close();
         if (malos != 0) {
             porcentajePOO4 =  malos / total *100;
         }
-    %>
-    <div class="text4" id="txtbd">
-        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
-    </div>
-    <div id="centrar">
-        <div class="text2" id="txt1bd">
-            <p class="bold">
-                PROGRAMACIÓN INTERMEDIA (PI):
-            </p>
-            <p><label> Avanzado: </label><span><%= porcentajePOO1 %></span>%</p>
-            <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
-            <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
-            <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
-        </div>
-    <%
-    rs3 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and profesor.usu_id="+idUsuario+" and egr_pro.egp_id%2=0");
-        while (rs3.next()) {
+    rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
+        z=0;
+        while (rs2.next()) {
         z=z+1;
-        nivelBD = rs3.getString("rbd_niv");
+        nivelBD = rs2.getString("rbd_niv");
         if (nivelBD.equals("2")) {
             intermedio++;
         }
@@ -338,9 +334,22 @@ ip.close();
             percentBD4 = min / total2 *100;
         }
     %>
-    <div class="text4" id="txtbd">
+    <div id="centrar">
+        <div class="text4" id="txtbd">
         <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
-    </div>
+        </div>
+        <div class="text2" id="txt1bd">
+            <p class="bold">
+                PROGRAMACIÓN INTERMEDIA (PI):
+            </p>
+            <p><label> Avanzado: </label><span><%= porcentajePOO1 %></span>%</p>
+            <p> Intermedio: <span><%= porcentajePOO2 %></span>%</p>
+            <p> Básico: <span><%= porcentajePOO3 %></span>%</p>
+            <p> Mínimo: <span><%= porcentajePOO4 %></span>%</p>
+        </div>
+        <div class="text4" id="txtbd">
+            <label>De una muestra de <span><%= numEgresados2 %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
+        </div>
         <div class="text2" id="txt2bd">
             <p class="bold">
                 BASES DE DATOS:
@@ -355,7 +364,7 @@ ip.close();
     x=0;
     z=0;
     rs.close();
-    rs3.close();
+    rs2.close();
     }%>
     <div class="text1">
         <p>
@@ -381,6 +390,9 @@ ip.close();
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     }
 </script>
+<%
+con.close();
+stmt.close();
+%>
 </body>
-
 </html>

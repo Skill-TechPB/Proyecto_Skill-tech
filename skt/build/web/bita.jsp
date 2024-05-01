@@ -43,7 +43,7 @@
     String[] cambio = new String[reg];
 
     //introduccion de los registros de la bita
-    rs2=stmt.executeQuery("select bitacora.bit_fchmod, profesor.pro_nombre, formulario.for_nombre, bitacora.elf_id,bitacora.bit_indice, bitacora.bit_origen, bitacora.bit_cambio from bitacora inner join profesor on profesor.pro_id=bitacora.pro_id inner join formulario on formulario.for_id=bitacora.for_id order by bit_fchmod");
+    rs2=stmt.executeQuery("select bitacora.bit_fchmod, profesor.pro_nombre, formulario.for_nombre, bitacora.elf_id,bitacora.bit_indice, bitacora.bit_origen, bitacora.bit_cambio from bitacora inner join profesor on profesor.pro_id=bitacora.pro_id inner join formulario on formulario.for_id=bitacora.for_id order by bitacora.bit_fchmod");
     while(rs2.next()){
     fecha[cont]=rs2.getString("bit_fchmod");
     pronombre[cont]=rs2.getString("pro_nombre");
@@ -105,7 +105,7 @@
                             <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
                         </div>  
                         <div class="flujo4">
-                            <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
+                            <a href="bita.jsp"><button  type="button" id="btc">Bitácora</button></a>
                         </div>
                         <div class="flujo5">
                             <a href="reporteacademia.jsp"><button class="opcn" type="button">Reporte</button></a>

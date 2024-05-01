@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
 * {
     box-sizing: border-box;
 }
 
 body {
-    font: 1em/150% "Calibri", sans-serif;
+    font: 1em/150% "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -20,7 +21,7 @@ header {
 
 header .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
     margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
     margin-right: 69vw;
 }
@@ -44,7 +45,7 @@ header .h21 {
 }
 .ttl{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     padding-left: 4vw;
     padding-right: 2vw;
     /*background: #FF5733;*/
@@ -61,7 +62,7 @@ header .h21 {
     }
 
 .ins{
-    font-size: 1.6vw;
+    font: normal bold 1.6vw/1 "Poppins", sans-serif;
     /*background-color: #004081;*/
     margin-left: -7vw;
     font-weight: 700;
@@ -69,7 +70,7 @@ header .h21 {
     }
 .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
 }
 h2{
     font-size: 2.5vw;
@@ -77,7 +78,7 @@ h2{
 .fontdiv {
     color: #000000;
     font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     /*background-color: #ff0000;*/
     height: 8vh;
     display: flex;
@@ -122,7 +123,7 @@ footer {
     text-align: justify;
     color: #000000;
     font-size: 15px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     word-wrap: break-word;
     padding: 10px 15px;
     background: #ffffff;
@@ -145,7 +146,7 @@ footer {
 h1 {
     color: black;
     font-size: 28px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     line-height: 27px;
     word-wrap: break-word;
@@ -154,12 +155,12 @@ h1 {
 .fontdiv {
     color: #000000;
     font: normal bold 18px/1;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
     margin-right: 74vw;
     margin-top: 4vh;
 }
@@ -174,7 +175,7 @@ h2{
 .fontdiv {
 	color: #000000;
 	font: normal bold;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 /* Añade estas reglas para centrar vertical y horizontalmente el texto en los botones */
 .Boton1,
@@ -202,7 +203,7 @@ h2{
     border: 1px solid #004081;
     border-radius: 13px;
     color: #ffffff;
-    font: normal bold 19px/1 "Open Sans", sans-serif;
+    font: normal bold 19px/1 "Poppins", sans-serif;
     text-align: center;
     margin-top: 20px;
     float: left;
@@ -219,7 +220,7 @@ h2{
     border: 1px solid #004081;
     border-radius: 13px;
     color: #ffffff;
-    font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+    font: normal bold 1.2vw/1 "Poppins", sans-serif;
     text-align: center;
     margin-top: 2vh;
     margin-right: 1vw;
@@ -286,13 +287,8 @@ h2{
 }
 
 .imglogo {
-    width: 2vw;
-    height: 5vh;
-    align-content: center;
-    text-align: center;
-    justify-content: flex-start;
-    align-items: center;
-    display: inline-flex;
+    width: 4vw;
+    height: 9vh;
 }
 
 .flujo,
@@ -315,10 +311,11 @@ h2{
 
  }
 
+
 .opla{
     border-radius: 10px;
-   background-color: #ffffff;
-    color: #000000;
+   background-color:rgb(0, 43, 93);
+    color: #ffffff;
     font-size: 1.5vw;
     font-weight: 700;
     padding: .8vh 3vw;
@@ -333,6 +330,8 @@ h2{
   .opla:active {
     transform: scale(0.95);
   } 
+
+ 
   .flujo4{
     /* background: brown;*/
      margin-left: 1vw;
@@ -374,7 +373,7 @@ h2{
 
 .bd,
 .poo {
-    font-size: 2vw; /* Puedes ajustar este valor según tus preferencias */
+    font: normal bold 2vw/1 "Poppins", sans-serif;
     font-weight: 700;
     color: #ffffff;
 }

@@ -14,7 +14,7 @@
     }
 %>
 <%
-   if(tipou == null|| tipou.equals("0") || tipou.equals("1") || tipou.equals("3")){
+   if(tipou == null|| tipou.equals("0") || tipou.equals("1")){
    response.sendRedirect("index.html");
    return;
     }
@@ -24,12 +24,10 @@
 Conexion pal;
 Connection con;
 Statement stmt;
-ResultSet ip, rs, rs2, rs3;
+ResultSet rs, rs2, rs3;
 String nivel = "";
 String nivelBD="";
 int numEgresados=0;
-String nombre="";
-String materia[] = new String[2];
 double total=0;
 double masomenos = 0;
 double regular = 0;
@@ -50,24 +48,7 @@ double porcentajePOO1=0;
 double porcentajePOO2=0;
 double porcentajePOO3=0;
 double porcentajePOO4=0;
-int z=0, x=0;
-int profeID=0;
 %>
-<%
-pal = new Conexion();
-con = pal.getConnection();
-stmt = con.createStatement();
-ip = stmt.executeQuery("select profesor.pro_id, profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+"");
-z=0;
-while(ip.next()){
-    profeID = ip.getInt("pro_id");
-    nombre = ip.getString("pro_nombre");
-    materia[z]=ip.getString("asi_nombre");
-    z=z+1;
-}z=0;
-ip.close();
-%>
-
 <html lang="en">
 
 <head>
@@ -97,11 +78,18 @@ ip.close();
           
         </div>
         <div class="offcanvas-body">
-                <form method="post" action="reporte" class="vertical-form">
-                    <input type="submit" value="2020" name="rp2020" class="Boton">
-                    <input type="submit" value="2021" name="rp2021" class="Boton">
-                    <input type="submit" value="2022" name="rp2022" class="Boton">
-                </form>
+            <form method="post" action="reporte" class="vertical-form">
+                <a><input class="opcn3" type="submit" value="2021" name="rp2021"></a>      
+                <a><input class="opcn3" type="submit" value="2022" name="rp2022"></a>
+                <a><input class="opcn3" type="submit" value="2023" name="rp2023"></a>
+                <a><input class="opcn3" type="submit" value="2024" name="rp2024" style="display:none;"></a>      
+                <a><input class="opcn3" type="submit" value="2025" name="rp2025" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2026" name="rp2026" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2027" name="rp2027" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2028" name="rp2028" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2029" name="rp2029" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2030" name="rp2030" style="display:none;"></a>
+            </form>
         </div>
       </div>
       <header>
@@ -163,6 +151,9 @@ ip.close();
     </div>
     <br>  
     <%
+    pal = new Conexion();
+    con = pal.getConnection();
+    stmt = con.createStatement();
     rs = stmt.executeQuery("select rpo_niv FROM resultadopo");
     while (rs.next()) {
         nivel = rs.getString("rpo_niv");
@@ -234,10 +225,10 @@ ip.close();
     rs2.close();
     rs3.close();
     %> 
-    <div class="text2" id="txtbd">
-        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
-    </div>
     <div id="centrar">
+        <div class="text2" id="txtbd">
+        <label>De una muestra de <span><%= numEgresados %></span> egresados del CECyT se obtuvieron los siguientes resultados:</label>
+        </div>
         <div class="text2" id="txt1bd">
             <p class="bold">
                 PROGRAMACIÓN INTERMEDIA (PI):

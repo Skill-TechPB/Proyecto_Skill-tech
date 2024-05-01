@@ -65,7 +65,7 @@
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX  6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-            <link rel="shortcut icon" href="./assets/logo1.png" />
+            <link rel="shortcut icon" href="./assets/descarga.svg" />
         </head>
         <body>
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -91,32 +91,32 @@
                 </div>
                 <div class="offcanvas-body">
                     <form method="POST" action="gen">
-                        <a><input class="opcn3" type="submit" value="2024" name="gene"></a>      
-                        <a><input class="opcn3" type="submit" value="2025" name="gene1"></a>
-                        <a><input class="opcn3" type="submit" value="2026" name="gene2"></a>
-                        <a><input class="opcn3" type="submit" value="2027" name="gene3" style="display:none;"></a>      
-                        <a><input class="opcn3" type="submit" value="2028" name="gene4" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2029" name="gene5" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2030" name="gene6" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2031" name="gene7" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2032" name="gene8" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2033" name="gene9" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2021" name="gene"></a>      
+                        <a><input class="opcn3" type="submit" value="2022" name="gene1"></a>
+                        <a><input class="opcn3" type="submit" value="2023" name="gene2"></a>
+                        <a><input class="opcn3" type="submit" value="2024" name="gene3" style="display:none;"></a>      
+                        <a><input class="opcn3" type="submit" value="2025" name="gene4" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2026" name="gene5" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2027" name="gene6" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2028" name="gene7" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2029" name="gene8" style="display:none;"></a>
+                        <a><input class="opcn3" type="submit" value="2030" name="gene9" style="display:none;"></a>
                     </form>
                 </div>
               </div>
 
             <header>
-                <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
+              <img src="./assets/descarga.svg" class="imglogo">
                 <div class="barra">
                     <div class="fontdiv">
                         <div class="flujo21">
-                            <a href="graficas.jsp"><button type="button" class="opcn">Gráficas</button></a>
+                            <a href="graficas.jsp"><button type="button" id="grf">Gráficas</button></a>
                         </div>
                         <div class="flujo3">
                             <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
                         </div>  
                         <div class="flujo4">
-                            <a href="bita.jsp"><button class="opcn" type="button">Bitacora</button></a>
+                            <a href="bita.jsp"><button class="opcn" type="button">Bitácora</button></a>
                         </div>
                         <div class="flujo5">
                             <a href="reporteacademia.jsp"><button class="opcn" type="button">Reporte</button></a>
@@ -137,7 +137,7 @@
             </button>
             <nav>
                 <div class="textotit">
-                    <p class="ttlo">Graficas Generales</p>
+                    <p class="ttlo">Gráficas Generales</p>
                     <p class="ttlo2">de los Profesores</p>
                 </div>
                 <button class="opn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>

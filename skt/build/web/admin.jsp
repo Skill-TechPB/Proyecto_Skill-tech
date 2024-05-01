@@ -29,7 +29,6 @@ int cont2=0;
 int reg2=0;
 String mensajeselec="";
 String mensajeselec2="";
-//onchange="mostrarCodigo()"
 %>
     <html lang="es">
 
@@ -44,7 +43,6 @@ String mensajeselec2="";
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
     <script src="js/Admin1.js"></script>
-    <script srce="js/chatbot.js"></script>
     </head>
 
     <body>
@@ -58,7 +56,7 @@ String mensajeselec2="";
                         <a href="gradmin.html"><button type="button" class="opcn">Gráficas</button></a>
                     </div>
                     <div class="flujo31">
-                        <a href="admin.html"><button type="button" class="opcn">Administración</button></a>
+                        <a href="admin.jsp"><button type="button" class="opcn">Administración</button></a>
                     </div>
                 </div>
         </div>
@@ -204,33 +202,34 @@ String mensajeselec2="";
               <span class="material-symbols-outlined">close</span>
             </button>
             <div class="chatbot">
-              <header>
-                <h5>Chatbot</h5>
-                <span class="close-btn material-symbols-outlined">close</span>
-              </header>
-              <ul class="chatbox">
-                <li class="chat incoming">
-                  <span class="material-symbols-outlined">person</span>
-                  <p>Hola! 👋<br>¿Cómo puedo ayudarte?<br>-opcion 1<br>-opcion 2<br>-opcion 3<br>-opcion 4</p>
-                </li>
-              </ul>
-              <div class="chat-input">
-                <textarea placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
-                <span id="send-btn" class="material-symbols-rounded">send</span>
-              </div>
+            <header>
+              <h5>Chatbot</h5>
+              <span class="close-btn material-symbols-outlined">close</span>
+            </header>
+            <ul class="chatbox">
+              <li class="chat incoming">
+                <span class="material-symbols-outlined">person</span>
+                <p>Hola! 👋<br>¿Cómo puedo ayudarte?<br>1-opcion 1<br>2-opcion 2<br>3-opcion 3<br>4-opcion 4<br>5-Formulario</p>
+              </li>
+            </ul>
+            <div class="chat-input">
+              <textarea id="user-input" placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+              <span id="send-btn" class="material-symbols-rounded">send</span>
             </div>
-<script>
-    function mostrarCodigo() {
-        var selectElement = document.getElementById("tipousu");
-        var codigoDiv = document.getElementById("codigo_oculto");
-        
-        if (selectElement.value == "1") { // Si la opción seleccionada es "Profesor"
-            codigoDiv.style.display = "block"; // Mostrar el código
-        } else {
-            codigoDiv.style.display = "none"; // Ocultar el código
+            </div>
+            <script src="js/chatbot.js"></script>
+    <script>
+        function mostrarCodigo() {
+            var selectElement = document.getElementById("tipousu");
+            var codigoDiv = document.getElementById("codigo_oculto");
+
+            if (selectElement.value == "1") { // Si la opción seleccionada es "Profesor"
+                codigoDiv.style.display = "block"; // Mostrar el código
+            } else {
+                codigoDiv.style.display = "none"; // Ocultar el código
+            }
         }
-    }
-</script>
+    </script>
     <%
     con.close();
     stmt.close();
@@ -240,18 +239,18 @@ String mensajeselec2="";
     rs4.close();
     %>
     <script>
-  const checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', function() {
-      if (this.checked) {
-        checkboxes.forEach((otherCheckbox) => {
-          if (otherCheckbox !== this) {
-            otherCheckbox.checked = false;
-          }
+        const checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');
+        checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', function() {
+            if (this.checked) {
+              checkboxes.forEach((otherCheckbox) => {
+                if (otherCheckbox !== this) {
+                  otherCheckbox.checked = false;
+                }
+              });
+            }
+          });
         });
-      }
-    });
-  });
-</script>
+    </script>
     </body>
     </html>

@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+ 
+ 
  * {
   box-sizing: border-box;
 }
 
 body {
-  font: 1em/150% "Calibri", sans-serif;
+  font: 1em/150% "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   display: table;
@@ -34,14 +37,14 @@ header {
 
 header .h21 {
   color: #ffffff;
-  font: normal bold 2vw/1 "Open Sans", sans-serif;
+  font: normal bold 2vw/1 "Poppins", sans-serif;
   margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
   margin-right: 69vw;
 }
 
 .h21 {
   color: #ffffff;
-  font: normal bold 2vw/1 "Open Sans", sans-serif;
+  font: normal bold 2vw/1 "Poppins", sans-serif;
 }
 h2{
   font-size: 1.9vw;
@@ -52,7 +55,7 @@ h2{
   border: 1px solid #004081;
   border-radius: 13px;
   color: #ffffff;
-  font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+  font: normal bold 1.2vw/1 "Poppins", sans-serif;
   text-align: center;
   margin-top: 2vh;
   margin-right: 1vw;
@@ -104,7 +107,7 @@ h2{
 .fontdiv {
     color: #000000;
     font: normal bold;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 nav {
@@ -120,7 +123,7 @@ nav {
   }
   
   .main-rectangle {
-    /*background-color: #1F232A;*/
+   /*background-color: #1F232A;*/
     width: 98%;
     margin-left: 1vw;
     height: 75vh;
@@ -131,26 +134,33 @@ nav {
   }
   
   .rectangle-image {
-    margin-top: 1vh;
-    width: 70vh;
+    width: 50vh;
     height: auto;
-    margin-left: 3vw; 
+    margin-left: 8vw;
+    margin-top: -3vh;
   }
   
   .text-section {
     color: white;
+    margin-left: 7vw;
+    /*background-color: #1589EE;*/
+    width: 50vw;
+    height: 40vh;
+    text-align: left;
   }
   
-  .skill-tech-text {
-    margin-top: -10vh;
+  .skill-tech-text {  
+    font: normal bold 9vw/1 "Poppins", sans-serif;
     font-size: 9vw;
-    margin-left: -1vw; 
+    /*background-color: blueviolet;*/
+    margin-top: -1vh;
+
   }
 
   .skill-tech-text2 {
     margin-top: -13vh;
-    font-size: 2.4vw;
-    margin-left: -1vw; 
+    font: normal bold 3vw/1 "Poppins", sans-serif;
+    /*background-color: chartreuse;*/
   }
   
   .about-us-section1 {
@@ -165,11 +175,11 @@ nav {
     color: #ffffff;
   }
     .h11{
-      font: normal bold 4vw/1 "Open Sans", sans-serif;
+      font: normal bold 4vw/1 "Poppins", sans-serif;
       color: #004081;
     }
   .obj{
-    font: 1.5vw/1 "Open Sans", sans-serif;
+    font: 1.5vw/1 "Poppins", sans-serif;
   }
   .conteimg1{
     float: right;
@@ -229,7 +239,7 @@ nav {
     line-height: 4.4vh; /* Puedes ajustar este valor según tus necesidades */
   }
   .obj3{
-    font: bold 1.5vw/1 "Open Sans", sans-serif;
+    font: bold 1.5vw/1 "Poppins", sans-serif;
   
   }
 /*CSS para agradecimiento.html*/
@@ -262,8 +272,8 @@ nav {
 
   .imglogo{
     margin-top: 1vh;
-    width: 4vw;
-    height: 9vh;
+    width: 10vw;
+    height: 20vh;
     margin-left: 1vw;
     align-content: center;
     text-align: center;

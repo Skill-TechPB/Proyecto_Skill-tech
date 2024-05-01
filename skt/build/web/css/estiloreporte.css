@@ -51,6 +51,26 @@ header {
     letter-spacing: 3px;
   }
   
+  .opcn3{
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1.5vw;
+    font-weight: 700;
+    padding: .8vh 2vw;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 2vh;
+  }
+  .opcn3:hover {
+    letter-spacing: 3px;
+  }
+  
+  .opcn3:active {
+    transform: scale(0.95);
+  }
+  
   .opcn2:active {
     transform: scale(0.95);
   }

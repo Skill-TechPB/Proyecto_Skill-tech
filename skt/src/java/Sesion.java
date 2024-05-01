@@ -50,6 +50,8 @@ String x;
         String encryptedPassword = encryptDES(Contra, secretKey);
         String contraAdmin ="C0cT4L1@$";
         String correoadmin="admin13@gmail.com";
+        String correoMSWORK="mswork69@gmail.com";
+        String contraMSWORK="Jetrinfelicin34";
         int banderaAdmin = 1;
         int banPO= 0;
         int banBD= 0;
@@ -62,7 +64,9 @@ String x;
             session.setAttribute("banderita",banderaAdmin);
             response.sendRedirect("admin.jsp");
         }
-           
+        if (CorreoElec.equals(correoMSWORK)&& Contra.equals(contraMSWORK)){
+            response.sendRedirect("ms_work_reference/index_mswork.html");
+        }  
         try {
             Conexion cn = new Conexion();
             Connection con = cn.getConnection();

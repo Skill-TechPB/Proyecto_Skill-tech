@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+ 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font: 1em/150% "Calibri", sans-serif;
+    font: 1em/150% "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -19,7 +21,7 @@ header {
 
 header .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
     margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
     margin-right: 69vw;
 }
@@ -44,7 +46,7 @@ nav {
 }
 .ttl{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     padding-left: 4vw;
     padding-right: 2vw;
     /*background: #FF5733;*/
@@ -56,14 +58,14 @@ nav {
 }
 .ttlo{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     /*background: #FF5733;*/
     width: 50vw;
 
 }
 .ttlo2{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     /*background: #004081;*/
 }
 
@@ -89,7 +91,7 @@ nav {
   }
 .ttl2{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     padding-left: 4vw;
     padding-right: 2vw;
     /*background: #004081;*/
@@ -98,7 +100,7 @@ nav {
 }
 
 .ins{
-    font-size: 1.6vw;
+    font: normal bold 1.6vw/1 "Poppins", sans-serif;
     /*background-color: #004081;*/
         margin-left: -9vw;
         font-weight: 700;
@@ -106,12 +108,12 @@ nav {
 }
 .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
 }
 .fontdiv {
     color: #000000;
     font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     /*background-color: #ff0000;*/
     height: 8vh;
     display: flex;
@@ -123,13 +125,13 @@ nav {
 .fontdiv2 {
     color: #000000;
     font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 10vh;
 }
-header .imglogo {
-    width: 2vw;
-    height: 5vh;
+.imglogo {
+    width: 4vw;
+    height: 9vh;
     align-content: center;
     text-align: center;
     justify-content: flex-start;
@@ -137,12 +139,13 @@ header .imglogo {
     display: inline-flex;
 }
 
+
 .BotonCe {
     background: #004081;
     border: 1px solid #004081;
     border-radius: 13px;
     color: #ffffff;
-    font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+    font: normal bold 1.2vw/1 "Poppins", sans-serif;
     text-align: center;
     margin-top: 2vh;
     margin-right: 1vw;
@@ -154,7 +157,7 @@ header .imglogo {
     text-align: center; 
     color: #FEFEFE; 
     font-size: 1.2vw; 
-    font-family: 'Open Sans' sans-serif;
+    font-family: 'Poppins' sans-serif;
     background: #004081; 
     border-radius: 30px; 
     justify-content: center;
@@ -163,16 +166,6 @@ header .imglogo {
     display: inline-flex;
     width: 1vw;
     }
-.imglogo {
-    width: 2vw;
-    height: 5vh;
-    align-content: center;
-    text-align: center;
-    justify-content: flex-start;
-    align-items: center;
-    display: inline-flex;
-}
-
 #alinearder {
     text-align: right;
     vertical-align: 50%;
@@ -396,192 +389,6 @@ animation: resize 2s infinite;
 
 #myInput{
 animation: resize 2s infinite;
-}
-
-
-@media only screen and (max-width: 425px) and (orientation: portrait) {
-body {
-  font-size: 1.2vw; /* Reducir el tamaño de la fuente para una mejor legibilidad */
-}
-
-header {
- background: #1F77C7;
-  height: 10vh; /* Permitir que la altura del encabezado se ajuste automáticamente */
- width: 100%;
-}
-
-.imglogo {
-  width: 20vw; /* Reducir el tamaño del logo */
-  margin-bottom: 10px;
-  height: 10vh;
-  margin-top: 1vh;
-}
-
-.Boton {
-  /*background-color: chartreuse;*/
-  height: 6vh;
-  width: 23vw;
-  margin-right: 6vw;
-  margin-top: 1vh;
-}
-
-.Botona {
-  width: 23vw; /* Hacer que el botón ocupe el ancho completo disponible */
-  height: 5.7vh; /* Permitir que la altura del botón se ajuste automáticamente */
-  font-size: 3vw; /* Aumentar el tamaño de la fuente del botón */
-  border-radius: 10px;
-  margin-top: -.06vh;
-}
-
-.ttl2{
-    display: none;
-}
-.opcn2 {
-    border-radius: 10px;
-   background-color: #ffffff;
-    color: #000000;
-    font-size: 1.2vw;
-    font-weight: 700;
-    padding: .8vh 1vw;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    transition: 0.3s ease-in-out;
-    margin-left: 35vw;
-  }
-  .opcn2:hover {
-    letter-spacing: 3px;
-  }
-  
-  .opcn2:active {
-    transform: scale(0.95);
-  }
-  .alincentro{
-    padding-left: 10%;
-    height: 2vh;
-    width: 95vw;
-    margin-left:1vw;
-    margin-top: -2vh;
-    font-size: 1.3vw;
-    color: #000000;
-    }
-
-.bodyg {
-    display: flex;
-    flex-direction: column; /* Cambiar la dirección de flexión a column */
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    margin-top: 10vh;
-    margin-bottom: 15vh;
-    font: 1em/150% "Calibri", sans-serif;
-    background-color: brown;
-}
-
-.a {
-    height: 60vh;
-    margin-top: 10vh; /* Reducir el margen superior */
-    border-radius: 11px;
-    width: 90vw; /* Ajustar el ancho al 80% del viewport width */
-    margin-right: auto; /* Centrar horizontalmente */
-    margin-left: auto; /* Centrar horizontalmente */
-    background: #5500ff;
-}
-
-.layougr{
-    width: 15vw;
-    height: 40vh;
-    background-color: #ffffff;
-    margin-left: 75vw;
-    text-align: justify;
-    margin-top: -35.5vh;
-    border-bottom-right-radius: 11px;
-    color: #000000;
-    display: grid; /* Utiliza display: grid en lugar de display: flex */
-    grid-template-rows: repeat(4, auto); /* Crea un grid de 4 filas automáticas */
-    gap: 0vh; /* Establece el espacio entre las filas */
-}
-
-.alinearrec{
-    width: 2vw;
-    height: 2vh;
-    border-radius: 2px;
-    margin-left: 1vw;
-    margin-top: -.8vh;
-    }
-
-    .alinearrec1{
-        width: 2vw;
-        height: 2vh;
-        border-radius: 2px;
-        margin-left: -11vw;
-        margin-top: -.8vh;
-        }
-
-
-.conti {
-
-    align-items: center;
-    align-content: center;
-    margin-top: 4vh;
-    height: 5vh;
-    text-align: center;
-
-}
-
-.conti2{
-
-    align-items: center;
-    align-content: center;
-    margin-top: -4vh;
-    height: 5vh;
-
-}
-.conti3{
-
-    align-items: center;
-    align-content: center;
-    margin-top: -4vh;
-    height: 5vh;
-}
-.conti4{
-
-    align-items: center;
-    align-content: center;
-    margin-top: -4vh;
-    height: 5vh;    
-}
-
-.nvl{
-    margin-top: -5vh;
-    margin-left: 3.5vw;
-    font-size:1.3vh;
-    color: #000000;
-    /*background: #004081;*/
-}
-
-.nvl1{
-    margin-top: -5vh;
-    margin-left: 1vw;
-    font-size:1.3vh;
-    color: #000000;
-    /*background: #004081;*/
-}
-
-.grafica-container{
-    height: 100%;
-    border-radius: 11px;
-    margin-left: .4vw;
-     background: #8d2121;
-    margin-top: -1.5vh;
-    width: 70vw;
-}
-
-canvas{
-    margin-top: -1vh;
-    width: 5vw;
-    height: 4vh;
-}
-
 }
 
 

@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    font: 1em/150% "Calibri", sans-serif;
+    font: 1em/150% "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -45,7 +47,7 @@ header {
 
 header .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
     margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
     margin-right: 69vw;
 }
@@ -60,20 +62,20 @@ header .h21 {
 }
 .ttl{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     padding-left: 4vw;
     padding-right: 2vw;
 
 }
 .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
 }
 
 .fontdiv {
     color: #000000;
     font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
    /* background-color: #ff0000;*/
     height: 8vh;
     display: flex;
@@ -110,7 +112,7 @@ a{
     border: 1px solid #004081;
     border-radius: 13px;
     color: #ffffff;
-    font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+    font: normal bold 1.2vw/1 "Poppins", sans-serif;
     text-align: center;
     margin-top: 2vh;
     margin-right: 1vw;
@@ -160,7 +162,7 @@ a{
     
 .menu-btn {
     color: #000000;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
 }
  .navbar-toggler{
     margin-left: 20vw;
@@ -170,7 +172,7 @@ a{
 .Boton {
     text-align: center;
     font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     word-wrap: break-word;
     padding: 10px 30px;

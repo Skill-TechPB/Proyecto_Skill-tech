@@ -20,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <title>Edicion de Formularios</title>
-    <link rel="shortcut icon" href="./assets/logo1.png" />
+    <link rel="shortcut icon" href="./assets/descarga.svg" />
     <link rel="stylesheet" href="./css/editformu.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -29,20 +29,20 @@
 </head>
 <body>
     <header>   
-        <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
+       <img src="./assets/descarga.svg"/ class="imglogo">
         <div class="barra">
             <div class="fontdiv">
                 <div class="flujo21">
-                    <a href="graficas.jsp"><button type="button" class="opcn">Gr&aacute;ficas</button></a>
+                    <a href="graficas.jsp"><button type="button" class="opcn" id="grf">Gr&aacute;ficas</button></a>
                 </div>
                 <div class="flujo3">
                     <a href="Editform.jsp"><button class="opla" type="button">Ed.Formularios</button></a>
                 </div>  
                 <div class="flujo4">
-                    <a href="bita.jsp"><button class="opcn" type="button">Bit&aacute;cora</button></a>
+                    <a href="bita.jsp"><button class="opcn" type="button" id="bta">Bit&aacute;cora</button></a>
                 </div>
                 <div class="flujo5">
-                    <a href="reporteacademia.jsp"><button class="opcn" type="button">Reporte</button></a>
+                    <a href="reporteacademia.jsp"><button class="opcn" type="button" id="rte">Reporte</button></a>
                 </div>
             </div>
     </div>

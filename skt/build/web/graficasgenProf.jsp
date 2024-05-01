@@ -13,7 +13,7 @@
 <%String x = (String) sesion.getAttribute("generacion");%>
 <%String tipou = (String) sesion.getAttribute("tipou");%>
 <%int idUsuario = (int) sesion.getAttribute("usu_id");%>
-<%if (tipou == null || tipou.equals("0") || tipou.equals("3")|| tipou.equals("2") ) {
+<%if (tipou == null || tipou.equals("0") || tipou.equals("2") ) {
 response.sendRedirect("index.html");
 return;
 }
@@ -41,6 +41,8 @@ return;
     stmt = con.createStatement();
     ip = stmt.executeQuery("select profesor.pro_id, profesor.pro_nombre, asignatura.asi_nombre from asignatura inner join pro_asi on pro_asi.asi_id=asignatura.asi_id inner join profesor on profesor.pro_id=pro_asi.pro_id where profesor.usu_id="+idUsuario+"");
     z=0;
+    materia[0]="x";
+    materia[1]="x";
     while(ip.next()){
         profeID = ip.getInt("pro_id");
         nombre = ip.getString("pro_nombre");
@@ -63,9 +65,25 @@ return;
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-    <link rel="shortcut icon" href="./assets/logo1.png" />
+    <link rel="shortcut icon" href="./assets/descarga.svg" />
 </head>
 <body>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Niveles y su Cálculo</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                Para poder asignar un nivel a los conocimientos de los egresados, con base a los resultados obtenidos en los formularios respondidos, seguimos la siguiente escala: <br> <br>Nivel avanzado 80% de aciertos o superior <br> <br>Nivel intermedio menor a 80% y mayor a 60% <br><br>Nivel básico menor a 60% y mayor a 40%  <br><br>Nivel mínimo menor a 40% <br><br>Esta escala aplica para ambos formularios, el porcentaje se obtendrá mediante la suma del valor de todos los aciertos que obtuvo dividido entre la suma total de los valores de los aciertos del examen y el resultado se multiplicará por 100.
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasRightLabel">Aquí podrá encontrar las gráficas de las generaciones disponibles dentro del sistema</h5>
@@ -73,23 +91,23 @@ return;
         </div>
         <div class="offcanvas-body">
             <form method="POST" action="gen">
-                <a><input class="opcn3" type="submit" value="2024" name="gene"></a>      
-                <a><input class="opcn3" type="submit" value="2025" name="gene1"></a>
-                <a><input class="opcn3" type="submit" value="2026" name="gene2"></a>
-                <a><input class="opcn3" type="submit" value="2027" name="gene3" style="display:none;"></a>      
-                <a><input class="opcn3" type="submit" value="2028" name="gene4" style="display:none;"></a>
-                <a><input class="opcn3" type="submit" value="2029" name="gene5" style="display:none;"></a>
-                <a><input class="opcn3" type="submit" value="2030" name="gene6" style="display:none;"></a>
-                <a><input class="opcn3" type="submit" value="2031" name="gene7" style="display:none;"></a>
-                <a><input class="opcn3" type="submit" value="2032" name="gene8" style="display:none;"></a>
-                <a><input class="opcn3" type="submit" value="2033" name="gene9" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2021" name="gene"></a>      
+                <a><input class="opcn3" type="submit" value="2022" name="gene1"></a>
+                <a><input class="opcn3" type="submit" value="2023" name="gene2"></a>
+                <a><input class="opcn3" type="submit" value="2024" name="gene3" style="display:none;"></a>      
+                <a><input class="opcn3" type="submit" value="2025" name="gene4" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2026" name="gene5" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2027" name="gene6" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2028" name="gene7" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2029" name="gene8" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2030" name="gene9" style="display:none;"></a>      
             </form>
         </div>
       </div>
 
     <header>
                 
-        <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
+        <h1 class="imglogo"><img src="./assets/descarga.svg" /></h1>
         <div class="barra">
             <div class="fontdiv">
                 <div class="flujo2">
@@ -113,14 +131,14 @@ return;
        ?
     </button>
     <nav>
-        <div class="nav-container">
-            <p class="ttl">Gráficas de la Generación:</p>
-            <p class="ttl2"><%=x%></p>
-            <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
+        <div class="textotit">
+            <p class="ttlo">Gráficas de la Generación:</p>
+            <p class="ttlo2"><%=x%></p>
         </div>
+            <button class="opn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Generaciones</button>
     </nav>
         <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
-        <%if(materia[0].equals("POO") && materia[1]== null){
+        <%if(materia[0].equals("POO") && materia[1].equals("x")){
                 rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=0 and egresado.egr_fch='"+x+"' and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2!=0");
                 while (rs.next()) {
                     nivel = rs.getString("rpo_niv");
@@ -152,6 +170,7 @@ return;
                 <section class="bodyg">
                 <div class="a">
                 <div class="titulo">Programación Intermedia</div>
+                <div class="alineagraf">
                     <div id="graficaPOO" class="grafica-container">
                     <canvas class="grafica"></canvas>
                 </div>
@@ -174,6 +193,7 @@ return;
                     </div>
                 </div>
                 </div>
+                </div>
                 </section>
                 <br>
                 <br>
@@ -190,7 +210,7 @@ return;
                         <canvas id="grafica" class="bar3"></canvas>
                     </div>
                 </section>
-                <%} else if(materia[0].equals("BD") && materia[1]== null){
+                <%} else if(materia[0].equals("BD") && materia[1].equals("x")){
                 rs2 = stmt.executeQuery("select rbd_niv from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_id inner join egr_pro on egr_pro.egr_id=egresado.egr_id inner join profesor on profesor.pro_id=egr_pro.pro_id inner join pro_asi on pro_asi.pro_id=profesor.pro_id where pro_asi.asi_id=1 and egresado.egr_fch='"+x+"' and egr_pro.pro_id="+profeID+" and egr_pro.egp_id%2=0");
                 while (rs2.next()) {
                     nivel2 = rs2.getString("rbd_niv");
@@ -223,6 +243,7 @@ return;
                 <section class="bodyg">
                 <div class="a">
                 <div class="titulo">Bases de Datos</div>
+                <div class="alineagraf">
                     <div id="graficaBD" class="grafica-container">
                     <canvas class="grafica"></canvas>
                 </div>
@@ -243,6 +264,7 @@ return;
                         <img src="assets/recminimo.jpg" class="alinearrec">
                         <p class="nvl">Minimo</p>
                     </div>
+                </div>
                 </div>
                 </div>
                 </section>
@@ -319,9 +341,10 @@ return;
                 rs3.close();
                 rs4.close();
                 %>
-                <section class="bodyg">
-                <div class="a">
+                <section class="bodyg6">
+                <div class="as">
                 <div class="titulo">Programación Intermedia</div>
+                <div class="alineagraf2">
                     <div id="graficaPOO" class="grafica-container">
                     <canvas class="grafica"></canvas>
                 </div>
@@ -344,9 +367,11 @@ return;
                     </div>
                 </div>
                 </div>
+                </div>
 
-                <div class="a">
+                <div class="as3">
                 <div class="titulo">Bases de Datos</div>
+                <div class="alineagraf2">
                     <div id="graficaBD" class="grafica-container">
                     <canvas class="grafica"></canvas>
                 </div>
@@ -368,29 +393,30 @@ return;
                         <p class="nvl">Minimo</p>
                     </div>
                 </div>
+                </div>
                 </div>                
                 </section>
                 <br>
                 <br>
-                <section class="bodyg2" id="2">
-                    <div class="a1" id="a">
+                <section class="bodyg7" id="2">
+                    <div class="as1" id="a">
                         <div class="titulo">Preguntas PI</div>
                         <canvas id="grafica" class="bar"></canvas>
                     </div>
 
-                    <div class="a1" id="a">
+                    <div class="as11" id="a">
                         <div class="titulo">Preguntas BD</div>
                     <canvas id="grafica" class="bar2"></canvas>
                     </div>
                 </section>
                 <br>
-                <section class="bodyg3" id="3">
-                    <div class="a1" id="a">
+                <section class="bodyg8" id="3">
+                    <div class="as1" id="a">
                         <div class="titulo">TEMATICAS PI</div>
                         <canvas id="grafica" class="bar3"></canvas>
                     </div>
 
-                    <div class="a1" id="a">
+                    <div class="as11" id="a">
                         <div class="titulo">TEMATICAS BD</div>
                     <canvas id="grafica" class="bar4"></canvas>
                     </div>

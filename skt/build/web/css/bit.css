@@ -2,12 +2,14 @@
     Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
     Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
     */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins");
+ 
     * {
         box-sizing: border-box;
     }
 
     body {
-        font: 1em/150% "Calibri", sans-serif;
+        font: 1em/150% "Poppins", sans-serif;
         margin: 0;
         padding: 0;
     }
@@ -52,12 +54,12 @@
    
     .polito{
         margin-top: 2vh;
-        font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+        font: normal bold 1.2vw/1 "Poppins", sans-serif;
         color:#000000;
     }
 
     select{
-        font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+        font: normal bold 1.2vw/1 "Poppins", sans-serif;
     }
 
     .pyr{
@@ -70,7 +72,7 @@
         height: 5vh;
         border-radius: 10px;
         width: 10vw;
-        font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+        font: normal bold 1.2vw/1 "Poppins", sans-serif;
     }
 
     .final{
@@ -80,7 +82,7 @@
         height: 5vh;
         border-radius: 10px;
         width: 15vw;
-        font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+        font: normal bold 1.2vw/1 "Poppins", sans-serif;
 
     }
 
@@ -102,7 +104,7 @@
         font-size: 1em; /* Tamaño de fuente relativo */
     }
     th {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-size: 1.5vw;
         background-color: rgb(0, 43, 93);
         color: #ffffff;
@@ -132,7 +134,7 @@
     }
     header .h21 {
         color: #ffffff;
-        font: normal bold 2vw/1 "Open Sans", sans-serif;
+        font: normal bold 2vw/1 "Poppins", sans-serif;
         margin-top: 5vh; /* Asegúrate de cerrar el estilo correctamente */
         margin-right: 69vw;
     }
@@ -146,14 +148,14 @@
 
     .ttl{
         color: #000000;
-        font: normal bold 3vw/1 "Open Sans", sans-serif;
+        font: normal bold 3vw/1 "Poppins", sans-serif;
         padding-left: 4vw;
         padding-right: 2vw;
         /*background: #FF5733;*/
     }
     .h21 {
         color: #ffffff;
-        font: normal bold 2vw/1 "Open Sans", sans-serif;
+        font: normal bold 2vw/1 "Poppins", sans-serif;
     }
     h2{
         font-size: 2.5vw;
@@ -161,7 +163,7 @@
     .fontdiv {
         color: #000000;
         font: normal bold 2vw/1;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         /*background-color: #ff0000;*/
         height: 8vh;
         display: flex;
@@ -254,6 +256,25 @@
     .opcn:active {
         transform: scale(0.95);
     }
+
+    #btc{
+        border-radius: 10px;
+        background-color: rgb(0, 43, 93);
+        color: #ffffff;
+        font-size: 1.5vw;
+        font-weight: 700;
+        padding: .8vh 2vw;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        transition: 0.3s ease-in-out;
+    }
+    #btc:hover {
+        letter-spacing: 3px;
+    }
+    
+    #btc:active {
+        transform: scale(0.95);
+    }
     
     #salir{
         background: #ffffff;
@@ -272,7 +293,7 @@
         border: 1px solid #004081;
         border-radius: 13px;
         color: #ffffff;
-        font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+        font: normal bold 1.2vw/1 "Poppins", sans-serif;
         text-align: center;
         margin-top: 2vh;
         margin-right: 1vw;

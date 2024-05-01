@@ -6,13 +6,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : 4 nov 2023, 00:53:31
     Author     : dieag
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+ 
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font: 1em/150% "Calibri", sans-serif;
+    font: 1em/150% "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -29,20 +31,20 @@ header {
 
 header .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
     margin-top: 1vh; /* Asegúrate de cerrar el estilo correctamente */
     margin-right: 69vw;
 }
 
 .h21 {
     color: #ffffff;
-    font: normal bold 2vw/1 "Open Sans", sans-serif;
+    font: normal bold 2vw/1 "Poppins", sans-serif;
 }
 .fontdiv {
     color: #000000;
     font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #ff0000;
+    font-family: 'Poppins', sans-serif;
+    /*background-color: #ff0000;*/
     height: 8vh;
     display: flex;
     flex-direction: row; /* Orientación horizontal */
@@ -55,19 +57,11 @@ header .h21 {
     background: #004081;
     color: #000000;
     font: normal bold 2vw/1;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 40vw;
     height: 20vh;
 }
-header .imglogo {
-    width: 2vw;
-    height: 5vh;
-    align-content: center;
-    text-align: center;
-    justify-content: flex-start;
-    align-items: center;
-    display: inline-flex;
-}
+
 
 
 #salir{
@@ -81,7 +75,7 @@ header .imglogo {
     border: 1px solid #004081;
     border-radius: 13px;
     color: #ffffff;
-    font: normal bold 1.2vw/1 "Open Sans", sans-serif;
+    font: normal bold 1.2vw/1 "Poppins", sans-serif;
     text-align: center;
     margin-top: 2vh;
     margin-right: 1vw;
@@ -90,8 +84,8 @@ header .imglogo {
     width: 10vw;
 }
 .imglogo {
-    width: 2vw;
-    height: 5vh;
+    width: 4vw;
+    height: 9vh;
     align-content: center;
     text-align: center;
     justify-content: flex-start;
@@ -168,7 +162,7 @@ header .imglogo {
 .titulo {
    background-color: rgb(0, 43, 93);
     text-align: center;
-    font: normal bold 1.5vw/1 "Open Sans", sans-serif;
+    font: normal bold 1.5vw/1 "Poppins", sans-serif;
     color: #FFFFFF;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
@@ -199,7 +193,7 @@ header .imglogo {
 h1 {
 color: black;
 font-size: 28px;
-font-family: 'Open Sans' sans-serif;
+font-family: 'Poppins' sans-serif;
 font-weight: 600;
 line-height: 27px;
 word-wrap: break-word
@@ -213,12 +207,12 @@ word-wrap: break-word
 }   
 h3 {
 color: #FFFFFF;
-font: normal bold 16px/1 "Open Sans", sans-serif;
+font: normal bold 16px/1 "Poppins", sans-serif;
 text-align: center;
 }
 h4 {
 color: #000000;
-font: normal 16px/1 "Open Sans", sans-serif;
+font: normal 16px/1 "Poppins", sans-serif;
 padding: 8px;
 }
 
@@ -243,7 +237,7 @@ background-color: #347499;
 text-align: center; 
 color: #FEFEFE; 
 font-size: 22px; 
-font-family: 'Open Sans' sans-serif;
+font-family: 'Poppins' sans-serif;
 font-weight: 400; 
 word-wrap: break-word;
 padding: 10px 30px; 
@@ -266,7 +260,7 @@ margin-left: 4vw;
     text-align: center; 
     color: #FEFEFE; 
     font-size: 1.2vw; 
-    font-family: 'Open Sans' sans-serif;
+    font-family: 'Poppins' sans-serif;
     background: #004081; 
     border-radius: 30px; 
     justify-content: center;
@@ -322,7 +316,7 @@ h2{
 }
 .ttl{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     padding-left: 4vw;
     padding-right: 2vw;
     /*background: #FF5733;*/
@@ -330,7 +324,7 @@ h2{
 }
 .ttl2{
     color: #000000;
-    font: normal bold 3vw/1 "Open Sans", sans-serif;
+    font: normal bold 3vw/1 "Poppins", sans-serif;
     padding-left: 4vw;
     padding-right: 2vw;
     /*background: #004081;*/
@@ -364,6 +358,26 @@ h2{
   .opcn:active {
     transform: scale(0.95);
   }
+
+  #grf{
+    background-color: rgb(0, 43, 93);
+    border-radius: 10px;
+     color: #ffffff;
+     font-size: 1.5vw;
+     font-weight: 700;
+     padding: .8vh 2vw;
+     letter-spacing: 1px;
+     text-transform: capitalize;
+     transition: 0.3s ease-in-out;
+  }
+  #grf:hover {
+    letter-spacing: 3px;
+  }
+  
+  #grf:active {
+    transform: scale(0.95);
+  }
+
   .opla{
     border-radius: 10px;
    background-color: #ffffff;
@@ -541,7 +555,7 @@ background: #1589EE;
     nav {
         display: flex;
         flex-direction: row;
-        /*background-color: #3787ff;+/
+        /*background-color: #3787ff;*/
         height:15vh;
         margin-top: 2vh;
         align-content: center;

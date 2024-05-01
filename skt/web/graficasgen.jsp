@@ -15,7 +15,7 @@
 <%int idUsuario = (int) sesion.getAttribute("usu_id");%>
 
 
-<%if (tipou == null || tipou.equals("0") || tipou.equals("3")|| tipou.equals("1")) {
+<%if (tipou == null || tipou.equals("0") || tipou.equals("1")) {
 response.sendRedirect("index.html");
 return;
 }
@@ -38,8 +38,6 @@ int arraybdi[] = new int[10];
     pal = new Conexion();
     con = pal.getConnection();
     stmt = con.createStatement();
-    
-    //las de pastel
     rs = stmt.executeQuery("select rpo_niv from resultadopo inner join egresado on egresado.egr_id = resultadopo.egr_id where egr_fch = '"+x+"'");
     while (rs.next()) {
         nivel = rs.getString("rpo_niv");
@@ -109,9 +107,25 @@ int arraybdi[] = new int[10];
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-    <link rel="shortcut icon" href="./assets/logo1.png" />
+    <link rel="shortcut icon" href="./assets/descarga.svg" />
 </head>
 <body>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Niveles y su Cálculo</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                Para poder asignar un nivel a los conocimientos de los egresados, con base a los resultados obtenidos en los formularios respondidos, seguimos la siguiente escala: <br> <br>Nivel avanzado 80% de aciertos o superior <br> <br>Nivel intermedio menor a 80% y mayor a 60% <br><br>Nivel básico menor a 60% y mayor a 40%  <br><br>Nivel mínimo menor a 40% <br><br>Esta escala aplica para ambos formularios, el porcentaje se obtendrá mediante la suma del valor de todos los aciertos que obtuvo dividido entre la suma total de los valores de los aciertos del examen y el resultado se multiplicará por 100.
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasRightLabel">Aquí podrá encontrar las gráficas de las generaciones disponibles dentro del sistema</h5>
@@ -119,23 +133,23 @@ int arraybdi[] = new int[10];
         </div>
         <div class="offcanvas-body">
             <form method="POST" action="gen">
-                <a><input class="opcn3" type="submit" value="2024" name="gene"></a>      
-                        <a><input class="opcn3" type="submit" value="2025" name="gene1"></a>
-                        <a><input class="opcn3" type="submit" value="2026" name="gene2"></a>
-                        <a><input class="opcn3" type="submit" value="2027" name="gene3" style="display:none;"></a>      
-                        <a><input class="opcn3" type="submit" value="2028" name="gene4" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2029" name="gene5" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2030" name="gene6" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2031" name="gene7" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2032" name="gene8" style="display:none;"></a>
-                        <a><input class="opcn3" type="submit" value="2033" name="gene9" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2021" name="gene"></a>      
+                <a><input class="opcn3" type="submit" value="2022" name="gene1"></a>
+                <a><input class="opcn3" type="submit" value="2023" name="gene2"></a>
+                <a><input class="opcn3" type="submit" value="2024" name="gene3" style="display:none;"></a>      
+                <a><input class="opcn3" type="submit" value="2025" name="gene4" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2026" name="gene5" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2027" name="gene6" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2028" name="gene7" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2029" name="gene8" style="display:none;"></a>
+                <a><input class="opcn3" type="submit" value="2030" name="gene9" style="display:none;"></a>      
             </form>
         </div>
       </div>
 
     <header>
                 
-        <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
+        <h1 class="imglogo"><img src="./assets/descarga.svg" /></h1>
         <div class="barra">
             <div class="fontdiv">
                 <div class="flujo21">
@@ -165,17 +179,18 @@ int arraybdi[] = new int[10];
                 ?
     </button>
     <nav>
-        <div class="nav-container">
-            <p class="ttl">Gráficas de la Generación:</p>
-            <p class="ttl2"><%=x%></p>
-            <button class="opcn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="gnrcn">Generaciones</button>
-        </div>
+        <div class="textotit">
+            <p class="ttlo">Gráficas de la Generación:</p>
+            <p class="ttlo2"><%=x%></p>
+            </div>
+            <button class="opn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Generaciones</button>
     </nav>
         <div class="alincentro"><p class="ins">A continuación se muestran las gráficas de los egresados evaluados en las areas de programación y bases de datos:</p></div>
     
     <section class="bodyg">
         <div class="a">
         <div class="titulo">Programación Intermedia</div>
+        <div class="alineagraf">
             <div id="graficaPOO" class="grafica-container">
             <canvas class="grafica"></canvas>
         </div>
@@ -198,8 +213,10 @@ int arraybdi[] = new int[10];
             </div>
         </div>
         </div>
+        </div>
         <div class="a">
         <div class="titulo">Bases de Datos</div>
+        <div class="alineagraf">
             <div id="graficaBD" class="grafica-container">
             <canvas class="grafica"></canvas>
         </div>
@@ -220,6 +237,7 @@ int arraybdi[] = new int[10];
                 <img src="assets/recminimo.jpg" class="alinearrec">
                 <p class="nvl">Minimo</p>
             </div>
+        </div>
         </div>
         </div>
     </section>
