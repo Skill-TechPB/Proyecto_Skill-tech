@@ -120,6 +120,7 @@
     <title>FORMULARIO BD </title>
     <link rel="stylesheet" href="css/formulario.css" />
     <link rel="shortcut icon" href="./assets/logo1.png" />
+    <link rel="stylesheet" href="css/popup.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/valiForms.js"></script>
     <script src="js/popup.js"></script>
@@ -422,6 +423,27 @@
          <li></li>
        </ul>
      </div>
+     <button class="chatbot-toggler">
+       <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
+       <span class="material-symbols-outlined">close</span>
+     </button>
+     <div class="chatbot">
+       <header>
+         <p class="titchat">Chatbot</p>
+         <span class="close-btn material-symbols-outlined">close</span>
+       </header>
+       <ul class="chatbox">
+         <li class="chat incoming">
+           <span class="material-symbols-outlined"><img src="assets/usuario.png" class="imgbot"></span>
+           <p>Hola! 👋<br>¿Cómo puedo ayudarte?<br>1-¿Qué pasa si mi año de 4to semestre no es el actual?<br>2-¿Cuánto tiempo tengo para responder los formularios una vez que me he registrado?<br>3-Una vez, que estoy resolviendo los formularios, ¿Puedo dejar sin contestar  preguntas?<br>4-¿Se quedan guardadas mis opciones seleccionadas del formulario sí abandono el sistema?<br>5-Si termino de contestar el primer formulario y abandono el sistema, cuando inicie sesión  ¿Tendré que llenar de nuevo el formulario que contesté?<br>6-¿Puedo volver a contestar los formularios para obtener una mejor puntuación?<br>7-Formulario</p>
+         </li>
+       </ul>
+       <div class="chat-input">
+         <textarea id="user-input" placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+         <span id="send-btn" class="material-symbols-rounded">send</span>
+       </div>
+     </div>
+     <script src="js/chatbotA.js"></script>
     <%
     con.close();
     stmt.close();

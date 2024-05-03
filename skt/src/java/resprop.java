@@ -39,7 +39,6 @@ public class resprop extends HttpServlet {
         Connection con = cn.getConnection();
         Class.forName("com.mysql.jdbc.Driver");
         stmt = con.createStatement();
-        
         rs=stmt.executeQuery("select egr_id from egresado where usu_id="+idUsuario+"");
         if(rs.next()){
         idegr=rs.getInt("egr_id");

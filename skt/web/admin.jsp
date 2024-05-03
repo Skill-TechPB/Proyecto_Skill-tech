@@ -58,6 +58,9 @@ String mensajeselec2="";
                     <div class="flujo31">
                         <a href="admin.jsp"><button type="button" class="opcn">Administración</button></a>
                     </div>
+                    <div class="flujo4">
+                        <a href="incidencia.jsp"><button type="button" class="opcn">Incidencias</button></a>
+                    </div>
                 </div>
         </div>
         <form action="Cerrar" method="post">

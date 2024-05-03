@@ -1,4 +1,4 @@
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
     <%@page import="java.sql.Connection" %>
     <%@page import="java.sql.Statement" %>
     <%@page import="java.sql.ResultSet" %>
@@ -12,7 +12,7 @@
     return;
     }
     %>
-    <%if (tipou == null || tipou.equals("0") || tipou.equals("4") || tipou.equals("1")) {
+    <%if (tipou == null || tipou.equals("0") || tipou.equals("3") || tipou.equals("1")) {
     response.sendRedirect("index.html");
     return;
     }
@@ -61,6 +61,7 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <link rel="stylesheet" href="css/bit.css">
             <link rel="shortcut icon" href="./assets/logo1.png" />
+            <link rel="stylesheet" href="css/popup.css">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -68,32 +69,6 @@
             <title>Bitacora</title>
         </head>
         <body>
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="staticBackdropLabel">Filtros de la Bitácora</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="">
-                            <input class="inicio" type="date" name="" id="">
-                            <input class="final" type="date" name="" id="">
-                            <div class="fil">
-                                <select class="formulario" id="" name="formulario"></select>
-                                <select class="pregunta" id="" name="pregunta"></select>
-                                <input type="checkbox" class="pyr" id="">
-                                <p class="polito">Preguntas y respuestas</p> 
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Understood</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             <header>   
                 <h1 class="imglogo"><img src="./assets/logo1.png" /></h1>
                 <div class="barra">
@@ -203,5 +178,27 @@
             rs.close();
             rs2.close();
             %>
+
+            <button class="chatbot-toggler">
+                <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
+                <span class="material-symbols-outlined">close</span>
+              </button>
+              <div class="chatbot">
+                <header>
+                  <p class="titchat">Chatbot</p>
+                  <span class="close-btn material-symbols-outlined">close</span>
+                </header>
+                <ul class="chatbox">
+                  <li class="chat incoming">
+                    <span class="material-symbols-outlined"><img src="assets/usuario.png" class="imgbot"></span>
+                    <p>Hola!<br>¿Cómo puedo ayudarte?<br>1-¿Qué diferencia tienen mis gráficas y mis reportes con los de los profesores?<br>2-¿Los cambios realizados a los formularios, en cuánto tiempo se ven reflejados?<br>3-¿Cuántas veces se pueden editar los formularios?<br>4-¿Hay un límite o restricción sobre cuántos elementos de los formularios se pueden modificar?<br>5-¿Otros usuarios pueden acceder a la bitácora?<br>6-Formulario</p>  
+                  </li>
+                </ul>
+                <div class="chat-input">
+                  <textarea id="user-input" placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+                  <span id="send-btn" class="material-symbols-rounded">send</span>
+                </div>
+              </div>
+              <script src="js/chatbotJ.js"></script>
         </body>
     </html>

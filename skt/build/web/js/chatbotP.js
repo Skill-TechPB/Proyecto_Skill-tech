@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create a chat <li> element with passed message and className
         const chatLi = document.createElement("li");
         chatLi.classList.add("chat", `${className}`);
-        let chatContent = className === "outgoing" ? `<p>${message}</p>` : `<span class="material-symbols-outlined">person</span><p>${message}</p>`;
+        let chatContent = className === "outgoing" ? `<p>${message}</p>` : `<span class="material-symbols-outlined"><img src="assets/usuario.png" class="imgbot"></span><p>${message}</p>`;
         chatLi.innerHTML = chatContent;
         return chatLi; // return chat <li> element
     }
@@ -77,12 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const respondWithForm = () => {
         const formHTML = `
-            <form id="chatbot-form" action="" method="post">
+            <form id="chatbot-form" action="regsop" method="post">
                 <h2>Formulario de Contacto</h2>
                 <label for="email">Correo electrónico:</label><br>
-                <input type="email" id="email" name="emailch" required><br><br>
+                <input type="email" id="email" name="email" required><br><br>
                 <label for="description">Descripción del problema o sugerencia:</label><br>
-                <textarea id="description" name="descriptionch" rows="4" cols="50" required></textarea><br><br>
+                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+                <select name="tipo" id="tipo">
+                <option value="" selected disabled hidden>Selecciona una opción</option>
+                <option value="1">Falla en el programa</option>
+                <option value="2">Sugerencia</option>
                 <input type="submit" value="Enviar">
             </form>
         `;
@@ -94,9 +98,39 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
-            const formData = new FormData(form);
-            const email = formData.get("email");
-            const description = formData.get("description");
+            // Get form data
+            const email = document.getElementById("email").value;
+            const description = document.getElementById("description").value;
+            const tipo = document.getElementById("tipo").value;
+
+            // Create JSON object
+            const formData = {
+                email: email,
+                description: description,
+                tipo: tipo
+            };
+
+            // Envío del formulario al servlet
+            fetch(form.action, {
+                method: form.method,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al enviar el formulario');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Aquí podrías manejar la respuesta del servlet, si es necesario
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
 
             // Simulate form submission (you can replace this with actual form submission logic)
             const responseMessage = `¡Gracias por tu mensaje! Hemos recibido tu correo: ${email} y la descripción del problema o sugerencia: ${description}.`;

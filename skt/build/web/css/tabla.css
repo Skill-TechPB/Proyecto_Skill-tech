@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+ 
+
+table{
+    width: 90vw;
+    font: normal bold 1.2vw/1 "Poppins", sans-serif;
+}
+ 
+tr{
+   /* background-color: aqua;*/
+   text-align: center;
+   height: 5vh;
+}
+
+th{
+    /*background-color: blue;*/
+}
+
+td{
+    /*background-color: brown;*/
+}

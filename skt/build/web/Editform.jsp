@@ -22,6 +22,7 @@
     <title>Edicion de Formularios</title>
     <link rel="shortcut icon" href="./assets/descarga.svg" />
     <link rel="stylesheet" href="./css/editformu.css">
+    <link rel="stylesheet" href="css/popup.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -83,6 +84,27 @@
             <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
           </svg>
         </a>
-    </div>  
+    </div> 
+    <button class="chatbot-toggler">
+                <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
+                <span class="material-symbols-outlined">close</span>
+              </button>
+              <div class="chatbot">
+                <header>
+                  <p class="titchat">Chatbot</p>
+                  <span class="close-btn material-symbols-outlined">close</span>
+                </header>
+                <ul class="chatbox">
+                  <li class="chat incoming">
+                    <span class="material-symbols-outlined"><img src="assets/usuario.png" class="imgbot"></span>
+                    <p>Hola!<br>¿Cómo puedo ayudarte?<br>1-¿Qué diferencia tienen mis gráficas y mis reportes con los de los profesores?<br>2-¿Los cambios realizados a los formularios, en cuánto tiempo se ven reflejados?<br>3-¿Cuántas veces se pueden editar los formularios?<br>4-¿Hay un límite o restricción sobre cuántos elementos de los formularios se pueden modificar?<br>5-¿Otros usuarios pueden acceder a la bitácora?<br>6-Formulario</p>
+                  </li>
+                </ul>
+                <div class="chat-input">
+                  <textarea id="user-input" placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+                  <span id="send-btn" class="material-symbols-rounded">send</span>
+                </div>
+              </div>
+              <script src="js/chatbotJ.js"></script>
 </body>
 </html>

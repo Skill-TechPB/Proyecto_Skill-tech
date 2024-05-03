@@ -16,7 +16,7 @@ select*from resultadobd inner join egresado on egresado.egr_id=resultadobd.egr_i
 select*from resultadopo inner join egresado on egresado.egr_id=resultadopo.egr_id;
 delete from usuario where usu_id=8;
 
-alter table usuario auto_increment=0;
+alter table pro_asi auto_increment=0;
 select rpo_resp from resultadopo;
 select rbd_resp from resultadobd;
 -- fin

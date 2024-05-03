@@ -54,6 +54,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Graficas</title>
+            <link rel="stylesheet" href="css/popup.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/Chart.min.css">
             <link rel="stylesheet" href="css/grafprof.css">
             <link rel="stylesheet" href="css/grafivasrprof.css">
@@ -420,6 +421,28 @@
                     </div>
                 </section>
                 <%}%>
+
+                <button class="chatbot-toggler">
+                    <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
+                    <span class="material-symbols-outlined">close</span>
+                  </button>
+                  <div class="chatbot">
+                    <header>
+                      <p class="titchat">Chatbot</p>
+                      <span class="close-btn material-symbols-outlined">close</span>
+                    </header>
+                    <ul class="chatbox">
+                      <li class="chat incoming">
+                        <span class="material-symbols-outlined"><img src="assets/usuario.png" class="imgbot"></span>
+                        <p>Hola!<br>¿Cómo puedo ayudarte?<br>1-¿Mis gráficas y reportes pueden ser visualizadas por otro profesor?<br>2-¿Cada cuánto se actualizann mis reportes y gráficas?<br>3-¿Qué pasa cuando una nueva generación responde los formularios?<br>4-Formulario</p>
+                      </li>
+                    </ul>
+                    <div class="chat-input">
+                      <textarea id="user-input" placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+                      <span id="send-btn" class="material-symbols-rounded">send</span>
+                    </div>
+                  </div>
+                  <script src="js/chatbotP.js"></script>
             <script>
                 var NivAvanz = "<%=pooavz%>";
                 var Nivint = "<%=pooint%>";
@@ -775,5 +798,6 @@
         con.close();
         stmt.close();
         %>
+        
         </body>
         </html>

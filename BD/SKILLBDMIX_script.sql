@@ -18,15 +18,6 @@ usu_hab integer default 1,
 foreign key(tpu_id) references tipousuario(tpu_id) on update cascade on delete cascade
 )engine=InnoDB default charset=LATIN1;
 
-create table Soporte(
-sop_id integer not null auto_increment primary key,
-usu_id integer,
-sop_nombre varchar(40),
-sop_email varchar(40),
-sop_desc varchar (120),
-foreign key(usu_id) references usuario(usu_id) on update cascade on delete cascade
-);
-
 create table profesor(
 pro_id integer not null auto_increment primary key,
 usu_id integer,

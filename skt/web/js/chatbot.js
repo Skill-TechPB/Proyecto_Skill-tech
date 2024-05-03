@@ -61,37 +61,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const respondWithDog = () => {
-        const response = "Verifique que haya escrito correctamente su correo y contraseña, sin embargo, si usted fue inhabilitado por el administrador, tendrá que ponerse en contacto al siguiente correo para atender las razones de su baneo (inserte correo de skt).";
+        const response = "Has seleccionado la opción 1. ¡Aquí tienes un perrito! 🐶";
         const botChatLi = createChatLi(response, "incoming");
         chatbox.appendChild(botChatLi);
     }
 
     const respondWithAnotherAnimal = () => {
-        const response = "Si usted colocó su correo incorrectamente, tendrá que contactarse al siguiente correo (inserte correo de skt) para que pueda ser atendido lo más rapido posible.";
+        const response = "Has seleccionado la opción 2. ¡Aquí tienes otro animal!";
         const botChatLi = createChatLi(response, "incoming");
         chatbox.appendChild(botChatLi);
     }
 
     const respondWithOption3Message = () => {
-        const response = "Si olvidó su contraseña, solo tendrá que acceder al link recuperar contraseña en el apartado de login en donde lo redirigirá a un formulario donde le pedirá su correo y token";
+        const response = "Has seleccionado la opción 3. ¡Aquí tienes un mensaje para la opción 3!";
         const botChatLi = createChatLi(response, "incoming");
         chatbox.appendChild(botChatLi);
     }
 
     const respondWithOption4Message = () => {
-        const response = "Si usted quiere ingresar como profesor al sistema, solo tendrá que revisar el correo que se le fue enviado al correo electronico que dió al jefe de Academia. En el se le dará la contraseña con la cual podrá acceder a su cuenta. Cuando inice sesión por primera vez, se le solicitará un token como medio de verificación, el cual se le enviará a su correo electrónico.";
+        const response = "Has seleccionado la opción 4. ¡Aquí tienes un mensaje para la opción 4!";
         const botChatLi = createChatLi(response, "incoming");
         chatbox.appendChild(botChatLi);
     }
 
     const respondWithForm = () => {
         const formHTML = `
-            <form id="chatbot-form" action="" method="post">
+            <form id="chatbot-form" action="regsop" method="post">
                 <h2>Formulario de Contacto</h2>
                 <label for="email">Correo electrónico:</label><br>
-                <input type="email" id="email" name="emailch" required><br><br>
+                <input type="email" id="email" name="email" required><br><br>
                 <label for="description">Descripción del problema o sugerencia:</label><br>
-                <textarea id="description" name="descriptionch" rows="4" cols="50" required></textarea><br><br>
+                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+                <select name="tipo" id="tipo">
+                <option value="" selected disabled hidden>Selecciona una opción</option>
+                <option value="1">Falla en el programa</option>
+                <option value="2">Sugerencia</option>
                 <input type="submit" value="Enviar">
             </form>
         `;
@@ -103,22 +107,45 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
-            const formData = new FormData(form);
-            const email = formData.get("email");
-            const description = formData.get("description");
+            // Get form data
+            const email = document.getElementById("email").value;
+            const description = document.getElementById("description").value;
+            const tipo = document.getElementById("tipo").value;
 
-            // Simulate form submission (you can replace this with actual form submission logic)
+            // Create JSON object
+            const formData = {
+                email: email,
+                description: description,
+                tipo: tipo
+            };
+
+            // Envío del formulario al servlet
+            fetch(form.action, {
+                method: form.method,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al enviar el formulario');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Aquí podrías manejar la respuesta del servlet, si es necesario
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
             const responseMessage = `¡Gracias por tu mensaje! Hemos recibido tu correo: ${email} y la descripción del problema o sugerencia: ${description}.`;
             const responseChatLi = createChatLi(responseMessage, "incoming");
             chatbox.appendChild(responseChatLi);
-
-            // Remove the form message from the chatbox
             chatbox.removeChild(botChatLi);
-
-            // Scroll to the bottom of the chatbox
             chatbox.scrollTo(0, chatbox.scrollHeight);
-
-            // Clear the form
             form.reset();
         });
     }

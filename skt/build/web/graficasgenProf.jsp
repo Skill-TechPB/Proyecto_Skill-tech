@@ -60,6 +60,7 @@ return;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/Chart.min.css">
     <link rel="stylesheet" href="css/graf.css">
     <link rel="stylesheet" href="css/grafivasr2.css">
+    <link rel="stylesheet" href="css/popup.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -424,9 +425,30 @@ return;
                 <%}%>
     <br>
     <br>
+    <button class="chatbot-toggler">
+        <span class="material-symbols-rounded"><img src="./assets/fi-rs-headset.png" class="imgayuda"></span>
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="chatbot">
+        <header>
+          <p class="titchat">Chatbot</p>
+          <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+          <li class="chat incoming">
+            <span class="material-symbols-outlined"><img src="assets/usuario.png" class="imgbot"></span>
+            <p>Hola!<br>¿Cómo puedo ayudarte?<br>1-¿Mis gráficas y reportes pueden ser visualizadas por otro profesor?<br>2-¿Cada cuánto se actualizann mis reportes y gráficas?<br>3-¿Qué pasa cuando una nueva generación responde los formularios?<br>4-Formulario</p>
+          </li>
+        </ul>
+        <div class="chat-input">
+          <textarea id="user-input" placeholder="Introduce un mensaje..." spellcheck="false" required></textarea>
+          <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+      </div>
     <footer id="alinderecha">
         <a href="graficasProf.jsp"><button type="button" class="opn">Regresar</button></a>
     </footer>
+    <script src="js/chatbotP.js"></script>
     <script>
         var NivAvanz = "<%=pooavz%>";
         var Nivint = "<%=pooint%>";
